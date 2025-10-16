@@ -1,53 +1,56 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function HowWeWork() {
   const sectionRef = useRef(null);
   const rightRef = useRef(null);
-  const [isLocked, setIsLocked] = useState(false);
+  const isLockedRef = useRef(false);
 
   // Lock body scroll when right panel is scrolling - Desktop only
   useEffect(() => {
     const right = rightRef.current;
 
+    if (!right) return;
+
     const handleWheel = (e) => {
-      if (!right || window.innerWidth < 1024) return; // Only for desktop
+      // Only apply custom handling on desktop-sized viewports
+      if (window.innerWidth < 1024) return;
 
       const atTop = right.scrollTop === 0;
       const atBottom = right.scrollHeight - right.scrollTop <= right.clientHeight + 1;
 
-      // If scrolling within the right panel bounds, prevent default and scroll the panel
+      // If the right panel can scroll in the direction of the wheel, prevent default and scroll it
       if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
         e.preventDefault();
-        setIsLocked(true);
+        isLockedRef.current = true;
         right.scrollTop += e.deltaY;
-        
-        // Reset lock after scroll completes
-        setTimeout(() => {
-          setIsLocked(false);
+
+        // Clear the lock after a short timeout
+        clearTimeout(handleWheel._unlockTimeout);
+        handleWheel._unlockTimeout = setTimeout(() => {
+          isLockedRef.current = false;
         }, 100);
       } else {
-        setIsLocked(false);
+        isLockedRef.current = false;
       }
     };
 
-    const handleScrollLock = (e) => {
-      if (isLocked && window.innerWidth >= 1024) {
+    const handleTouchMove = (e) => {
+      if (isLockedRef.current && window.innerWidth >= 1024) {
         e.preventDefault();
       }
     };
 
-    // Add event listeners
-    if (window.innerWidth >= 1024) {
-      window.addEventListener("wheel", handleWheel, { passive: false });
-      window.addEventListener("touchmove", handleScrollLock, { passive: false });
-    }
+    // Attach listener to the right panel element rather than the window to avoid intercepting early wheel events
+    right.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchmove", handleScrollLock);
+      right.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchmove", handleTouchMove);
+      clearTimeout(handleWheel._unlockTimeout);
     };
-  }, [isLocked]);
+  }, []);
 
   return (
     <section
