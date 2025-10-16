@@ -18,9 +18,8 @@ const Header = () => {
   const goToSection = (id) => {
     setIsMobileMenuOpen(false);
     if (location.pathname === '/') {
-      // Just update the hash — HomePage will handle scroll
-      window.history.pushState(null, '', `#${id}`);
-      window.dispatchEvent(new HashChangeEvent('hashchange'));
+      // Use navigate to update the hash so location updates and HomePage's effect runs immediately
+      navigate(`#${id}`);
     } else {
       navigate(`/#${id}`);
     }
