@@ -5,11 +5,11 @@ import { FiPlus, FiX } from "react-icons/fi";
 const services = [
   {
     id: 1,
-    title: "Branding",
-    tag: "Brain Storm",
+    title: "WEB DESIGN & DEVELOPMENT",
+    tag: "Crafting engaging online experiences",
     number: "01",
     description:
-      "We craft impactful brand stories that connect with your audience and build long-term trust. Through strategic thinking and visual storytelling, your brand gains clarity, consistency, and character.",
+      "From stunning visuals to seamless functionality, we build websites that convert. Starting from AED 79.",
     items: [
       "Visual Content Strategy",
       "Competitive Analysis",
@@ -23,11 +23,11 @@ const services = [
   },
   {
     id: 2,
-    title: "Web Design",
-    tag: "UI / UX",
+    title: "SOCIAL MEDIA MANAGEMENT",
+    tag: "Elevate your brand's online presence",
     number: "02",
     description:
-      "We create modern, responsive websites that deliver exceptional user experiences and reflect your brand identity.",
+      "Engage your audience, build community, and drive traffic. Includes a free website. Starting from AED 1000.",
     items: [
       "Responsive Design",
       "Prototyping",
@@ -39,11 +39,11 @@ const services = [
   },
   {
     id: 3,
-    title: "Development",
-    tag: "Coding",
+    title: "CRM AUTOMATION",
+    tag: "Streamline your customer relationships",
     number: "03",
     description:
-      "From concept to launch, we build fast, scalable, and secure digital products that perform across all devices.",
+      "Automate sales, marketing, and customer service workflows for enhanced efficiency. Starting from AED 250/month.",
     items: [
       "Full-stack Development",
       "API Integration",
@@ -55,11 +55,11 @@ const services = [
   },
   {
     id: 4,
-    title: "Marketing",
-    tag: "Integrations",
+    title: "DIGITAL ADVERTISING",
+    tag: "Maximize your reach and ROI",
     number: "04",
     description:
-      "We help brands grow with smart digital strategies, data-driven insights, and creative storytelling that converts.",
+      "Targeted campaigns on Google and Meta to connect with your ideal customers. Google Ads (AED 599), Meta Ads (AED 599).",
     items: [
       "Social Media Strategy",
       "Email Campaigns",

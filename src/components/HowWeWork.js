@@ -124,30 +124,30 @@ const steps = [
     number: "1",
     title: "Discovery & Research",
     description:
-      "We start by understanding your goals, audience, and market — identifying insights that shape our creative strategy.",
+      "We start by deeply understanding your goals, target audience, and market landscape — identifying key insights that shape our bespoke digital strategy.",
   },
   {
     number: "2",
     title: "Planning with Purpose",
     description:
-      "We analyze trends, competitors, and opportunities to craft a strategic roadmap tailored to your needs.",
+      " We analyze current trends, competitor strategies, and emerging opportunities to craft a clear, actionable roadmap for your digital success.",
   },
   {
     number: "3",
     title: "Visualizing Your Ideas",
     description:
-      "Creative concepts come to life as we design user-friendly and visually appealing solutions.",
+      "Creative concepts come to life as we design user-friendly, visually appealing, and conversion-optimized digital solutions.",
   },
   {
     number: "4",
     title: "Bringing It to Life",
     description:
-      "Using cutting-edge technologies, we develop and implement your project with precision and care.",
+      "Using cutting-edge technologies and agile methodologies, we develop and implement your project with precision, care, and continuous optimization.",
   },
   {
     number: "5",
     title: "Delivering Success",
     description:
-      "After a seamless launch, we provide ongoing support and optimization to ensure long-term success.",
+      "After a seamless launch, we provide ongoing support, performance monitoring, and strategic adjustments to ensure sustained long-term success and growth.",
   },
 ];

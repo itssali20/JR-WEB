@@ -40,7 +40,7 @@ export default function TeamSection() {
       <div className="max-w-5xl mx-auto text-center mb-16">
         <p className="text-orange-600 font-semibold mb-2">{`{ Meet Our Team }`}</p>
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-          CREATIVE PROFESSIONALS AT YOUR SERVICE
+          DEDICATED DIGITAL EXPERTS AT YOUR SERVICE
         </h2>
       </div>
 

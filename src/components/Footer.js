@@ -1,5 +1,8 @@
 import React from "react";
 import logo from "../assets/images/logo.png";
+import instagramIcon from "../assets/icons/instagram.svg";
+import facebookIcon from "../assets/icons/facebook.svg";
+import linkedinIcon from "../assets/icons/linkedin.svg";
 
 export default function Footer() {
   return (
@@ -17,9 +20,9 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <p className="text-gray-600 mb-2">+1 (555) 987-6543</p>
+          <p className="text-gray-600 mb-2">+971 529126465</p>
           <p className="text-gray-900 font-semibold mb-6">
-            support@brightedge.com
+            info@jrdigitalmedia.info
           </p>
 
           {/* Navigation */}
@@ -52,6 +55,39 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+
+            <ul className="text-gray-700 space-y-1 mt-4">
+              <li className="flex flex-wrap gap-5">
+                <a
+                  href="https://www.instagram.com/jandr.info?igsh=bDMwaWF1NGEzbHRj"
+                  className="text-gray-600 hover:text-gray-900 transition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={instagramIcon}
+                    alt="Instagram"
+                    className="w-6 h-6"
+                  />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/17Tr3DJ4s9/?mibextid=wwXIfr"
+                  className="text-gray-600 hover:text-gray-900 transition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={facebookIcon} alt="Facebook" className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/jrinternational/"
+                  className="text-gray-600 hover:text-gray-900 transition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -59,13 +95,14 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-3">Address</h4>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
+            office 1105, building 11th floor, Warsan tower, al
+            barsha, Dubai, UAE.
           </p>
 
           <div className="rounded-lg overflow-hidden border border-gray-300">
             <iframe
               title="Google Map"
-              src="https://www.google.com/maps?q=1600+Amphitheatre+Parkway,+Mountain+View,+CA+94043&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.0157307486065!2d55.176408574834284!3d25.101328835578187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b7655e944ed%3A0x5555fe6370e4f712!2swarsan%20towers!5e0!3m2!1sen!2s!4v1760645097448!5m2!1sen!2s"
               width="100%"
               height="200"
               style={{ border: 0 }}
@@ -82,15 +119,16 @@ export default function Footer() {
       {/* Bottom Section */}
       <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
         <p>
-          © Copyright 2025. All Rights Reserved by{" "}
+          © 2025
           <a
             href="#"
             className="text-gray-800 underline hover:text-gray-900 transition"
           >
-            SafoLifeTech
+            {" "}
+            JR Digital Media
           </a>
+          . All rights reserved.
         </p>
-
       </div>
     </footer>
   );

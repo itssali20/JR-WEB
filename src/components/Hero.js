@@ -23,7 +23,7 @@ const HeroSection = () => {
         <div className="max-w-xl">
           <p className="text-gray-900 font-semibold text-xl flex items-center">
             <span className="text-red-500 text-6xl mr-2">*</span>
-            We are digital design
+            We are digital transformation
           </p>
 
           <h1 className="text-6xl leading-[4rem] font-extrabold text-gray-900 mt-4 tracking-tight">
@@ -31,7 +31,8 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-gray-500 mt-6 text-lg leading-relaxed">
-            From Concept to Creation — Beautiful design has the power to captivate audiences
+            From Concept to Conversion – Beautifully crafted digital solutions
+            that captivate audiences and drive growth.
           </p>
 
           <div className="flex items-center mt-10 space-x-4">
@@ -47,7 +48,9 @@ const HeroSection = () => {
             </div>
 
             <div className="flex items-center">
-              <span className="text-gray-900 font-medium mr-3">Meet Our Team</span>
+              <span className="text-gray-900 font-medium mr-3">
+                Meet Our Team
+              </span>
               <button className="w-10 h-10 border border-white rounded-full flex items-center justify-center hover:bg-white hover:bg-opacity-20 transition">
                 <span className="text-2xl text-gray-900">→</span>
               </button>
@@ -64,7 +67,7 @@ const HeroSection = () => {
         <div className="max-w-xl">
           <p className="text-gray-900 font-semibold text-xl flex items-center">
             <span className="text-red-500 text-6xl mr-2">*</span>
-            We are digital design
+            We are digital transformation
           </p>
 
           <h1 className="text-[7.5rem] leading-[5.5rem] font-extrabold text-gray-900 mt-4 tracking-tight">
@@ -72,7 +75,8 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-gray-500 mt-6 text-lg leading-relaxed">
-            From Concept to Creation — Beautiful design has the power to captivate audiences
+            From Concept to Conversion – Beautifully crafted digital solutions
+            that captivate audiences and drive growth.
           </p>
 
           <div className="flex items-center mt-10 space-x-4">
@@ -88,7 +92,9 @@ const HeroSection = () => {
             </div>
 
             <div className="flex items-center">
-              <span className="text-gray-800 font-medium mr-3">Meet Our Team</span>
+              <span className="text-gray-800 font-medium mr-3">
+                Meet Our Team
+              </span>
               <button className="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-100 transition">
                 <span className="text-2xl">→</span>
               </button>
@@ -98,16 +104,16 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Video Section - Full width on mobile, animated on desktop */}
-      <motion.div 
-        style={{ 
+      <motion.div
+        style={{
           width: videoWidth,
-          borderTopLeftRadius: borderRadius
+          borderTopLeftRadius: borderRadius,
         }}
         className="relative w-full lg:w-[65%] rounded-tl-[6rem] overflow-hidden ml-auto"
       >
         {/* Overlay for mobile text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-40 lg:bg-opacity-0 z-10"></div>
-        
+
         <motion.video
           style={{ scale: videoScale }}
           className="w-full h-[80vh] object-cover"
@@ -135,7 +141,11 @@ const HeroSection = () => {
               stroke="white"
               className="w-5 h-5"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </div>
         </div>

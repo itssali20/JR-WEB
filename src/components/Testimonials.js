@@ -8,7 +8,7 @@ export default function TestimonialsSection() {
       title: "Customer",
       image: "https://img.freepik.com/free-photo/front-view-sign-language-concept_23-2148572467.jpg?semt=ais_hybrid&w=740&q=80",
       quote:
-        "BrightEdge Pro transformed our outdated website into a sleek, modern platform. We’ve seen a huge uptick in engagement since launch.",
+        "JR Digital Media transformed our outdated online presence into a sleek, modern platform. We've seen a huge uptick in engagement and conversions since launch. Their team is truly exceptional!",
       rating: 4,
     },
     {
@@ -16,7 +16,7 @@ export default function TestimonialsSection() {
       title: "Startup Founder",
       image: "https://photoheads.co.uk/wp-content/uploads/2020/05/headshot-with-client-testimonial.jpg",
       quote:
-        "They don’t just design – they understand your business. The brand strategy workshop alone was worth the investment.",
+        "They don't just design; they understand your business. The brand strategy and web development provided by JR Digital Media were pivotal in our successful market entry.",
       rating: 5,
     },
     {

@@ -8,7 +8,7 @@ export default function ContactSection() {
         <div>
           <p className="text-orange-500 font-semibold mb-3">{`{ Get in touch }`}</p>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-10 leading-tight">
-            LET’S START YOUR PROJECT TODAY
+            Ready to Transform Your Business?
           </h2>
 
           <div className="flex items-center mb-6">
@@ -24,10 +24,8 @@ export default function ContactSection() {
           </div>
 
           <p className="text-gray-300 leading-relaxed max-w-md">
-            At BrightEdge, we believe in building meaningful digital experiences.
-            If you ever have questions or need guidance, I’m always here to
-            support you. Your success is our mission — let’s create something
-            incredible together.
+            Let's discuss how JR Digital Media can elevate your digital presence
+            and drive measurable growth.
           </p>
         </div>
 

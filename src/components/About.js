@@ -9,7 +9,7 @@ const AboutSection = () => {
 
         {/* Heading */}
         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-12">
-          WE ARE LEADING DIGITAL MARKETING AGENCY
+          WE ARE LEADING DIGITAL TRANSFORMATION EXPERTS
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -40,10 +40,12 @@ const AboutSection = () => {
                 Our story
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                At <span className="font-semibold">BrightEdge Studio</span>, we
-                specialize in crafting custom web solutions, including branding,
-                web design, development, and marketing, tailored to meet your
-                business needs.
+                At <span className="font-semibold">JR Digital Media</span>, we
+                specialize in crafting custom digital solutions that drive real
+                business growth. From innovative website design and development
+                to strategic social media management, powerful CRM automation,
+                and targeted digital advertising, we tailor our services to meet
+                your unique business needs and deliver measurable results.
               </p>
             </div>
 
@@ -93,14 +95,46 @@ const AboutSection = () => {
           </h3>
 
           <div className="flex flex-wrap justify-center items-center gap-10 opacity-80">
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=logoipsum" alt="Logo" className="h-8 md:h-10" />
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=LOGOIPSUM" alt="Logo" className="h-8 md:h-10" />
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=IPSUM" alt="Logo" className="h-8 md:h-10" />
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=LOGO" alt="Logo" className="h-8 md:h-10" />
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=LIP" alt="Logo" className="h-8 md:h-10" />
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=LOGOIPSUM" alt="Logo" className="h-8 md:h-10" />
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=LOGO" alt="Logo" className="h-8 md:h-10" />
-            <img src="https://dummyimage.com/120x50/ccc/000.png&text=IPSUM" alt="Logo" className="h-8 md:h-10" />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=logoipsum"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGOIPSUM"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=IPSUM"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGO"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=LIP"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGOIPSUM"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGO"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
+            <img
+              src="https://dummyimage.com/120x50/ccc/000.png&text=IPSUM"
+              alt="Logo"
+              className="h-8 md:h-10"
+            />
           </div>
         </div>
       </div>
