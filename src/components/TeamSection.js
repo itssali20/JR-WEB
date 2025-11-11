@@ -1,51 +1,44 @@
 import React from "react";
+import asfahan from "../assets/images/team/1.jpg";
+import asmar from "../assets/images/team/asmar.jpg";
+import jahangirt from "../assets/images/team/jahangirt.jpg";
+import Rashed from "../assets/images/team/Rashed.jpg";
 
 export default function TeamSection() {
   const team = [
     {
-      name: "Michael Rivera",
-      role: "Brand Strategist",
-      image: "https://img.freepik.com/free-photo/portrait-adult-male-smiling_23-2148729648.jpg",
+      name: "Jahangir Khan",
+      role: "Chief Executive Officer",
+      image: jahangirt,
     },
     {
-      name: "Emily Carter",
-      role: "Creative Director",
-      image: "https://img.freepik.com/free-photo/blue-eyed-business-woman-white-blouse-standing-confident-pose-with-her-international-co-workers-indoor-portrait-asian-african-employees-with-blonde-lady_197531-3756.jpg?semt=ais_hybrid&w=740&q=80",
+      name: "Asfahan Ahmed",
+      role: "Marketing Director",
+      image: asfahan,
     },
     {
-      name: "Sarah Johnson",
-      role: "Web Designer",
-      image: "https://plus.unsplash.com/premium_photo-1661593195372-874ca9d29713?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dGVhbSUyMG1lbWJlcnxlbnwwfHwwfHx8MA%3D%3D",
+      name: "Rashed Khan",
+      role: "Project Manager",
+      image: Rashed,
     },
     {
-      name: "David Lee",
-      role: "UI/UX Designer",
-      image: "https://img.freepik.com/free-photo/young-adult-pressing-buzzer-button_23-2149586556.jpg?semt=ais_hybrid&w=740&q=80",
-    },
-    {
-      name: "Rachel Kim",
-      role: "Frontend Developer",
-      image: "https://thumbs.dreamstime.com/b/happy-professional-bank-manager-consulting-client-office-corporate-meeting-mature-business-woman-lawyer-finances-management-381281281.jpg",
-    },
-    {
-      name: "Alex Moore",
-      role: "Photographer",
-      image: "https://img.freepik.com/free-photo/front-view-smiley-man-outdoors_23-2149915911.jpg",
-    },
+      name: "Asmar Ali",
+      role: "Chief Finance Officer",
+      image: asmar,
+    }
   ];
 
   return (
     <section className="w-full bg-white py-20 px-6 md:px-16 lg:px-24">
       {/* Section Header */}
       <div className="max-w-5xl mx-auto text-center mb-16">
-        <p className="text-orange-600 font-semibold mb-2">{`{ Meet Our Team }`}</p>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+        <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight">
           DEDICATED DIGITAL EXPERTS AT YOUR SERVICE
         </h2>
       </div>
 
-      {/* Team Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {/* Team Grid - Single Row */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {team.map((member, i) => (
           <div key={i} className="flex flex-col items-center text-center">
             <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.5rem] relative">

@@ -139,10 +139,7 @@ const PortfolioShowcase = () => {
     >
       {/* header */}
       <div className="text-center mb-12 px-6 z-20">
-        <h2 className="text-orange-600 font-medium text-lg mb-3 tracking-wider">
-          {"{ Featured Projects }"}
-        </h2>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+        <h1 className="text-4xl font-semibold md:font-bold lg:font-bold md:text-5xl text-gray-900 leading-tight">
           SHOWCASING OUR MOST<br />IMPACTFUL WORK
         </h1>
       </div>
@@ -197,7 +194,7 @@ const PortfolioShowcase = () => {
               
               {/* Top Left Content */}
               <div className="absolute top-8 left-8">
-                <span className="bg-orange-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wide shadow-lg">
+                <span className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wide shadow-lg">
                   {projects[current].tag}
                 </span>
                 <h3 className="text-white text-5xl md:text-6xl font-bold mt-6 leading-tight drop-shadow-2xl">
@@ -245,7 +242,7 @@ const PortfolioShowcase = () => {
             }}
             className={`w-4 h-4 rounded-full transition-all duration-500 ${
               index === current 
-                ? 'bg-orange-500 scale-125 shadow-lg' 
+                ? 'bg-blue-500 scale-125 shadow-lg' 
                 : 'bg-gray-300 hover:bg-gray-400'
             }`}
           />

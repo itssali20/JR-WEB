@@ -6,8 +6,7 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* Left Section */}
         <div>
-          <p className="text-orange-500 font-semibold mb-3">{`{ Get in touch }`}</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-10 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold mb-10 leading-tight">
             Ready to Transform Your Business?
           </h2>
 

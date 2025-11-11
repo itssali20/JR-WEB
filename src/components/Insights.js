@@ -26,9 +26,7 @@ export default function InsightsSection() {
   return (
     <section className="bg-white py-24 px-6 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
-        <p className="text-orange-600 font-semibold mb-2">{`{ Our Insights }`}</p>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-16 leading-tight max-w-3xl">
+        <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 mb-16 leading-tight max-w-3xl">
           STAY AHEAD WITH THE LATEST IN DIGITAL MARKETING
         </h2>
 

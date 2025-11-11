@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiPlus, FiX } from "react-icons/fi";
 
 const services = [
   {
     id: 1,
-    title: "WEB DESIGN & DEVELOPMENT",
+    title: "WEBSITES",
     tag: "Crafting engaging online experiences",
     number: "01",
     description:
@@ -23,7 +23,7 @@ const services = [
   },
   {
     id: 2,
-    title: "SOCIAL MEDIA MANAGEMENT",
+    title: "SOCIAL MEDIA",
     tag: "Elevate your brand's online presence",
     number: "02",
     description:
@@ -39,7 +39,7 @@ const services = [
   },
   {
     id: 3,
-    title: "CRM AUTOMATION",
+    title: "CRM",
     tag: "Streamline your customer relationships",
     number: "03",
     description:
@@ -55,7 +55,7 @@ const services = [
   },
   {
     id: 4,
-    title: "DIGITAL ADVERTISING",
+    title: "ADVERTISEMENT",
     tag: "Maximize your reach and ROI",
     number: "04",
     description:
@@ -72,23 +72,52 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const [openId, setOpenId] = useState(1);
+  const [openId, setOpenId] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef(null);
 
   const toggleService = (id) => {
     setOpenId(openId === id ? null : id);
   };
 
+  // Track mouse movement
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const hoveredService = services.find((s) => s.id === hoveredId);
 
   return (
-    <div className="relative min-h-screen bg-white text-gray-900 px-6 md:px-20 py-20 font-sans overflow-hidden">
+    <div 
+      className="relative min-h-screen bg-white text-gray-900 px-4 md:px-20 py-16 md:py-20 font-sans overflow-hidden"
+      ref={sectionRef}
+    >
+      {/* Simple cursor image - appears/disappears instantly */}
+      {hoveredService && (
+        <div
+          className="fixed pointer-events-none z-50 hidden md:block"
+          style={{
+            left: mousePosition.x + 20,
+            top: mousePosition.y + 20,
+          }}
+        >
+          <img
+            src={hoveredService.image}
+            alt={hoveredService.title}
+            className="w-64 h-40 object-cover rounded-xl shadow-2xl border-2 border-white"
+          />
+        </div>
+      )}
+
       <div className="relative z-10">
-        <div className="mb-10">
-          <p className="text-orange-500 text-sm font-medium tracking-wider">
-            {"{ Our Services }"}
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mt-2">
+        <div className="mb-10 md:ml-[10%] px-2">
+          <h2 className="text-2xl md:text-5xl font-bold mt-2 leading-tight">
             EXPLORE WHAT WE CAN DO FOR YOU
           </h2>
         </div>
@@ -100,34 +129,36 @@ const ServicesSection = () => {
             return (
               <div
                 key={service.id}
-                className="py-10 relative group"
+                className="py-6 md:py-10 relative group"
                 onMouseEnter={() => setHoveredId(service.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
                 <div
                   onClick={() => toggleService(service.id)}
-                  className="flex justify-between items-center cursor-pointer"
+                  className="flex justify-between items-start md:items-center cursor-pointer px-2 md:ml-[10%]"
                 >
-                  <div className="flex items-baseline space-x-4">
-                    <span className="text-orange-500 text-sm font-semibold">
-                      {service.number}
-                    </span>
-                    <h3
-                      className={`text-3xl md:text-6xl font-extrabold transition-colors duration-300 ${
-                        isOpen ? "text-orange-600" : "text-gray-900"
-                      }`}
-                    >
-                      {service.title.toUpperCase()}
-                    </h3>
-                    <span className="text-gray-500 text-sm font-medium">
+                  <div className="flex flex-col md:flex-row md:items-baseline space-y-2 md:space-y-0 md:space-x-4 flex-1">
+                    <div className="flex items-baseline space-x-3">
+                      <span className="text-blue-600 text-sm font-semibold">
+                        {service.number}
+                      </span>
+                      <h3
+                        className={`text-xl md:text-7xl font-semibold md:font-extrabold lg:font-extrabold transition-colors duration-300 ${
+                          isOpen ? "text-blue-600" : "text-gray-700"
+                        }`}
+                      >
+                        {service.title.toUpperCase()}
+                      </h3>
+                    </div>
+                    <span className="text-gray-500 text-base font-semibold md:ml-4">
                       {service.tag}
                     </span>
                   </div>
-                  <div className="border border-gray-400 rounded-full p-2 hover:bg-gray-100 transition">
+                  <div className="border border-gray-400 rounded-full p-2 hover:bg-gray-100 transition ml-4 flex-shrink-0 mt-1 md:mt-0">
                     {isOpen ? (
-                      <FiX className="text-gray-700" size={22} />
+                      <FiX className="text-gray-700" size={20} />
                     ) : (
-                      <FiPlus className="text-gray-700" size={22} />
+                      <FiPlus className="text-gray-700" size={20} />
                     )}
                   </div>
                 </div>
@@ -142,18 +173,18 @@ const ServicesSection = () => {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-6 grid md:grid-cols-2 gap-8">
-                        <p className="text-gray-700 leading-relaxed">
+                      <div className="mt-6 grid md:grid-cols-2 gap-6 px-2 md:ml-[calc(10%+4rem)]">
+                        <p className="text-gray-700 leading-relaxed text-base md:text-inherit">
                           {service.description}
                         </p>
-                        <ul className="grid grid-cols-2 gap-x-6 text-gray-700 text-sm">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-700 text-sm">
                           {service.items.map((item, i) => (
                             <li
                               key={i}
-                              className="mb-2 flex items-center space-x-2"
+                              className="flex items-center space-x-2 py-1"
                             >
-                              <span>•</span>
-                              <span>{item}</span>
+                              <span className="text-blue-600">•</span>
+                              <span className="text-sm">{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -161,38 +192,6 @@ const ServicesSection = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                {/* Hover floating preview */}
-                {hoveredId === service.id && (
-                  <AnimatePresence>
-                    <motion.div
-                      key={service.id}
-                      initial={{ opacity: 0, scale: 0.8, rotate: -5, y: 40 }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                        rotate: 3,
-                        y: 0,
-                        transition: { type: "spring", stiffness: 150, damping: 10 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        scale: 0.9,
-                        rotate: 0,
-                        y: 40,
-                        transition: { duration: 0.3 },
-                      }}
-                      className="absolute -right-10 top-1/2 transform -translate-y-1/2"
-                    >
-                      <motion.img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-56 h-36 object-cover rounded-xl shadow-2xl border border-gray-200"
-                        whileHover={{ rotate: 6, scale: 1.05 }}
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-                )}
               </div>
             );
           })}

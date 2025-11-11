@@ -40,7 +40,7 @@ export default function TestimonialsSection() {
       title: "Brand Consultant",
       image: "https://www.hubspot.com/hubfs/Testimonial-lead-gen-1.webp",
       quote:
-        "It’s rare to find a design partner who’s both strategic and insanely creative. These guys get both.",
+        "It's rare to find a design partner who's both strategic and insanely creative. These guys get both.",
       rating: 5,
     },
     {
@@ -53,62 +53,193 @@ export default function TestimonialsSection() {
     },
   ];
 
+  // Duplicate testimonials for seamless infinite scroll
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+
   return (
-    <section className="bg-white py-20 px-6 md:px-16 lg:px-24">
+    <section className="bg-white py-20 px-6 md:px-16 lg:px-24 overflow-hidden">
       {/* Header */}
       <div className="text-center mb-16">
-        <p className="text-orange-600 font-semibold mb-2">{`{ What Our Clients Are Saying }`}</p>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+        <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-4">
           TESTIMONIALS THAT INSPIRE CONFIDENCE
         </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Hear what our clients say about their experience working with us
+        </p>
       </div>
 
-      {/* Testimonials Grid */}
+      {/* Testimonials Carousel Container */}
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white"
-            >
-              {/* Header */}
-              <div className="flex items-center mb-5">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {t.name}
-                  </h3>
-                  <p className="text-gray-500 text-sm">{t.title}</p>
+        {/* Gradient Overlays */}
+        <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+        
+        {/* First Row Carousel */}
+        <div className="flex mb-8">
+          <div className="flex animate-scroll-slow hover:pause-animation">
+            {duplicatedTestimonials.slice(0, duplicatedTestimonials.length/2).map((t, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
+                style={{ width: '400px' }}
+              >
+                {/* Header */}
+                <div className="flex items-center mb-5">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {t.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm">{t.title}</p>
+                  </div>
+                </div>
+
+                {/* Quote */}
+                <p className="text-gray-600 leading-relaxed mb-5">
+                  {t.quote}
+                </p>
+
+                {/* Rating */}
+                <div className="flex space-x-1">
+                  {Array.from({ length: 5 }).map((_, idx) => (
+                    <Star
+                      key={idx}
+                      size={18}
+                      className={`${
+                        idx < t.rating 
+                          ? "text-orange-500 fill-orange-500" 
+                          : "text-gray-300"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
-
-              {/* Quote */}
-              <p className="text-gray-600 leading-relaxed mb-5">{t.quote}</p>
-
-              {/* Rating */}
-              <div className="flex space-x-1">
-                {Array.from({ length: 5 }).map((_, idx) => (
-                  <Star
-                    key={idx}
-                    size={18}
-                    className={`${
-                      idx < t.rating ? "text-orange-500 fill-orange-500" : "text-gray-300"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Fading Edges for visual polish */}
-        <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-white to-transparent pointer-events-none hidden lg:block" />
-        <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-white to-transparent pointer-events-none hidden lg:block" />
+        {/* Second Row Carousel (Reverse) */}
+        <div className="flex">
+          <div className="flex animate-scroll-slow-reverse hover:pause-animation">
+            {duplicatedTestimonials.slice(duplicatedTestimonials.length/2).map((t, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
+                style={{ width: '400px' }}
+              >
+                {/* Header */}
+                <div className="flex items-center mb-5">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {t.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm">{t.title}</p>
+                  </div>
+                </div>
+
+                {/* Quote */}
+                <p className="text-gray-600 leading-relaxed mb-5">
+                  {t.quote}
+                </p>
+
+                {/* Rating */}
+                <div className="flex space-x-1">
+                  {Array.from({ length: 5 }).map((_, idx) => (
+                    <Star
+                      key={idx}
+                      size={18}
+                      className={`${
+                        idx < t.rating 
+                          ? "text-orange-500 fill-orange-500" 
+                          : "text-gray-300"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Stats Below Carousel */}
+      <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
+        <div>
+          <div className="text-2xl font-bold text-blue-600">100%</div>
+          <div className="text-sm text-gray-600">Client Satisfaction</div>
+        </div>
+        <div>
+          <div className="text-2xl font-bold text-blue-600">4.9/5</div>
+          <div className="text-sm text-gray-600">Average Rating</div>
+        </div>
+        <div>
+          <div className="text-2xl font-bold text-blue-600">140+</div>
+          <div className="text-sm text-gray-600">Happy Clients</div>
+        </div>
+      </div>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-424px * 9));
+          }
+        }
+        
+        @keyframes scroll-reverse {
+          0% {
+            transform: translateX(calc(-424px * 9));
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        .animate-scroll-slow {
+          animation: scroll 60s linear infinite;
+        }
+
+        .animate-scroll-slow-reverse {
+          animation: scroll-reverse 60s linear infinite;
+        }
+
+        .hover\:pause-animation:hover {
+          animation-play-state: paused;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-344px * 9));
+            }
+          }
+          
+          @keyframes scroll-reverse {
+            0% {
+              transform: translateX(calc(-344px * 9));
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+        }
+      `}</style>
     </section>
   );
 }

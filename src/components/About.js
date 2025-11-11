@@ -1,14 +1,43 @@
 import React from "react";
+import logo1 from "../assets/images/partners-logos/logo-1.png";
+import logo2 from "../assets/images/partners-logos/logo-2.png";
+import logo3 from "../assets/images/partners-logos/logo-3.png";
+import logo4 from "../assets/images/partners-logos/logo-4.png";
+import logo5 from "../assets/images/partners-logos/logo-5.png";
+import logo6 from "../assets/images/partners-logos/logo-6.png";
+import logo7 from "../assets/images/partners-logos/logo-7.png";
+import logo8 from "../assets/images/partners-logos/logo-8.png";
+import logo9 from "../assets/images/partners-logos/logo-9.png";
+import logo10 from "../assets/images/partners-logos/logo-10.png";
+import logo11 from "../assets/images/partners-logos/logo-11.png";
+import logo12 from "../assets/images/partners-logos/logo-12.png";
+import logo13 from "../assets/images/partners-logos/logo-13.png";
+import logo14 from "../assets/images/partners-logos/logo-14.png";
+import logo15 from "../assets/images/partners-logos/logo-15.png";
+import logo16 from "../assets/images/partners-logos/logo-16.png";
+import logo17 from "../assets/images/partners-logos/logo-17.png";
+import logo18 from "../assets/images/partners-logos/logo-18.png";
+import logo19 from "../assets/images/partners-logos/logo-19.png";
+import logo20 from "../assets/images/partners-logos/logo-20.png";
+import logo21 from "../assets/images/partners-logos/logo-21.png";
+import logo22 from "../assets/images/partners-logos/logo-22.png";
 
 const AboutSection = () => {
+  const logos = [
+    logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,
+    logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, 
+    logo20, logo21, logo22
+  ];
+
+  // Duplicate logos for seamless infinite scroll
+  const duplicatedLogos = [...logos, ...logos, ...logos];
+
   return (
-    <section className="bg-white px-6 md:px-16 lg:px-24 py-20">
+    <section className="bg-white px-6 md:px-16 lg:px-24 py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        {/* Top Label */}
-        <p className="text-orange-500 font-medium mb-2">{`{ Who We Are }`}</p>
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-12">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-800 leading-tight mb-12">
           WE ARE LEADING DIGITAL TRANSFORMATION EXPERTS
         </h2>
 
@@ -23,7 +52,7 @@ const AboutSection = () => {
 
             {/* Floating Circle Badge */}
             <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-full shadow-md flex flex-col items-center justify-center text-center w-28 h-28">
-              <div className="text-orange-500 text-sm font-semibold uppercase">
+              <div className="text-blue-600 text-sm font-semibold uppercase">
                 Create
               </div>
               <div className="w-10 h-[1px] bg-gray-300 my-1"></div>
@@ -61,83 +90,160 @@ const AboutSection = () => {
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           <div>
             <h3 className="text-5xl font-bold text-gray-900">
-              10<span className="text-orange-500">+</span>
+              10<span className="text-blue-600">+</span>
             </h3>
             <p className="text-gray-600 mt-2">Years Experience</p>
           </div>
 
           <div>
             <h3 className="text-5xl font-bold text-gray-900">
-              500<span className="text-orange-500">+</span>
+              500<span className="text-blue-600">+</span>
             </h3>
             <p className="text-gray-600 mt-2">Projects Done</p>
           </div>
 
           <div>
             <h3 className="text-5xl font-bold text-gray-900">
-              140<span className="text-orange-500">+</span>
+              140<span className="text-blue-600">+</span>
             </h3>
             <p className="text-gray-600 mt-2">Happy Clients</p>
           </div>
 
           <div>
             <h3 className="text-5xl font-bold text-gray-900">
-              98<span className="text-orange-500">%</span>
+              98<span className="text-blue-600">%</span>
             </h3>
             <p className="text-gray-600 mt-2">Satisfied Clients</p>
           </div>
         </div>
 
-        {/* Company Logos Section */}
+        {/* Enhanced Company Logos Carousel Section */}
         <div className="mt-24 text-center">
-          <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-10">
+          <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
             We work with the world's top companies
           </h3>
+          <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
+            Trusted by industry leaders and innovative startups worldwide
+          </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-10 opacity-80">
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=logoipsum"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGOIPSUM"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=IPSUM"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGO"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=LIP"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGOIPSUM"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=LOGO"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
-            <img
-              src="https://dummyimage.com/120x50/ccc/000.png&text=IPSUM"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
+          {/* Carousel Container */}
+          <div className="relative">
+            {/* Gradient Overlays */}
+            <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+            
+            {/* First Row Carousel */}
+            <div className="flex mb-8">
+              <div className="flex animate-scroll-slow hover:pause-animation">
+                {duplicatedLogos.slice(0, duplicatedLogos.length/2).map((logo, index) => (
+                  <div 
+                    key={index}
+                    className="flex-shrink-0 mx-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 hover:shadow-2xl hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 transition-all duration-500 group"
+                  >
+                    <img
+                      src={logo}
+                      alt={`Partner logo ${index + 1}`}
+                      className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Second Row Carousel (Reverse) */}
+            <div className="flex">
+              <div className="flex animate-scroll-slow-reverse hover:pause-animation">
+                {duplicatedLogos.slice(duplicatedLogos.length/2).map((logo, index) => (
+                  <div 
+                    key={index}
+                    className="flex-shrink-0 mx-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 hover:shadow-2xl hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 transition-all duration-500 group"
+                  >
+                    <img
+                      src={logo}
+                      alt={`Partner logo ${index + 1 + duplicatedLogos.length/2}`}
+                      className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Floating Elements */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+            <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-blue-400 rounded-full opacity-30 animate-bounce delay-1000"></div>
+          </div>
+
+          {/* Stats Below Carousel */}
+          <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-600">22+</div>
+              <div className="text-sm text-gray-600">Global Partners</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-600">15+</div>
+              <div className="text-sm text-gray-600">Industries</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-600">50+</div>
+              <div className="text-sm text-gray-600">Countries</div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-250px * 11));
+          }
+        }
+        
+        @keyframes scroll-reverse {
+          0% {
+            transform: translateX(calc(-250px * 11));
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        .animate-scroll-slow {
+          animation: scroll 40s linear infinite;
+        }
+
+        .animate-scroll-slow-reverse {
+          animation: scroll-reverse 40s linear infinite;
+        }
+
+        .hover\:pause-animation:hover {
+          animation-play-state: paused;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-200px * 11));
+            }
+          }
+          
+          @keyframes scroll-reverse {
+            0% {
+              transform: translateX(calc(-200px * 11));
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+        }
+      `}</style>
     </section>
   );
 };

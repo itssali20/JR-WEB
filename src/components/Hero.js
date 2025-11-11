@@ -17,89 +17,47 @@ const HeroSection = () => {
   const borderRadius = useTransform(smoothY, [0, 400], ["6rem", "0rem"]);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-white flex items-center justify-center">
+    <section className="relative mt-[7%] w-full min-h-screen overflow-hidden bg-white flex items-center justify-center">
       {/* Mobile Text Overlay - Visible only on mobile */}
       <div className="absolute z-20 top-0 left-0 w-full h-full flex flex-col justify-center items-start px-8 lg:hidden">
         <div className="max-w-xl">
           <p className="text-gray-900 font-semibold text-xl flex items-center">
             <span className="text-red-500 text-6xl mr-2">*</span>
-            We are digital transformation
+            We are digital design
           </p>
 
-          <h1 className="text-6xl leading-[4rem] font-extrabold text-gray-900 mt-4 tracking-tight">
+          <h1 className="text-6xl leading-[4rem] font-semibold md:font-extrabold lg:font-extrabold text-gray-900 mt-4 tracking-tight">
             CREATORS
           </h1>
 
           <p className="text-gray-500 mt-6 text-lg leading-relaxed">
-            From Concept to Conversion – Beautifully crafted digital solutions
-            that captivate audiences and drive growth.
+            From Concept to Creation — Beautiful design has the power to captivate audiences
           </p>
 
-          <div className="flex items-center mt-10 space-x-4">
-            <div className="flex -space-x-3">
-              {["men/1", "women/44", "women/68", "men/32"].map((path, i) => (
-                <img
-                  key={i}
-                  className="w-12 h-12 rounded-full border-2 border-white object-cover"
-                  src={`https://randomuser.me/api/portraits/${path}.jpg`}
-                  alt={`team${i}`}
-                />
-              ))}
-            </div>
-
-            <div className="flex items-center">
-              <span className="text-gray-900 font-medium mr-3">
-                Meet Our Team
-              </span>
-              <button className="w-10 h-10 border border-white rounded-full flex items-center justify-center hover:bg-white hover:bg-opacity-20 transition">
-                <span className="text-2xl text-gray-900">→</span>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Desktop Text Section - Hidden on mobile */}
       <motion.div
         style={{ opacity }}
-        className="absolute z-20 top-0 left-0 w-full lg:w-1/2 h-full flex-col justify-center items-start px-8 lg:px-20 hidden lg:flex"
+        className="absolute z-20 top-0 left-0 w-full lg:w-[80%] h-full flex-col justify-center items-start px-8 lg:px-20 hidden lg:flex"
       >
-        <div className="max-w-xl">
-          <p className="text-gray-900 font-semibold text-xl flex items-center">
-            <span className="text-red-500 text-6xl mr-2">*</span>
-            We are digital transformation
+        <div className="max-w-2xl">
+          {/* Subtitle with larger asterisk */}
+          <p className="text-gray-900 font-semibold text-3xl flex items-center mb-8">
+            <span className="text-blue-600 text-9xl mr-4">*</span>
+            We are digital design
           </p>
 
-          <h1 className="text-[7.5rem] leading-[5.5rem] font-extrabold text-gray-900 mt-4 tracking-tight">
+          {/* Main heading */}
+          <h1 className="text-[11.5rem] leading-[10.5rem] font-bold text-gray-800 tracking-tight">
             CREATORS
           </h1>
 
-          <p className="text-gray-500 mt-6 text-lg leading-relaxed">
-            From Concept to Conversion – Beautifully crafted digital solutions
-            that captivate audiences and drive growth.
+          {/* Description text - larger to match scale */}
+          <p className="text-gray-500 mt-12 text-2xl leading-relaxed max-w-2xl">
+            From Concept to Creation — Beautiful design has the power to captivate audiences
           </p>
-
-          <div className="flex items-center mt-10 space-x-4">
-            <div className="flex -space-x-3">
-              {["men/1", "women/44", "women/68", "men/32"].map((path, i) => (
-                <img
-                  key={i}
-                  className="w-12 h-12 rounded-full border-2 border-white object-cover"
-                  src={`https://randomuser.me/api/portraits/${path}.jpg`}
-                  alt={`team${i}`}
-                />
-              ))}
-            </div>
-
-            <div className="flex items-center">
-              <span className="text-gray-800 font-medium mr-3">
-                Meet Our Team
-              </span>
-              <button className="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-100 transition">
-                <span className="text-2xl">→</span>
-              </button>
-            </div>
-          </div>
         </div>
       </motion.div>
 
@@ -111,12 +69,15 @@ const HeroSection = () => {
         }}
         className="relative w-full lg:w-[65%] rounded-tl-[6rem] overflow-hidden ml-auto"
       >
-        {/* Overlay for mobile text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-40 lg:bg-opacity-0 z-10"></div>
+        {/* White shade overlay for better text readability */}
+        <div className="absolute inset-0 bg-white bg-opacity-30 z-10 mix-blend-overlay"></div>
+
+        {/* Additional overlay for mobile text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-40 lg:bg-opacity-0 z-10 lg:hidden"></div>
 
         <motion.video
           style={{ scale: videoScale }}
-          className="w-full h-[80vh] object-cover"
+          className="w-full h-screen object-cover"
           autoPlay
           loop
           muted
@@ -125,21 +86,21 @@ const HeroSection = () => {
           <source src={video} type="video/mp4" />
         </motion.video>
 
-        {/* Badge */}
-        <div className="absolute bottom-8 right-8 w-28 h-28 flex items-center justify-center z-20">
-          <div className="absolute w-full h-full rounded-full border border-gray-300 flex items-center justify-center text-[10px] text-gray-700 animate-spin-slow">
+        {/* Badge - slightly larger to match scale */}
+        <div className="absolute bottom-12 right-12 w-32 h-32 flex items-center justify-center z-20">
+          <div className="absolute w-full h-full rounded-full border-2 border-gray-300 flex items-center justify-center text-[11px] text-gray-700 animate-spin-slow">
             <span className="tracking-widest font-medium">
               INSIGHT • SOLUTION • CREATE • IDEA •
             </span>
           </div>
-          <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth={2}
+              strokeWidth={2.5}
               stroke="white"
-              className="w-5 h-5"
+              className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"
@@ -150,10 +111,10 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Text Overlay */}
-        <div className="absolute bottom-4 right-4 bg-white px-6 py-2 rounded-tl-2xl shadow-md z-20">
-          <h2 className="text-gray-900 font-extrabold text-2xl leading-tight">
-            CREATING WORK <br /> THAT INSPIRES
+        {/* Text Overlay - larger to match scale */}
+        <div className="absolute bottom-8 right-8 bg-white px-8 py-4 rounded-tl-3xl shadow-xl z-20">
+          <h2 className="text-gray-900 font-semibold md:font-extrabold lg:font-extrabold text-3xl leading-tight">
+            CREATING THAT <br /> INSPIRES
           </h2>
         </div>
       </motion.div>

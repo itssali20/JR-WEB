@@ -40,8 +40,7 @@ export default function FaqSection() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* LEFT - Static Content */}
         <div className="sticky top-32 self-start">
-          <p className="text-orange-600 font-semibold mb-2">{`{ FAQ }`}</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 mb-12 leading-tight">
             CLEAR SOLUTIONS <br /> TO YOUR CONCERNS
           </h2>
 
