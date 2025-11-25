@@ -30,7 +30,7 @@ export default function HowWeWork() {
       // Only apply custom handling on desktop-sized viewports
       if (window.innerWidth < 1024) return;
 
-      const atTop = right.scrollTop === 0;
+      const atTop = right.scrollTop === -10;
       const atBottom = right.scrollHeight - right.scrollTop <= right.clientHeight + 1;
 
       // If the right panel can scroll in the direction of the wheel, prevent default and scroll it
@@ -127,7 +127,7 @@ export default function HowWeWork() {
           </div>
 
           {/* Steps Container - Reduced spacing */}
-          <div className="relative border-l-0 ml-8 lg:ml-8 space-y-12 lg:space-y-16">
+          <div className="relative border-l-0 ml-8 lg:ml-8 space-y-8 lg:space-y-8">
             {steps.map((step, i) => (
               <motion.div
                 key={i}

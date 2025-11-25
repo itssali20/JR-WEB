@@ -37,10 +37,19 @@ export default function TeamSection() {
         </h2>
       </div>
 
-      {/* Team Grid - Single Row */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Team Grid - Single Row (horizontally scrollable on small/medium, grid on large) */}
+      <div
+        className="max-w-6xl mx-auto flex flex-nowrap gap-6 overflow-x-auto px-2 sm:px-6 snap-x snap-mandatory lg:grid lg:grid-cols-4 lg:gap-8 lg:overflow-visible"
+        role="list"
+        aria-label="Team members"
+      >
         {team.map((member, i) => (
-          <div key={i} className="flex flex-col items-center text-center">
+          <div
+            key={i}
+            role="listitem"
+            tabIndex={0}
+            className="flex-none w-64 sm:w-72 md:w-80 lg:w-auto snap-center flex flex-col items-center text-center"
+          >
             <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.5rem] relative">
               <img
                 src={member.image}

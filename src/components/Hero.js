@@ -13,7 +13,7 @@ const HeroSection = () => {
 
   const opacity = useTransform(smoothY, [0, 200], [1, 0]);
   const videoScale = useTransform(smoothY, [0, 400], [1, 1.15]);
-  const videoWidth = useTransform(smoothY, [0, 400], ["65%", "100%"]);
+  const videoWidth = useTransform(smoothY, [0, 400], ["57%", "100%"]);
   const borderRadius = useTransform(smoothY, [0, 400], ["6rem", "0rem"]);
 
   return (
@@ -67,7 +67,7 @@ const HeroSection = () => {
           width: videoWidth,
           borderTopLeftRadius: borderRadius,
         }}
-        className="relative w-full lg:w-[65%] rounded-tl-[6rem] overflow-hidden ml-auto"
+        className="relative w-full lg:w-[57%] rounded-tl-[6rem] overflow-hidden ml-auto"
       >
         {/* White shade overlay for better text readability */}
         <div className="absolute inset-0 bg-white bg-opacity-30 z-10 mix-blend-overlay"></div>

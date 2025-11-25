@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { db } from "../firebase"
-import { 
-  collection, 
-  onSnapshot,
-  query,
-  orderBy 
-} from "firebase/firestore";
+import { db } from "../firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 export default function PricingSection() {
   const [activeFilter, setActiveFilter] = useState("web");
@@ -20,7 +15,7 @@ export default function PricingSection() {
   const [packages, setPackages] = useState([]);
   const [customPlans, setCustomPlans] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   const filtersContainerRef = useRef(null);
 
   const filters = [
@@ -28,30 +23,31 @@ export default function PricingSection() {
     { id: "seo", label: "SEO Services", icon: "🔍" },
     { id: "social", label: "Social Media", icon: "📱" },
     { id: "cgi", label: "CGI & 3D", icon: "🎬" },
-    { id: "software", label: "Software Dev", icon: "⚙️" },
     { id: "erp", label: "ERP Systems", icon: "📊" },
     { id: "creative", label: "Creative Design", icon: "🎨" },
-    { id: "content", label: "Content", icon: "✍️" },
   ];
 
   // Firestore collections
-  const servicesCollection = collection(db, 'pricingServices');
-  const packagesCollection = collection(db, 'pricingPackages');
-  const customPlansCollection = collection(db, 'pricingCustomPlans');
+  const servicesCollection = collection(db, "pricingServices");
+  const packagesCollection = collection(db, "pricingPackages");
+  const customPlansCollection = collection(db, "pricingCustomPlans");
 
   // Load data from Firestore
   useEffect(() => {
     setLoading(true);
 
     // Subscribe to services
-    const servicesQuery = query(servicesCollection, orderBy('createdAt', 'desc'));
+    const servicesQuery = query(
+      servicesCollection,
+      orderBy("createdAt", "desc")
+    );
     const unsubscribeServices = onSnapshot(servicesQuery, (snapshot) => {
-      const servicesData = snapshot.docs.map(doc => ({
+      const servicesData = snapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       }));
       setServices(servicesData);
-      
+
       // Filter services for initial view
       const initialServices = servicesData.filter(
         (service) => service.category === activeFilter
@@ -60,21 +56,27 @@ export default function PricingSection() {
     });
 
     // Subscribe to packages
-    const packagesQuery = query(packagesCollection, orderBy('createdAt', 'desc'));
+    const packagesQuery = query(
+      packagesCollection,
+      orderBy("createdAt", "desc")
+    );
     const unsubscribePackages = onSnapshot(packagesQuery, (snapshot) => {
-      const packagesData = snapshot.docs.map(doc => ({
+      const packagesData = snapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       }));
       setPackages(packagesData);
     });
 
     // Subscribe to custom plans
-    const customPlansQuery = query(customPlansCollection, orderBy('createdAt', 'desc'));
+    const customPlansQuery = query(
+      customPlansCollection,
+      orderBy("createdAt", "desc")
+    );
     const unsubscribeCustomPlans = onSnapshot(customPlansQuery, (snapshot) => {
-      const customPlansData = snapshot.docs.map(doc => ({
+      const customPlansData = snapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       }));
       setCustomPlans(customPlansData);
     });
@@ -104,14 +106,14 @@ export default function PricingSection() {
   const scrollLeft = () => {
     const container = filtersContainerRef.current;
     if (container) {
-      container.scrollBy({ left: -200, behavior: 'smooth' });
+      container.scrollBy({ left: -200, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     const container = filtersContainerRef.current;
     if (container) {
-      container.scrollBy({ left: 200, behavior: 'smooth' });
+      container.scrollBy({ left: 200, behavior: "smooth" });
     }
   };
 
@@ -135,28 +137,28 @@ export default function PricingSection() {
   // Close dropdown when clicking outside and check scroll position
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!event.target.closest('.filter-dropdown')) {
+      if (!event.target.closest(".filter-dropdown")) {
         setIsDropdownOpen(false);
       }
     };
 
     const container = filtersContainerRef.current;
     if (container) {
-      container.addEventListener('scroll', checkScrollPosition);
+      container.addEventListener("scroll", checkScrollPosition);
       checkScrollPosition(); // Initial check
     }
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
       if (container) {
-        container.removeEventListener('scroll', checkScrollPosition);
+        container.removeEventListener("scroll", checkScrollPosition);
       }
     };
   }, []);
 
   // Safe current filter label
-  const currentFilter = filters.find(f => f.id === activeFilter);
+  const currentFilter = filters.find((f) => f.id === activeFilter);
   const currentFilterLabel = currentFilter?.label || filters[0]?.label;
 
   // Loading state
@@ -197,7 +199,7 @@ export default function PricingSection() {
             <button
               onClick={scrollLeft}
               className={`hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
-                canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                canScrollLeft ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             >
               <ChevronLeft size={20} className="text-gray-700" />
@@ -206,7 +208,7 @@ export default function PricingSection() {
             <button
               onClick={scrollRight}
               className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
-                canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                canScrollRight ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             >
               <ChevronRight size={20} className="text-gray-700" />
@@ -220,7 +222,10 @@ export default function PricingSection() {
                   className="absolute top-1.5 bottom-1.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl transition-all duration-500 ease-out shadow-lg"
                   style={{
                     width: `${100 / filters.length}%`,
-                    left: `${(filters.findIndex(f => f.id === activeFilter) * 100) / filters.length}%`,
+                    left: `${
+                      (filters.findIndex((f) => f.id === activeFilter) * 100) /
+                      filters.length
+                    }%`,
                   }}
                 ></div>
 
@@ -267,7 +272,12 @@ export default function PricingSection() {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
 
@@ -299,7 +309,6 @@ export default function PricingSection() {
             {/* Enhanced Glow Effect */}
             <div className="absolute -inset-4 bg-gradient-to-r from-sky-200/40 via-blue-400/30 to-blue-800/20 blur-2xl rounded-3xl -z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
-
         </div>
       )}
 
@@ -342,7 +351,10 @@ export default function PricingSection() {
                         key={index}
                         className="flex items-center text-sm text-gray-700"
                       >
-                        <Check size={16} className="text-green-500 mr-3 flex-shrink-0" />
+                        <Check
+                          size={16}
+                          className="text-green-500 mr-3 flex-shrink-0"
+                        />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -365,7 +377,8 @@ export default function PricingSection() {
                 No services found
               </h3>
               <p className="text-gray-500 max-w-md mx-auto">
-                We're working on new {currentFilterLabel.toLowerCase()} services. Check back soon!
+                We're working on new {currentFilterLabel.toLowerCase()}{" "}
+                services. Check back soon!
               </p>
             </div>
           )}
@@ -385,7 +398,9 @@ export default function PricingSection() {
               <p className="text-4xl font-extrabold text-blue-600 mb-1">
                 AED {plan.price}
               </p>
-              <p className="text-sm text-gray-500 mb-4">(Monthly) Payable Quarterly</p>
+              <p className="text-sm text-gray-500 mb-4">
+                (Monthly) Payable Quarterly
+              </p>
               <button
                 className={`${plan.buttonColor} text-white font-semibold py-3 px-10 rounded-full flex items-center justify-center gap-2 transition-all mx-auto`}
               >
@@ -402,7 +417,8 @@ export default function PricingSection() {
           Need a Custom Solution?
         </h3>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          Let's discuss your specific requirements and create a tailored package just for you.
+          Let's discuss your specific requirements and create a tailored package
+          just for you.
         </p>
         <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
           Get Custom Quote

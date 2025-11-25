@@ -15,7 +15,7 @@ export default function Footer() {
             <img
               src={logo}
               alt="BrightEdge Logo"
-              className="w-[50%] h-10 mr-3"
+              className="w-auto h-10 mr-3"
             />
           </div>
 
@@ -27,7 +27,6 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold mb-2">Navigation</h4>
             <ul className="text-gray-700 space-y-1">
               <li className="flex flex-wrap gap-5 text-[15px]">
                 <a href="#" className="hover:text-gray-900 transition">
@@ -48,8 +47,6 @@ export default function Footer() {
                 <a href="#" className="hover:text-gray-900 transition">
                   Pricing
                 </a>
-              </li>
-              <li>
                 <a href="#" className="hover:text-gray-900 transition">
                   Contact
                 </a>
