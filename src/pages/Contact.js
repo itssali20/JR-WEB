@@ -495,9 +495,6 @@ export default function WorkWithBadMarketingForm() {
                 Start Your Project
               </button>
             </Link>
-            <button className="px-10 py-5 rounded-2xl bg-transparent border-2 border-white text-white font-bold tracking-wide uppercase hover:bg-white hover:text-gray-900 transition-all duration-300 text-lg">
-              Schedule a Call
-            </button>
           </div>
         </div>
       </section>

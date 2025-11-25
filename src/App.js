@@ -7,11 +7,15 @@ import SignupScreen from "./pages/Signup";
 import Profile from "./pages/Profile";
 import PortfolioSection from "./pages/Portfolio";
 import Contact from "./pages/Contact";
+import BlogPost from "./pages/BlogPost";
+
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <UserProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
@@ -19,6 +23,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/portfolio" element={<PortfolioSection />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </Router>
     </UserProvider>
