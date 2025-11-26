@@ -4,6 +4,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Archivo"', '"Archivo Placeholder"', 'sans-serif'],
+        archivo: ['"Archivo"', '"Archivo Placeholder"', 'sans-serif'],
+      },
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'fade-in-up': 'fadeInUp 1s ease-out forwards',
@@ -16,11 +20,11 @@ module.exports = {
           '50%': { transform: 'translateY(-20px) rotate(180deg)' },
         },
         fadeInUp: {
-          'from': { 
+          'from': {
             opacity: '0',
             transform: 'translateY(30px)'
           },
-          'to': { 
+          'to': {
             opacity: '1',
             transform: 'translateY(0)'
           },

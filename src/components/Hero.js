@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import video from "../assets/videos/video.mp4";
+import { ReactComponent as AsteriskIcon } from "../assets/icons/asterisk.svg";
 
 const HeroSection = () => {
   const { scrollY } = useScroll();
@@ -21,8 +22,8 @@ const HeroSection = () => {
       {/* Mobile Text Overlay - Visible only on mobile */}
       <div className="absolute z-20 top-0 left-0 w-full h-full flex flex-col justify-center items-start px-8 lg:hidden">
         <div className="max-w-xl">
-          <p className="text-gray-900 font-semibold text-xl flex items-center">
-            <span className="text-red-500 text-6xl mr-2">*</span>
+          <p className="text-[#333333] font-semibold text-3xl flex items-center">
+            <AsteriskIcon className="text-blue-600 w-16 h-16 mr-2" />
             We are digital design
           </p>
 
@@ -44,8 +45,8 @@ const HeroSection = () => {
       >
         <div className="max-w-2xl">
           {/* Subtitle with larger asterisk */}
-          <p className="text-gray-900 font-semibold text-3xl flex items-center mb-8">
-            <span className="text-blue-600 text-9xl mr-4">*</span>
+          <p className="text-[#333333] font-semibold text-3xl flex items-center">
+            <AsteriskIcon className="text-blue-600 w-10 h-10 mr-4" />
             We are digital design
           </p>
 
