@@ -1,67 +1,45 @@
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.7;
-  margin: 0;
-  padding: 0;
-  background: #f9fafb;
-  color: #1f2937;
+/* Scoped styles for blog content to avoid global pollution */
+.prose .highlight {
+  background: #fff7ed;
+  /* orange-50 */
+  padding: 24px;
+  border-left: 4px solid #f97316;
+  /* orange-500 */
+  border-radius: 8px;
+  margin: 32px 0;
+  font-style: italic;
+  color: #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-.container {
-  max-width: 850px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+.prose .highlight strong {
+  color: #9a3412;
+  /* orange-800 */
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  font-style: normal;
 }
 
-h1,
-h2,
-h3 {
+/* Customizing prose elements if needed */
+.prose h2 {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-top: 3em;
   color: #111827;
 }
 
-h1 {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-  text-align: center;
+.prose p {
+  line-height: 1.8;
+  color: #4b5563;
 }
 
-h2 {
-  font-size: 1.8rem;
-  margin-top: 40px;
+.prose ul li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
-p {
-  font-size: 1.05rem;
-  margin: 15px 0;
-}
-
-ul {
-  margin: 15px 0 20px 20px;
-}
-
-li {
-  margin: 8px 0;
-}
-
-.highlight {
-  background: #eef2ff;
-  padding: 10px 15px;
-  border-left: 4px solid #6366f1;
-  border-radius: 6px;
-  margin: 20px 0;
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.9rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-  p {
-    font-size: 1rem;
-  }
+.prose img {
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
