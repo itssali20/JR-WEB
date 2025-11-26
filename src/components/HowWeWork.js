@@ -21,72 +21,72 @@ export default function HowWeWork() {
   const lineHeight = useTransform(smoothProgress, [0, 1], ['0%', '100%']);
 
   // Lock body scroll when right panel is scrolling - Desktop only
-  useEffect(() => {
-    const right = rightRef.current;
+  // useEffect(() => {
+  //   const right = rightRef.current;
 
-    if (!right) return;
+  //   if (!right) return;
 
-    const handleWheel = (e) => {
-      // Only apply custom handling on desktop-sized viewports
-      if (window.innerWidth < 1024) return;
+  //   const handleWheel = (e) => {
+  //     // Only apply custom handling on desktop-sized viewports
+  //     if (window.innerWidth < 1024) return;
 
-      const atTop = right.scrollTop === -10;
-      const atBottom = right.scrollHeight - right.scrollTop <= right.clientHeight + 1;
+  //     const atTop = right.scrollTop === -10;
+  //     const atBottom = right.scrollHeight - right.scrollTop <= right.clientHeight + 1;
 
-      // If the right panel can scroll in the direction of the wheel, prevent default and scroll it
-      if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
-        e.preventDefault();
-        isLockedRef.current = true;
-        right.scrollTop += e.deltaY;
+  //     // If the right panel can scroll in the direction of the wheel, prevent default and scroll it
+  //     if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
+  //       e.preventDefault();
+  //       isLockedRef.current = true;
+  //       right.scrollTop += e.deltaY;
 
-        // Clear the lock after a short timeout
-        clearTimeout(handleWheel._unlockTimeout);
-        handleWheel._unlockTimeout = setTimeout(() => {
-          isLockedRef.current = false;
-        }, 100);
-      } else {
-        isLockedRef.current = false;
-      }
-    };
+  //       // Clear the lock after a short timeout
+  //       clearTimeout(handleWheel._unlockTimeout);
+  //       handleWheel._unlockTimeout = setTimeout(() => {
+  //         isLockedRef.current = false;
+  //       }, 100);
+  //     } else {
+  //       isLockedRef.current = false;
+  //     }
+  //   };
 
-    const handleTouchMove = (e) => {
-      if (isLockedRef.current && window.innerWidth >= 1024) {
-        e.preventDefault();
-      }
-    };
+  //   const handleTouchMove = (e) => {
+  //     if (isLockedRef.current && window.innerWidth >= 1024) {
+  //       e.preventDefault();
+  //     }
+  //   };
 
-    // Intersection Observer to track active step
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const stepIndex = parseInt(entry.target.getAttribute('data-step') || '0');
-            setActiveStep(stepIndex);
-          }
-        });
-      },
-      {
-        root: rightRef.current,
-        threshold: 0.6,
-        rootMargin: '-20% 0px -20% 0px'
-      }
-    );
+  //   // Intersection Observer to track active step
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const stepIndex = parseInt(entry.target.getAttribute('data-step') || '0');
+  //           setActiveStep(stepIndex);
+  //         }
+  //       });
+  //     },
+  //     {
+  //       root: rightRef.current,
+  //       threshold: 0.6,
+  //       rootMargin: '-20% 0px -20% 0px'
+  //     }
+  //   );
 
-    // Observe all step elements
-    const stepElements = right?.querySelectorAll('[data-step]');
-    stepElements?.forEach((el) => observer.observe(el));
+  //   // Observe all step elements
+  //   const stepElements = right?.querySelectorAll('[data-step]');
+  //   stepElements?.forEach((el) => observer.observe(el));
 
-    // Attach listener to the right panel element rather than the window to avoid intercepting early wheel events
-    right.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+  //   // Attach listener to the right panel element rather than the window to avoid intercepting early wheel events
+  //   right.addEventListener("wheel", handleWheel, { passive: false });
+  //   window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
-    return () => {
-      right.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchmove", handleTouchMove);
-      clearTimeout(handleWheel._unlockTimeout);
-      observer.disconnect();
-    };
-  }, []);
+  //   return () => {
+  //     right.removeEventListener("wheel", handleWheel);
+  //     window.removeEventListener("touchmove", handleTouchMove);
+  //     clearTimeout(handleWheel._unlockTimeout);
+  //     observer.disconnect();
+  //   };
+  // }, []);
 
   return (
     <section
@@ -115,6 +115,7 @@ export default function HowWeWork() {
         className="w-full lg:w-1/2 overflow-y-auto py-12 lg:py-16 px-6 lg:px-16 scroll-smooth hide-scrollbar"
         style={{ 
           height: '100vh',
+          scrollBehavior: 'smooth'
         }}
       >
         <div className="relative">
