@@ -103,7 +103,7 @@ export default function TeamSection() {
                   key={`item-${setIndex}-${i}`}
                   role="listitem"
                   tabIndex={0}
-                  className="w-64 flex-shrink-0 sm:w-72 md:w-80 lg:w-96 flex flex-col items-center text-center"
+                  className="w-64 flex-shrink-0 sm:w-72 md:w-80 lg:w-72 flex flex-col items-center text-center"
                 >
                   <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.5rem] relative">
                     <img

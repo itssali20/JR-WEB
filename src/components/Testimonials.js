@@ -120,11 +120,10 @@ export default function TestimonialsSection() {
                       <Star
                         key={idx}
                         size={18}
-                        className={`${
-                          idx < t.rating
+                        className={`${idx < t.rating
                             ? "text-orange-500 fill-orange-500"
                             : "text-gray-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -170,11 +169,10 @@ export default function TestimonialsSection() {
                       <Star
                         key={idx}
                         size={18}
-                        className={`${
-                          idx < t.rating
+                        className={`${idx < t.rating
                             ? "text-orange-500 fill-orange-500"
                             : "text-gray-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -185,18 +183,26 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Stats Below Carousel */}
-      <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
+      <div className="mt-24 grid grid-cols-2 md:grid-cols-3 text-center">
         <div>
-          <div className="text-2xl font-bold text-blue-600">100%</div>
-          <div className="text-sm text-gray-600">Client Satisfaction</div>
+          <h3 className="text-5xl font-bold text-gray-900">
+            100 %
+          </h3>
+          <p className="text-gray-600 mt-2">Client Satisfaction</p>
         </div>
+
         <div>
-          <div className="text-2xl font-bold text-blue-600">4.9/5</div>
-          <div className="text-sm text-gray-600">Average Rating</div>
+          <h3 className="text-5xl font-bold text-gray-900">
+            4.9/5
+          </h3>
+          <p className="text-gray-600 mt-2">Average Rating</p>
         </div>
+
         <div>
-          <div className="text-2xl font-bold text-blue-600">140+</div>
-          <div className="text-sm text-gray-600">Happy Clients</div>
+          <h3 className="text-5xl font-bold text-gray-900">
+            140+
+          </h3>
+          <p className="text-gray-600 mt-2">Happy Clients</p>
         </div>
       </div>
 

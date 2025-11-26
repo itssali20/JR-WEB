@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, } from "react";
 import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { db } from "../firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 export default function PricingSection() {
   const [activeFilter, setActiveFilter] = useState("web");
@@ -420,9 +421,9 @@ export default function PricingSection() {
           Let's discuss your specific requirements and create a tailored package
           just for you.
         </p>
-        <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+        <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
           Get Custom Quote
-        </button>
+        </Link>
       </div>
     </section>
   );

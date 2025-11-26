@@ -80,11 +80,6 @@ export default function FaqSection() {
                   </p>
                 )}
               </div>
-
-              {/* Add a horizontal line between every two questions */}
-              {(index + 1) % 2 === 0 && index !== faqs.length - 1 && (
-                <div className="h-[1px] bg-gray-300 my-2 opacity-60"></div>
-              )}
             </React.Fragment>
           ))}
         </div>

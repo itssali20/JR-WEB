@@ -14,7 +14,7 @@ const HeroSection = () => {
 
   const opacity = useTransform(smoothY, [0, 200], [1, 0]);
   const videoScale = useTransform(smoothY, [0, 400], [1, 1.15]);
-  const videoWidth = useTransform(smoothY, [0, 400], ["57%", "100%"]);
+  const videoWidth = useTransform(smoothY, [0, 400], ["54%", "100%"]);
   const borderRadius = useTransform(smoothY, [0, 400], ["6rem", "0rem"]);
 
   return (
@@ -51,12 +51,12 @@ const HeroSection = () => {
           </p>
 
           {/* Main heading */}
-          <h1 className="text-[11.5rem] leading-[10.5rem] font-bold text-gray-800 tracking-tight">
+          <h1 className="text-[7.4rem] leading-[8.5rem] font-bold text-gray-800 tracking-tight">
             CREATORS
           </h1>
 
           {/* Description text - larger to match scale */}
-          <p className="text-gray-500 mt-12 text-2xl leading-relaxed max-w-2xl">
+          <p className="text-gray-500 mt-8 text-2xl leading-relaxed max-w-xl">
             From Concept to Creation — Beautiful design has the power to captivate audiences
           </p>
         </div>
