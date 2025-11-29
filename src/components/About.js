@@ -172,22 +172,6 @@ const AboutSection = () => {
             <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
             <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-blue-400 rounded-full opacity-30 animate-bounce delay-1000"></div>
           </div>
-
-          {/* Stats Below Carousel */}
-          <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">22+</div>
-              <div className="text-sm text-gray-600">Global Partners</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">15+</div>
-              <div className="text-sm text-gray-600">Industries</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">50+</div>
-              <div className="text-sm text-gray-600">Countries</div>
-            </div>
-          </div>
         </div>
       </div>
 

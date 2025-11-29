@@ -15,29 +15,6 @@ import ContactSection from '../components/Contact';
 import Footer from '../components/Footer';
 
 const HomePage = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    const scrollToHash = () => {
-      const hash = location.hash.replace('#', '');
-      if (!hash) return;
-
-      const element = document.getElementById(hash);
-      if (element) {
-        const headerHeight = 80;
-        const y = element.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth',
-        });
-      }
-    };
-
-    // Delay slightly to ensure layout is rendered
-    setTimeout(scrollToHash, 200);
-  }, [location.hash]);
-
   return (
     <div className="relative">
       <Header />

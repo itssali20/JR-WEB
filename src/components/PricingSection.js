@@ -40,7 +40,7 @@ export default function PricingSection() {
     // Subscribe to services
     const servicesQuery = query(
       servicesCollection,
-      orderBy("createdAt", "desc")
+      orderBy("createdAt", "asc")
     );
     const unsubscribeServices = onSnapshot(servicesQuery, (snapshot) => {
       const servicesData = snapshot.docs.map((doc) => ({
@@ -48,7 +48,7 @@ export default function PricingSection() {
         ...doc.data(),
       }));
       setServices(servicesData);
-
+      
       // Filter services for initial view
       const initialServices = servicesData.filter(
         (service) => service.category === activeFilter
@@ -324,7 +324,7 @@ export default function PricingSection() {
             {filteredServices.map((service) => (
               <div
                 key={service.id}
-                className="group bg-white rounded-3xl md:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
+                className="flex flex-col h-auto justify-between group bg-white rounded-3xl md:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
               >
                 <div className="p-6 md:p-8 border-b border-gray-100">
                   <div className="flex justify-between items-start mb-4">
