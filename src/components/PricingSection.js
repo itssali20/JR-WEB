@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { db } from "../firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
@@ -47,7 +47,12 @@ export default function PricingSection() {
         id: doc.id,
         ...doc.data(),
       }));
-      setServices(servicesData);
+      const sortedPackages = servicesData.sort((a, b) => {
+        const priceA = parseFloat(a.price.replace("AED", "").trim());
+        const priceB = parseFloat(b.price.replace("AED", "").trim());
+        return priceA - priceB;
+      });
+      setServices(sortedPackages);
       
       // Filter services for initial view
       const initialServices = servicesData.filter(
@@ -421,7 +426,10 @@ export default function PricingSection() {
           Let's discuss your specific requirements and create a tailored package
           just for you.
         </p>
-        <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+        <Link
+          to="/contact"
+          className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        >
           Get Custom Quote
         </Link>
       </div>

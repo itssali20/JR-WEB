@@ -14,7 +14,7 @@ const HeroSection = () => {
 
   const opacity = useTransform(smoothY, [0, 200], [1, 0]);
   const videoScale = useTransform(smoothY, [0, 400], [1, 1.15]);
-  const videoWidth = useTransform(smoothY, [0, 400], ["54%", "100%"]);
+  const videoWidth = useTransform(smoothY, [0, 400], ["54%", "54%"]);
   const borderRadius = useTransform(smoothY, [0, 400], ["6rem", "0rem"]);
 
   return (
@@ -51,7 +51,7 @@ const HeroSection = () => {
           </p>
 
           {/* Main heading */}
-          <h1 className="text-[7.4rem] leading-[8.5rem] font-bold text-gray-800 tracking-tight">
+          <h1 className="text-[6.6rem] leading-[8.5rem] font-bold text-gray-800 tracking-tight">
             CREATORS
           </h1>
 
