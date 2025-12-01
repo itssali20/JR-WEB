@@ -6,7 +6,8 @@ export default function TestimonialsSection() {
     {
       name: "Sarah Lin",
       title: "Customer",
-      image: "https://img.freepik.com/free-photo/front-view-sign-language-concept_23-2148572467.jpg?semt=ais_hybrid&w=740&q=80",
+      image:
+        "https://img.freepik.com/free-photo/front-view-sign-language-concept_23-2148572467.jpg?semt=ais_hybrid&w=740&q=80",
       quote:
         "JR Digital Media transformed our outdated online presence into a sleek, modern platform. We've seen a huge uptick in engagement and conversions since launch. Their team is truly exceptional!",
       rating: 4,
@@ -14,7 +15,8 @@ export default function TestimonialsSection() {
     {
       name: "Jason Turner",
       title: "Startup Founder",
-      image: "https://photoheads.co.uk/wp-content/uploads/2020/05/headshot-with-client-testimonial.jpg",
+      image:
+        "https://photoheads.co.uk/wp-content/uploads/2020/05/headshot-with-client-testimonial.jpg",
       quote:
         "They don't just design; they understand your business. The brand strategy and web development provided by JR Digital Media were pivotal in our successful market entry.",
       rating: 5,
@@ -22,7 +24,8 @@ export default function TestimonialsSection() {
     {
       name: "Mia Reynolds",
       title: "Creative Director",
-      image: "https://img.freepik.com/free-photo/close-up-young-person-barbeque_23-2149271990.jpg",
+      image:
+        "https://img.freepik.com/free-photo/close-up-young-person-barbeque_23-2149271990.jpg",
       quote:
         "Working with BrightEdge was smooth from day one. The designs were sharp, the communication was clear, and delivery was on point.",
       rating: 5,
@@ -30,7 +33,8 @@ export default function TestimonialsSection() {
     {
       name: "Ava Nishi",
       title: "First-Time Entrepreneur",
-      image: "https://media.istockphoto.com/id/1324194583/photo/head-shot-portrait-smiling-attractive-woman-blogger-speaking-at-camera.jpg?s=612x612&w=0&k=20&c=1FJKrE_wqVyZhed7cYTgE2raRwHONesu258tl8N6VIQ=",
+      image:
+        "https://media.istockphoto.com/id/1324194583/photo/head-shot-portrait-smiling-attractive-woman-blogger-speaking-at-camera.jpg?s=612x612&w=0&k=20&c=1FJKrE_wqVyZhed7cYTgE2raRwHONesu258tl8N6VIQ=",
       quote:
         "BrightEdge helped us go from zero to launch with confidence. Their templates saved us weeks of work.",
       rating: 4,
@@ -46,7 +50,8 @@ export default function TestimonialsSection() {
     {
       name: "Rachel Foster",
       title: "Operations Lead, Wellnify",
-      image: "https://media.istockphoto.com/id/168518740/photo/portrait-of-woman-with-short-hair.jpg?s=612x612&w=0&k=20&c=5vGIftrKdgSMJzHdA0bzEYTQKloWi6BYgcJAPyTnfsI=",
+      image:
+        "https://media.istockphoto.com/id/168518740/photo/portrait-of-woman-with-short-hair.jpg?s=612x612&w=0&k=20&c=5vGIftrKdgSMJzHdA0bzEYTQKloWi6BYgcJAPyTnfsI=",
       quote:
         "Every step was thoughtful and intentional. They asked the right questions and delivered beyond expectations.",
       rating: 5,
@@ -54,7 +59,11 @@ export default function TestimonialsSection() {
   ];
 
   // Duplicate testimonials for seamless infinite scroll
-  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  const duplicatedTestimonials = [
+    ...testimonials,
+    ...testimonials,
+    ...testimonials,
+  ];
 
   return (
     <section className="bg-white py-20 px-6 md:px-16 lg:px-24 overflow-hidden">
@@ -71,119 +80,129 @@ export default function TestimonialsSection() {
       {/* Testimonials Carousel Container */}
       <div className="relative max-w-7xl mx-auto">
         {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
-        
+        <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r  to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l  to-transparent z-10"></div>
+
         {/* First Row Carousel */}
         <div className="flex mb-8">
           <div className="flex animate-scroll-slow hover:pause-animation">
-            {duplicatedTestimonials.slice(0, duplicatedTestimonials.length/2).map((t, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
-                style={{ width: '400px' }}
-              >
-                {/* Header */}
-                <div className="flex items-center mb-5">
-                  <img
-                    src={t.image}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {t.name}
-                    </h3>
-                    <p className="text-gray-500 text-sm">{t.title}</p>
+            {duplicatedTestimonials
+              .slice(0, duplicatedTestimonials.length / 2)
+              .map((t, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
+                  style={{ width: "400px" }}
+                >
+                  {/* Header */}
+                  <div className="flex items-center mb-5">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-12 h-12 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {t.name}
+                      </h3>
+                      <p className="text-gray-500 text-sm">{t.title}</p>
+                    </div>
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-gray-600 leading-relaxed mb-5">
+                    {t.quote}
+                  </p>
+
+                  {/* Rating */}
+                  <div className="flex space-x-1">
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <Star
+                        key={idx}
+                        size={18}
+                        className={`${idx < t.rating
+                            ? "text-orange-500 fill-orange-500"
+                            : "text-gray-300"
+                          }`}
+                      />
+                    ))}
                   </div>
                 </div>
-
-                {/* Quote */}
-                <p className="text-gray-600 leading-relaxed mb-5">
-                  {t.quote}
-                </p>
-
-                {/* Rating */}
-                <div className="flex space-x-1">
-                  {Array.from({ length: 5 }).map((_, idx) => (
-                    <Star
-                      key={idx}
-                      size={18}
-                      className={`${
-                        idx < t.rating 
-                          ? "text-orange-500 fill-orange-500" 
-                          : "text-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
 
         {/* Second Row Carousel (Reverse) */}
         <div className="flex">
           <div className="flex animate-scroll-slow-reverse hover:pause-animation">
-            {duplicatedTestimonials.slice(duplicatedTestimonials.length/2).map((t, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
-                style={{ width: '400px' }}
-              >
-                {/* Header */}
-                <div className="flex items-center mb-5">
-                  <img
-                    src={t.image}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {t.name}
-                    </h3>
-                    <p className="text-gray-500 text-sm">{t.title}</p>
+            {duplicatedTestimonials
+              .slice(duplicatedTestimonials.length / 2)
+              .map((t, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
+                  style={{ width: "400px" }}
+                >
+                  {/* Header */}
+                  <div className="flex items-center mb-5">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-12 h-12 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {t.name}
+                      </h3>
+                      <p className="text-gray-500 text-sm">{t.title}</p>
+                    </div>
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-gray-600 leading-relaxed mb-5">
+                    {t.quote}
+                  </p>
+
+                  {/* Rating */}
+                  <div className="flex space-x-1">
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <Star
+                        key={idx}
+                        size={18}
+                        className={`${idx < t.rating
+                            ? "text-orange-500 fill-orange-500"
+                            : "text-gray-300"
+                          }`}
+                      />
+                    ))}
                   </div>
                 </div>
-
-                {/* Quote */}
-                <p className="text-gray-600 leading-relaxed mb-5">
-                  {t.quote}
-                </p>
-
-                {/* Rating */}
-                <div className="flex space-x-1">
-                  {Array.from({ length: 5 }).map((_, idx) => (
-                    <Star
-                      key={idx}
-                      size={18}
-                      className={`${
-                        idx < t.rating 
-                          ? "text-orange-500 fill-orange-500" 
-                          : "text-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>
 
       {/* Stats Below Carousel */}
-      <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
+      <div className="mt-24 grid grid-cols-2 md:grid-cols-3 text-center">
         <div>
-          <div className="text-2xl font-bold text-blue-600">100%</div>
-          <div className="text-sm text-gray-600">Client Satisfaction</div>
+          <h3 className="text-5xl font-bold text-gray-900">
+            100 %
+          </h3>
+          <p className="text-gray-600 mt-2">Client Satisfaction</p>
         </div>
+
         <div>
-          <div className="text-2xl font-bold text-blue-600">4.9/5</div>
-          <div className="text-sm text-gray-600">Average Rating</div>
+          <h3 className="text-5xl font-bold text-gray-900">
+            4.9/5
+          </h3>
+          <p className="text-gray-600 mt-2">Average Rating</p>
         </div>
+
         <div>
-          <div className="text-2xl font-bold text-blue-600">140+</div>
-          <div className="text-sm text-gray-600">Happy Clients</div>
+          <h3 className="text-5xl font-bold text-gray-900">
+            140+
+          </h3>
+          <p className="text-gray-600 mt-2">Happy Clients</p>
         </div>
       </div>
 
@@ -197,7 +216,7 @@ export default function TestimonialsSection() {
             transform: translateX(calc(-424px * 9));
           }
         }
-        
+
         @keyframes scroll-reverse {
           0% {
             transform: translateX(calc(-424px * 9));
@@ -229,7 +248,7 @@ export default function TestimonialsSection() {
               transform: translateX(calc(-344px * 9));
             }
           }
-          
+
           @keyframes scroll-reverse {
             0% {
               transform: translateX(calc(-344px * 9));
