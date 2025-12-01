@@ -10,7 +10,7 @@ export default function InsightsSection() {
   return (
     <section className="bg-white py-24 px-6 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 mb-16 leading-tight max-w-3xl">
+        <h2 className="text-4xl font-semibold md:font-semibold lg:font-extrabold text-gray-900 mb-16 leading-tight max-w-6xl">
           STAY AHEAD WITH THE LATEST IN DIGITAL MARKETING
         </h2>
 

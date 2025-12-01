@@ -329,7 +329,7 @@ export default function PricingSection() {
             {filteredServices.map((service) => (
               <div
                 key={service.id}
-                className="flex flex-col h-auto justify-between group bg-white rounded-3xl md:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
+                className="flex flex-col h-auto justify-start group bg-white rounded-3xl md:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
               >
                 <div className="p-6 md:p-8 border-b border-gray-100">
                   <div className="flex justify-between items-start mb-4">
@@ -367,7 +367,7 @@ export default function PricingSection() {
                   </ul>
                 </div>
 
-                <div className="px-6 md:px-8 pb-6 md:pb-8">
+                <div className="mt-auto px-6 md:px-8 pb-6 md:pb-8">
                   <button className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold py-3 rounded-xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
                     Get Started <ArrowRight size={18} />
                   </button>
