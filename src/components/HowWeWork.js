@@ -114,7 +114,7 @@ export default function HowWeWork() {
   return (
     <section
       ref={sectionRef}
-      className="flex flex-col lg:flex-row h-screen overflow-visible bg-white"
+      className="flex flex-col lg:flex-row h-auto overflow-visible bg-white"
     >
       {/* LEFT SIDE - Mobile: Top, Desktop: Left */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-6 lg:px-16 py-12 lg:py-0 lg:sticky lg:top-0 lg:h-screen bg-white">
@@ -135,16 +135,16 @@ export default function HowWeWork() {
       {/* RIGHT SIDE - Mobile: Bottom, Desktop: Right with custom scroll */}
       <div
         ref={rightRef}
-        className="w-full lg:w-1/2 overflow-y-auto py-12 lg:py-16 px-6 lg:px-16 scroll-smooth hide-scrollbar"
+        className="w-full lg:w-1/2 overflow-y-visible py-12 lg:py-16 px-6 lg:px-16 scroll-smooth hide-scrollbar"
         style={{
-          height: "100vh",
+          height: "auto",
           scrollBehavior: "smooth",
         }}
       >
         <div className="relative">
-          {/* Animated Vertical Line */}
+          {/* Static Vertical Line */}
           <div className="absolute left-4 lg:left-4 top-0 h-full w-0.5 bg-gray-200">
-            <motion.div
+            <div
               className="absolute top-0 left-0 w-full bg-blue-500 origin-top"
               style={{ height: lineHeight }}
             />
@@ -153,12 +153,7 @@ export default function HowWeWork() {
           {/* Steps Container */}
           <div className="relative border-l-0 ml-8 lg:ml-8 space-y-8 lg:space-y-8">
             {steps.map((step, i) => (
-              <div
-                key={i}
-                data-step={i}
-                ref={(el) => (stepRefs.current[i] = el)}
-                className="pl-4 lg:pl-6 relative"
-              >
+              <div key={i} data-step={i} className="pl-4 lg:pl-6 relative">
                 {/* Static Circle */}
                 <div className="absolute -left-[34px] lg:-left-[30px] top-0">
                   <div
