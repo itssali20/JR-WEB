@@ -1,5 +1,7 @@
 import React from "react";
 
+import Jahangir from "../../src/assets/images/team/jahangirt.jpg";
+
 export default function ContactSection() {
   return (
     <section className="relative bg-gradient-to-br from-[#0a0c2a] via-[#0d122f] to-[#001a3a] text-white py-24 px-6 md:px-16 lg:px-24 overflow-hidden">
@@ -12,13 +14,13 @@ export default function ContactSection() {
 
           <div className="flex items-center mb-6">
             <img
-              src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?semt=ais_hybrid&w=740&q=80"
+              src={Jahangir}
               alt="Profile"
               className="w-14 h-14 rounded-full object-cover mr-4"
             />
             <div>
-              <h4 className="font-bold text-lg">Michael Bridges</h4>
-              <p className="text-gray-400 text-sm">CEO, BrightEdge</p>
+              <h4 className="font-bold text-lg">Muhammad Jahangir Ahmad</h4>
+              <p className="text-gray-400 text-sm"> CEO - Founder</p>
             </div>
           </div>
 
@@ -70,7 +72,7 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-[#ff4d2d] to-[#ff5e2d] text-white font-semibold py-3 rounded-md hover:opacity-90 transition"
+            className="w-full bg-white text-black font-semibold py-3 rounded-md hover:opacity-90 transition"
           >
             Submit
           </button>

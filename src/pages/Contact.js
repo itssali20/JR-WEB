@@ -208,10 +208,10 @@ export default function WorkWithBadMarketingForm() {
                   <p className="text-gray-600 text-lg mb-6">
                     Check our social links in the footer or send us an email at{" "}
                     <a
-                      href="mailto:hello@yourbrand.com"
+                      href="hello@jandr.info"
                       className="text-blue-600 font-semibold hover:text-blue-700 transition-colors underline"
                     >
-                      hello@yourbrand.com
+                      hello@jandr.info
                     </a>
                     .
                   </p>
@@ -246,7 +246,7 @@ export default function WorkWithBadMarketingForm() {
                         Call Us Directly
                       </h3>
                       <p className="text-gray-600 text-lg font-medium">
-                        +1 (555) 123-4567
+                        +971529126565
                       </p>
                     </div>
                   </div>
@@ -272,7 +272,7 @@ export default function WorkWithBadMarketingForm() {
                         Send Us an Email
                       </h3>
                       <p className="text-gray-600 text-lg font-medium">
-                        hello@yourbrand.com
+                        hello@jandr.info
                       </p>
                     </div>
                   </div>
