@@ -37,7 +37,7 @@ const AboutSection = () => {
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-800 leading-tight mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-12">
           WE ARE LEADING DIGITAL TRANSFORMATION EXPERTS
         </h2>
 

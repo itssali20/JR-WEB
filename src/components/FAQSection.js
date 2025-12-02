@@ -56,7 +56,7 @@ export default function FaqSection() {
         {/* RIGHT - Scrollable FAQ */}
         <div
           ref={scrollRef}
-          className="max-h-[75vh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+          className="max-h-[75vh] overflow-y-visible pr-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
         >
           {faqs.map((item, index) => (
             <React.Fragment key={index}>
