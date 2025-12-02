@@ -3,11 +3,20 @@ import asfahan from "../assets/images/team/1.jpg";
 import asmar from "../assets/images/team/asmar.jpg";
 import jahangirt from "../assets/images/team/jahangirt.jpg";
 import Rashed from "../assets/images/team/Rashed.jpg";
+import AliRaza from "../assets/images/team/Ali Raza.jpg";
+import AliYar from "../assets/images/team/Ali.jpg";
+import Ayesha from "../assets/images/team/Ayesha.jpg";
+import Bilal from "../assets/images/team/Bilal.jpg";
+import Bushra from "../assets/images/team/Bushra.jpg";
+import Danyal from "../assets/images/team/Danyal.jpg";
+import Fahad from "../assets/images/team/fahad.jpg";
+import Yasir from "../assets/images/team/Muhammad Yasir.jpg";
+import Yunus from "../assets/images/team/Yunus Ahmad.jpg";
 
 export default function TeamSection() {
   const team = [
     {
-      name: "Jahangir Khan",
+      name: "Jahangir Ahmad",
       role: "Chief Executive Officer",
       image: jahangirt,
     },
@@ -17,14 +26,59 @@ export default function TeamSection() {
       image: asfahan,
     },
     {
-      name: "Rashed Khan",
+      name: "Rashed Inam",
       role: "Project Manager",
       image: Rashed,
     },
     {
-      name: "Asmar Ali",
+      name: "Asmar Bashir",
       role: "Chief Finance Officer",
       image: asmar,
+    },
+    {
+      name: "Ali Raza",
+      role: "WordPress Developer",
+      image: AliRaza
+    },
+    {
+      name: "Ali Yar Khan",
+      role: "React Developer",
+      image: AliYar
+    },
+    {
+      name: "Ayesha Khan",
+      role: "Accounts Manager",
+      image: Ayesha
+    },
+    {
+      name: "Bilal Khan",
+      role: "Project Manager",
+      image: Bilal
+    },
+    {
+      name: "Bushra Noor",
+      role: "Content Creator",
+      image: Bushra
+    },
+    {
+      name: "Daniyal",
+      role: "Photographer",
+      image: Danyal
+    },
+    {
+      name: "Fahad Anwar",
+      role: "Media Manager",
+      image: Fahad
+    },
+    {
+      name: "Muhammad Yasir",
+      role: "SEO Manager",
+      image: Yasir
+    },
+    {
+      name: "Yunus Ahmad",
+      role: "Graphic Designer",
+      image: Yunus
     },
   ];
 
