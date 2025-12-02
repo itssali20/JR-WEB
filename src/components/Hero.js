@@ -81,7 +81,7 @@ const HeroSection = () => {
           We are digital design
         </p>
         <h1 className="text-6xl font-semibold leading-[4rem] mb-4">CREATORS</h1>
-        <p className="text-gray-500 text-lg leading-relaxed">
+        <p className="text-gray-500 text-lg text-center leading-relaxed">
           From Concept to Creation — Beautiful design has the power to captivate audiences
         </p>
       </div>
