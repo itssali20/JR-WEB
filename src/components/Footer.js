@@ -28,26 +28,26 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <ul className="text-gray-700 space-y-1">
-              <li className="flex flex-wrap gap-5 text-[15px]">
-                <a href="#" className="hover:text-gray-900 transition">
+              <li className="flex lg:flex-wrap gap-4 lg:gap-5 text-[15px]">
+                <a href="#" className="hover:text-gray-900 transition text-[10px]">
                   Home
                 </a>
-                <a href="#" className="hover:text-gray-900 transition">
+                <a href="#" className="hover:text-gray-900 transition text-[10px]">
                   About
                 </a>
-                <a href="#" className="hover:text-gray-900 transition">
+                <a href="#" className="hover:text-gray-900 transition text-[10px]">
                   Services
                 </a>
-                <a href="#" className="hover:text-gray-900 transition">
+                <a href="#" className="hover:text-gray-900 transition text-[10px]">
                   Projects
                 </a>
-                <a href="#" className="hover:text-gray-900 transition">
+                <a href="#" className="hover:text-gray-900 transition text-[10px]">
                   Blogs
                 </a>
-                <a href="#" className="hover:text-gray-900 transition">
+                <a href="#" className="hover:text-gray-900 transition text-[10px]">
                   Pricing
                 </a>
-                <a href="#" className="hover:text-gray-900 transition">
+                <a href="#" className="hover:text-gray-900 transition text-[10px]">
                   Contact
                 </a>
               </li>

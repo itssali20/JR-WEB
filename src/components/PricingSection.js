@@ -187,9 +187,9 @@ export default function PricingSection() {
   }
 
   return (
-    <section className="bg-white py-20 px-6 md:px-16 lg:px-24">
+    <section className="bg-white py-4 lg:py-20 px-6 md:px-16 lg:px-24">
       {/* Header */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-8 lg:mb-16">
         <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-8">
           {view === "packages"
             ? "DIGITAL TRANSFORMATION PACKAGES"

@@ -46,7 +46,7 @@ export default function TeamSection() {
       image: AliYar
     },
     {
-      name: "Ayesha Khan",
+      name: "Aasia Khan",
       role: "Accounts Manager",
       image: Ayesha
     },

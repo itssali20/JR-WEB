@@ -33,7 +33,7 @@ const AboutSection = () => {
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="bg-white px-6 md:px-16 lg:px-24 py-20 overflow-hidden">
+    <section className="bg-white px-6 md:px-16 lg:px-24 lg:py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
