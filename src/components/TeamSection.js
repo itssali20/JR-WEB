@@ -130,7 +130,7 @@ export default function TeamSection() {
       {/* Section Header */}
       <div className="max-w-5xl mx-auto text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight">
-          DEDICATED DIGITAL EXPERTS AT YOUR SERVICE
+          DEDICATED DIGITAL EXPERT TEAM
         </h2>
       </div>
 

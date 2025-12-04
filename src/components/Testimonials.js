@@ -27,7 +27,7 @@ export default function TestimonialsSection() {
       image:
         "https://img.freepik.com/free-photo/close-up-young-person-barbeque_23-2149271990.jpg",
       quote:
-        "Working with BrightEdge was smooth from day one. The designs were sharp, the communication was clear, and delivery was on point.",
+        "Working with JR Digital Media was smooth from day one. The designs were sharp, the communication was clear, and delivery was on point.",
       rating: 5,
     },
     {
@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
       image:
         "https://media.istockphoto.com/id/1324194583/photo/head-shot-portrait-smiling-attractive-woman-blogger-speaking-at-camera.jpg?s=612x612&w=0&k=20&c=1FJKrE_wqVyZhed7cYTgE2raRwHONesu258tl8N6VIQ=",
       quote:
-        "BrightEdge helped us go from zero to launch with confidence. Their templates saved us weeks of work.",
+        "JR Digital Media helped us go from zero to launch with confidence. Their templates saved us weeks of work.",
       rating: 4,
     },
     {

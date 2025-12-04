@@ -45,48 +45,13 @@ const HeroSection = () => {
         >
           <source src={video} type="video/mp4" />
         </motion.video>
-
-        {/* Badge - keep only for desktop */}
-        <div className="hidden lg:flex absolute bottom-12 right-12 w-32 h-32 items-center justify-center z-20">
-          <div className="absolute w-full h-full rounded-full border-2 border-gray-300 flex items-center justify-center text-[11px] text-gray-700 animate-spin-slow">
-            <span className="tracking-widest font-medium">
-              INSIGHT • SOLUTION • CREATE • IDEA •
-            </span>
-          </div>
-          <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="white"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* Desktop Text Overlay */}
-        <motion.div
-          style={{ opacity }}
-          className="absolute z-20 bottom-8 right-8 bg-white px-8 py-4 rounded-tl-3xl shadow-xl hidden lg:flex"
-        >
-          <h2 className="text-gray-900 font-semibold text-3xl leading-tight md:font-extrabold lg:font-extrabold">
-            CREATING THAT <br /> INSPIRES
-          </h2>
-        </motion.div>
       </motion.div>
 
-      // mobile view
+      {/* mobile view */}
       <motion.div
         style={{
           // Apply animated width only on desktop
-          width: '100%',
+          width: "100%",
         }}
         className="relative w-full block lg:hidden"
       >
@@ -103,47 +68,12 @@ const HeroSection = () => {
         >
           <source src={video} type="video/mp4" />
         </motion.video>
-
-        {/* Badge - keep only for desktop */}
-        <div className="hidden lg:flex absolute bottom-12 right-12 w-32 h-32 items-center justify-center z-20">
-          <div className="absolute w-full h-full rounded-full border-2 border-gray-300 flex items-center justify-center text-[11px] text-gray-700 animate-spin-slow">
-            <span className="tracking-widest font-medium">
-              INSIGHT • SOLUTION • CREATE • IDEA •
-            </span>
-          </div>
-          <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="white"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* Desktop Text Overlay */}
-        <motion.div
-          style={{ opacity }}
-          className="absolute z-20 bottom-8 right-8 bg-white px-8 py-4 rounded-tl-3xl shadow-xl hidden lg:flex"
-        >
-          <h2 className="text-gray-900 font-semibold text-3xl leading-tight md:font-extrabold lg:font-extrabold">
-            CREATING THAT <br /> INSPIRES
-          </h2>
-        </motion.div>
       </motion.div>
 
       {/* Mobile Text Section */}
       <div className="w-full px-8 mt-6 lg:hidden flex flex-col items-start">
         <p className="text-[#333333] font-semibold text-3xl flex items-center mb-2">
-          <AsteriskIcon className="w-16 h-16 mr-2" />
+          <AsteriskIcon className="w-16 h-16 mr-2 text-blue-800" />
           We are digital design
         </p>
         <h1 className="text-6xl font-semibold leading-[4rem] mb-4">CREATORS</h1>
@@ -155,11 +85,11 @@ const HeroSection = () => {
 
       {/* Desktop Text Section */}
       <motion.div
-        style={{ opacity }}
+        // style={{ opacity }}
         className="hidden lg:flex flex-col justify-center items-start px-20 w-[43%] h-full"
       >
         <p className="text-[#333333] font-semibold text-3xl flex items-center mb-4">
-          <AsteriskIcon className="w-10 h-10 mr-4" />
+          <AsteriskIcon className="w-10 h-10 mr-4 text-blue-800" />
           We are digital design
         </p>
         <h1 className="text-[6.6rem] leading-[8.5rem] font-bold text-gray-800 tracking-tight mb-6">

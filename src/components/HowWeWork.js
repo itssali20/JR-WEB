@@ -151,7 +151,7 @@ export default function HowWeWork() {
           </div>
 
           {/* Steps Container */}
-          <div className="relative border-l-0 ml-8 lg:ml-8 space-y-8 lg:space-y-8">
+          <div className="relative border-l-0 ml-8 lg:ml-8 space-y-8 lg:space-y-6">
             {steps.map((step, i) => (
               <div key={i} data-step={i} className="pl-4 lg:pl-6 relative">
                 {/* Static Circle */}
@@ -195,12 +195,14 @@ export default function HowWeWork() {
                       activeStep === i ? "translateX(8px)" : "translateX(0)",
                   }}
                 >
-                  <h3 className="text-4xl lg:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-blue-600">
-                    {step.number}
-                  </h3>
-                  <h4 className="text-xl lg:text-xl font-bold mt-1 mb-2 text-gray-900">
-                    {step.title}
-                  </h4>
+                  <div className="flex flex-row items-center space-x-2">
+                    <h3 className="text-4xl lg:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-blue-600">
+                      {step.number}
+                    </h3>
+                    <h4 className="text-xl lg:text-xl font-bold mt-1 mb-2 text-gray-900">
+                      {step.title}
+                    </h4>
+                  </div>
                   <p className="text-gray-600 leading-relaxed max-w-full lg:max-w-sm text-base lg:text-inherit">
                     {step.description}
                   </p>
