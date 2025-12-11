@@ -55,7 +55,7 @@ const AboutSection = () => {
     <section className="bg-white px-6 md:px-16 lg:px-24 lg:py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-12 text-center">
           WE ARE LEADING DIGITAL TRANSFORMATION EXPERTS
         </h2>
 
@@ -178,9 +178,8 @@ const AboutSection = () => {
                     >
                       <img
                         src={logo}
-                        alt={`Partner logo ${
-                          index + 1 + duplicatedLogos.length / 2
-                        }`}
+                        alt={`Partner logo ${index + 1 + duplicatedLogos.length / 2
+                          }`}
                         className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                       />
                     </div>

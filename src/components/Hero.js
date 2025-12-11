@@ -92,7 +92,7 @@ const HeroSection = () => {
           <AsteriskIcon className="w-10 h-10 mr-4 text-blue-800" />
           We are digital design
         </p>
-        <h1 className="text-[6.6rem] leading-[8.5rem] font-bold text-gray-800 tracking-tight mb-6">
+        <h1 className="text-[6rem] leading-[8.5rem] font-bold text-gray-800 tracking-tight mb-6">
           CREATORS
         </h1>
         <p className="text-gray-500 text-2xl leading-relaxed max-w-xl">
