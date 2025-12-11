@@ -53,7 +53,7 @@ export default function PricingSection() {
         return priceA - priceB;
       });
       setServices(sortedPackages);
-      
+
       // Filter services for initial view
       const initialServices = servicesData.filter(
         (service) => service.category === activeFilter
@@ -204,18 +204,16 @@ export default function PricingSection() {
             {/* Scroll Buttons for Desktop */}
             <button
               onClick={scrollLeft}
-              className={`hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
-                canScrollLeft ? "opacity-100" : "opacity-0 pointer-events-none"
-              }`}
+              className={`hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${canScrollLeft ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
             >
               <ChevronLeft size={20} className="text-gray-700" />
             </button>
 
             <button
               onClick={scrollRight}
-              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
-                canScrollRight ? "opacity-100" : "opacity-0 pointer-events-none"
-              }`}
+              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${canScrollRight ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
             >
               <ChevronRight size={20} className="text-gray-700" />
             </button>
@@ -228,10 +226,9 @@ export default function PricingSection() {
                   className="absolute top-1.5 bottom-1.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl transition-all duration-500 ease-out shadow-lg"
                   style={{
                     width: `${100 / filters.length}%`,
-                    left: `${
-                      (filters.findIndex((f) => f.id === activeFilter) * 100) /
+                    left: `${(filters.findIndex((f) => f.id === activeFilter) * 100) /
                       filters.length
-                    }%`,
+                      }%`,
                   }}
                 ></div>
 
@@ -241,11 +238,10 @@ export default function PricingSection() {
                     <button
                       key={filter.id}
                       onClick={() => handleFilterClick(filter.id)}
-                      className={`relative flex-1 py-4 px-2 mx-1 rounded-xl font-semibold text-sm transition-all duration-300 z-10 ${
-                        activeFilter === filter.id
-                          ? "text-white"
-                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/80"
-                      } ${isAnimating ? "opacity-70" : "opacity-100"}`}
+                      className={`relative flex-1 py-4 px-2 mx-1 rounded-xl font-semibold text-sm transition-all duration-300 z-10 ${activeFilter === filter.id
+                        ? "text-white"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/80"
+                        } ${isAnimating ? "opacity-70" : "opacity-100"}`}
                       disabled={isAnimating}
                     >
                       <span className="relative z-10 whitespace-nowrap">
@@ -271,9 +267,8 @@ export default function PricingSection() {
                     {currentFilterLabel}
                   </span>
                   <svg
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
-                      isDropdownOpen ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -293,11 +288,10 @@ export default function PricingSection() {
                       <button
                         key={filter.id}
                         onClick={() => handleFilterClick(filter.id)}
-                        className={`w-full py-4 px-6 text-left font-semibold transition-all duration-200 flex items-center gap-3 ${
-                          activeFilter === filter.id
-                            ? "bg-gradient-to-r from-sky-50 to-blue-50 text-blue-700 border-l-4 border-blue-600"
-                            : "text-gray-700 hover:bg-gray-50"
-                        } ${isAnimating ? "opacity-70" : "opacity-100"}`}
+                        className={`w-full py-4 px-6 text-left font-semibold transition-all duration-200 flex items-center gap-3 ${activeFilter === filter.id
+                          ? "bg-gradient-to-r from-sky-50 to-blue-50 text-blue-700 border-l-4 border-blue-600"
+                          : "text-gray-700 hover:bg-gray-50"
+                          } ${isAnimating ? "opacity-70" : "opacity-100"}`}
                         disabled={isAnimating}
                       >
                         <span className="text-lg">{filter.icon}</span>
@@ -322,9 +316,8 @@ export default function PricingSection() {
       {view === "packages" ? (
         <div className="max-w-7xl mx-auto">
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 transition-all duration-500 ${
-              isAnimating ? "opacity-50 scale-95" : "opacity-100 scale-100"
-            }`}
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 transition-all duration-500 ${isAnimating ? "opacity-50 scale-95" : "opacity-100 scale-100"
+              }`}
           >
             {filteredServices.map((service) => (
               <div

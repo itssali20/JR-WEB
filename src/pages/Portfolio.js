@@ -157,12 +157,11 @@ export default function PortfolioSection() {
       <section className="w-full bg-gradient-to-b from-gray-50 to-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
-          <p className="text-blue-600 font-semibold mb-3 text-sm md:text-base">{`{ Our Portfolio }`}</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
             Creating Digital Excellence
           </h2>
           <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Explore our diverse portfolio of successful projects that showcase our expertise 
+            Explore our diverse portfolio of successful projects that showcase our expertise
             in delivering cutting-edge digital solutions.
           </p>
         </div>
@@ -188,11 +187,10 @@ export default function PortfolioSection() {
                     <button
                       key={filter.id}
                       onClick={() => handleFilterClick(filter.id)}
-                      className={`relative flex-1 py-4 px-2 mx-1 rounded-xl font-semibold text-sm transition-all duration-300 z-10 ${
-                        activeFilter === filter.id
+                      className={`relative flex-1 py-4 px-2 mx-1 rounded-xl font-semibold text-sm transition-all duration-300 z-10 ${activeFilter === filter.id
                           ? "text-white"
                           : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/80"
-                      } ${isAnimating ? "opacity-70" : "opacity-100"}`}
+                        } ${isAnimating ? "opacity-70" : "opacity-100"}`}
                       disabled={isAnimating}
                     >
                       <span className="relative z-10 whitespace-nowrap">
@@ -217,9 +215,8 @@ export default function PortfolioSection() {
                     {currentFilterLabel}
                   </span>
                   <svg
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
-                      isDropdownOpen ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -235,11 +232,10 @@ export default function PortfolioSection() {
                       <button
                         key={filter.id}
                         onClick={() => handleFilterClick(filter.id)}
-                        className={`w-full py-4 px-6 text-left font-semibold transition-all duration-200 flex items-center ${
-                          activeFilter === filter.id
+                        className={`w-full py-4 px-6 text-left font-semibold transition-all duration-200 flex items-center ${activeFilter === filter.id
                             ? "bg-blue-50 text-blue-700 border-l-4 border-blue-600"
                             : "text-gray-700 hover:bg-gray-50"
-                        } ${isAnimating ? "opacity-70" : "opacity-100"}`}
+                          } ${isAnimating ? "opacity-70" : "opacity-100"}`}
                         disabled={isAnimating}
                       >
                         {activeFilter === filter.id && (
@@ -271,9 +267,8 @@ export default function PortfolioSection() {
         {/* Projects Grid */}
         <div className="max-w-7xl mx-auto">
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 transition-all duration-500 ${
-              isAnimating ? "opacity-50 scale-95" : "opacity-100 scale-100"
-            }`}
+            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 transition-all duration-500 ${isAnimating ? "opacity-50 scale-95" : "opacity-100 scale-100"
+              }`}
           >
             {filteredProjects.map((project) => (
               <div

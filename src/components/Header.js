@@ -28,8 +28,19 @@ const Header = () => {
 
   const goToSection = (id) => {
     setIsMobileMenuOpen(false);
+
     if (location.pathname === "/") {
-      navigate(`#${id}`);
+      const element = document.getElementById(id);
+      if (element) {
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
     } else {
       navigate(`/#${id}`);
     }
@@ -54,15 +65,16 @@ const Header = () => {
   const navItems = [
     { id: "about", label: "THE BRAND" },
     { id: "services", label: "SERVICES" },
-    { id: "portfolio", label: "PROFILE" },
+    { id: "portfolio", label: "PORTFOLIO" },
     { id: "pricing", label: "PRICING" },
   ];
 
   const handleNavClick = (id) => {
     setIsMobileMenuOpen(false);
-    if (id === "portfolio") {
-      navigate("/portfolio");
-    } else if (id === "about") {
+    if (id === 'portfolio') {
+      navigate(id);
+    }
+    if (id === "about") {
       if (location.pathname === "/") {
         navigate("#about");
       } else {
@@ -75,11 +87,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 w-full max-w-full overflow-x-hidden z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-2xl border-b border-blue-100"
-          : "bg-white/90 backdrop-blur-sm"
-      }`}
+      className={`fixed top-0 left-0 right-0 w-full max-w-full overflow-x-hidden z-50 transition-all duration-500 ${isScrolled
+        ? "bg-white/95 backdrop-blur-md shadow-2xl border-b border-blue-100"
+        : "bg-white/90 backdrop-blur-sm"
+        }`}
     >
       <div className="max-w-7xl mx-auto w-full px-3 sm:px-4 lg:px-8">
         {/* DESKTOP */}
@@ -127,9 +138,8 @@ const Header = () => {
                     {user?.displayName || user?.email?.split("@")[0] || "User"}
                   </span>
                   <svg
-                    className={`w-4 h-4 text-blue-600 transition-transform duration-200 ${
-                      isUserMenuOpen ? "rotate-180" : ""
-                    }`}
+                    className={`w-4 h-4 text-blue-600 transition-transform duration-200 ${isUserMenuOpen ? "rotate-180" : ""
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -205,19 +215,16 @@ const Header = () => {
             >
               <div className="w-6 h-6 flex flex-col justify-center space-y-1.5">
                 <span
-                  className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
-                    isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-                  }`}
+                  className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
+                    }`}
                 ></span>
                 <span
-                  className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
-                    isMobileMenuOpen ? "opacity-0" : "opacity-100"
-                  }`}
+                  className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                    }`}
                 ></span>
                 <span
-                  className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
-                    isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                  }`}
+                  className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                    }`}
                 ></span>
               </div>
             </button>
