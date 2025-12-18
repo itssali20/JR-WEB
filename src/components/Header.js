@@ -72,14 +72,7 @@ const Header = () => {
   const handleNavClick = (id) => {
     setIsMobileMenuOpen(false);
     if (id === 'portfolio') {
-      navigate(id);
-    }
-    if (id === "about") {
-      if (location.pathname === "/") {
-        navigate("#about");
-      } else {
-        navigate("/#about");
-      }
+      navigate('/portfolio');
     } else {
       goToSection(id);
     }
