@@ -9,13 +9,13 @@ import PortfolioSection from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
 
-// import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <UserProvider>
       <Router>
-        {/* <ScrollToTop /> */}
+        <ScrollToTop />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />

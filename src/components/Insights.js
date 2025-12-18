@@ -8,9 +8,9 @@ export default function InsightsSection() {
   // (this array is now imported from `src/data/posts.js`)
 
   return (
-    <section className="bg-white py-24 px-6 md:px-16 lg:px-24">
+    <section className="bg-white pt-60 pb-32 lg:py-24 px-6 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-semibold md:font-semibold lg:font-extrabold text-gray-900 mb-16 leading-tight max-w-6xl">
+        <h2 className="text-xl lg:text-4xl font-semibold md:font-semibold lg:font-extrabold text-gray-900 mb-16 leading-tight max-w-6xl">
           STAY AHEAD WITH THE LATEST IN DIGITAL MARKETING
         </h2>
 

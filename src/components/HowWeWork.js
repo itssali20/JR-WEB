@@ -4,111 +4,47 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 export default function HowWeWork() {
   const sectionRef = useRef(null);
   const rightRef = useRef(null);
+  const stepsContainerRef = useRef(null);
   const isLockedRef = useRef(false);
   const [activeStep, setActiveStep] = useState(0);
+  const [lineProgress, setLineProgress] = useState(0);
   const stepRefs = useRef([]);
-  // Scroll animation for the vertical line
-  const { scrollYProgress } = useScroll({
-    container: rightRef,
-  });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
-
-  // Lock body scroll when right panel is scrolling - Desktop only
-  // useEffect(() => {
-  //   const right = rightRef.current;
-
-  //   if (!right) return;
-
-  //   const handleWheel = (e) => {
-  //     // Only apply custom handling on desktop-sized viewports
-  //     if (window.innerWidth < 1024) return;
-
-  //     const atTop = right.scrollTop === -10;
-  //     const atBottom = right.scrollHeight - right.scrollTop <= right.clientHeight + 1;
-
-  //     // If the right panel can scroll in the direction of the wheel, prevent default and scroll it
-  //     if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
-  //       e.preventDefault();
-  //       isLockedRef.current = true;
-  //       right.scrollTop += e.deltaY;
-
-  //       // Clear the lock after a short timeout
-  //       clearTimeout(handleWheel._unlockTimeout);
-  //       handleWheel._unlockTimeout = setTimeout(() => {
-  //         isLockedRef.current = false;
-  //       }, 100);
-  //     } else {
-  //       isLockedRef.current = false;
-  //     }
-  //   };
-
-  //   const handleTouchMove = (e) => {
-  //     if (isLockedRef.current && window.innerWidth >= 1024) {
-  //       e.preventDefault();
-  //     }
-  //   };
-
-  //   // Intersection Observer to track active step
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           const stepIndex = parseInt(entry.target.getAttribute('data-step') || '0');
-  //           setActiveStep(stepIndex);
-  //         }
-  //       });
-  //     },
-  //     {
-  //       root: rightRef.current,
-  //       threshold: 0.6,
-  //       rootMargin: '-20% 0px -20% 0px'
-  //     }
-  //   );
-
-  //   // Observe all step elements
-  //   const stepElements = right?.querySelectorAll('[data-step]');
-  //   stepElements?.forEach((el) => observer.observe(el));
-
-  //   // Attach listener to the right panel element rather than the window to avoid intercepting early wheel events
-  //   right.addEventListener("wheel", handleWheel, { passive: false });
-  //   window.addEventListener("touchmove", handleTouchMove, { passive: false });
-
-  //   return () => {
-  //     right.removeEventListener("wheel", handleWheel);
-  //     window.removeEventListener("touchmove", handleTouchMove);
-  //     clearTimeout(handleWheel._unlockTimeout);
-  //     observer.disconnect();
-  //   };
-  // }, []);
-
+  // Custom scroll tracking for the vertical line
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.step);
-            setActiveStep(index);
-          }
-        });
-      },
-      {
-        root: rightRef.current,
-        threshold: 0.5, // 50% visible triggers active
-      }
-    );
+    const handleScroll = () => {
+      if (!stepsContainerRef.current) return;
 
-    stepRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+      const container = stepsContainerRef.current;
+      const rect = container.getBoundingClientRect();
+      const containerHeight = container.offsetHeight;
+      const viewportHeight = window.innerHeight;
 
-    return () => observer.disconnect();
+      // Calculate scroll progress
+      // Start filling when container enters viewport, finish when it exits
+      const startPoint = viewportHeight;
+      const endPoint = -containerHeight;
+      const scrollRange = startPoint - endPoint;
+      const currentPosition = rect.top;
+
+      const progress = 1 - ((currentPosition - endPoint) / scrollRange);
+      const clampedProgress = Math.max(0, Math.min(1, progress));
+
+      setLineProgress(clampedProgress);
+
+      // Calculate which step the line has reached
+      // Divide the progress by number of steps to determine active step
+      const totalSteps = steps.length;
+      const stepProgress = clampedProgress * totalSteps;
+      const currentActiveStep = Math.floor(stepProgress);
+
+      setActiveStep(Math.min(currentActiveStep, totalSteps - 1));
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial calculation
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -145,21 +81,21 @@ export default function HowWeWork() {
           {/* Static Vertical Line */}
           <div className="absolute left-4 lg:left-4 top-0 h-full w-0.5 bg-gray-200">
             <div
-              className="absolute top-0 left-0 w-full bg-blue-500 origin-top"
-              style={{ height: lineHeight }}
+              className="absolute top-0 left-0 w-full bg-blue-500 origin-top transition-all duration-100 ease-out"
+              style={{ height: `${lineProgress * 100}%` }}
             />
           </div>
 
           {/* Steps Container */}
-          <div className="relative border-l-0 ml-8 lg:ml-8 space-y-8 lg:space-y-8">
+          <div ref={stepsContainerRef} className="relative border-l-0 ml-8 lg:ml-8 space-y-8 lg:space-y-6">
             {steps.map((step, i) => (
               <div key={i} data-step={i} className="pl-4 lg:pl-6 relative">
                 {/* Static Circle */}
-                <div className="absolute -left-[34px] lg:-left-[30px] top-0">
+                <div className="absolute -left-[34px] lg:-left-[27px] top-0">
                   <div
                     className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center"
                     style={{
-                      borderColor: activeStep >= i ? "blue" : "blue",
+                      borderColor: "blue",
                       backgroundColor: activeStep >= i ? "blue" : "transparent",
                       transform: activeStep === i ? "scale(1.2)" : "scale(1)",
                     }}
@@ -195,12 +131,14 @@ export default function HowWeWork() {
                       activeStep === i ? "translateX(8px)" : "translateX(0)",
                   }}
                 >
-                  <h3 className="text-4xl lg:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-blue-600">
-                    {step.number}
-                  </h3>
-                  <h4 className="text-xl lg:text-xl font-bold mt-1 mb-2 text-gray-900">
-                    {step.title}
-                  </h4>
+                  <div className="flex flex-row items-center space-x-2">
+                    <h3 className="text-4xl lg:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-blue-600">
+                      {step.number}
+                    </h3>
+                    <h4 className="text-xl lg:text-xl font-bold mt-1 mb-2 text-gray-900">
+                      {step.title}
+                    </h4>
+                  </div>
                   <p className="text-gray-600 leading-relaxed max-w-full lg:max-w-sm text-base lg:text-inherit">
                     {step.description}
                   </p>

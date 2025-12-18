@@ -25,7 +25,7 @@ const HomePage = () => {
         <section id="portfolio"><Portfolio /></section>
         <section id="how-we-work"><HowWeWork /></section>
         <section id="team"><TeamSection /></section>
-        <section id="pricing"><PricingSection /></section>
+        <section id="pricing" className="scroll-mt-28"><PricingSection /></section>
         <section id="testimonials"><TestimonialsSection /></section>
         <section id="faq"><FaqSection /></section>
         <section id="insights"><InsightsSection /></section>

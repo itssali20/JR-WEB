@@ -24,20 +24,38 @@ import logo22 from "../assets/images/partners-logos/logo-22.png";
 
 const AboutSection = () => {
   const logos = [
-    logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,
-    logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, 
-    logo20, logo21, logo22
+    logo1,
+    logo2,
+    logo3,
+    logo4,
+    logo5,
+    logo6,
+    logo7,
+    logo8,
+    logo9,
+    logo10,
+    logo11,
+    logo12,
+    logo13,
+    logo14,
+    logo15,
+    logo16,
+    logo17,
+    logo18,
+    logo19,
+    logo20,
+    logo21,
+    logo22,
   ];
 
   // Duplicate logos for seamless infinite scroll
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="bg-white px-6 md:px-16 lg:px-24 py-20 overflow-hidden">
+    <section className="bg-white px-6 md:px-16 lg:px-24 lg:py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-
         {/* Heading */}
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-800 leading-tight mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-12 text-center">
           WE ARE LEADING DIGITAL TRANSFORMATION EXPERTS
         </h2>
 
@@ -128,49 +146,46 @@ const AboutSection = () => {
 
           {/* Carousel Container */}
           <div className="relative">
-            {/* Gradient Overlays */}
-            <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l  to-transparent z-10"></div>
-            
             {/* First Row Carousel */}
             <div className="flex mb-8">
               <div className="flex animate-scroll-slow hover:pause-animation">
-                {duplicatedLogos.slice(0, duplicatedLogos.length/2).map((logo, index) => (
-                  <div 
-                    key={index}
-                    className="flex-shrink-0 mx-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 hover:shadow-2xl hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 transition-all duration-500 group"
-                  >
-                    <img
-                      src={logo}
-                      alt={`Partner logo ${index + 1}`}
-                      className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                    />
-                  </div>
-                ))}
+                {duplicatedLogos
+                  .slice(0, duplicatedLogos.length / 2)
+                  .map((logo, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 mx-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 hover:shadow-2xl hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 transition-all duration-500 group"
+                    >
+                      <img
+                        src={logo}
+                        alt={`Partner logo ${index + 1}`}
+                        className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                      />
+                    </div>
+                  ))}
               </div>
             </div>
 
             {/* Second Row Carousel (Reverse) */}
             <div className="flex">
               <div className="flex animate-scroll-slow-reverse hover:pause-animation">
-                {duplicatedLogos.slice(duplicatedLogos.length/2).map((logo, index) => (
-                  <div 
-                    key={index}
-                    className="flex-shrink-0 mx-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 hover:shadow-2xl hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 transition-all duration-500 group"
-                  >
-                    <img
-                      src={logo}
-                      alt={`Partner logo ${index + 1 + duplicatedLogos.length/2}`}
-                      className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                    />
-                  </div>
-                ))}
+                {duplicatedLogos
+                  .slice(duplicatedLogos.length / 2)
+                  .map((logo, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 mx-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 hover:shadow-2xl hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800 transition-all duration-500 group"
+                    >
+                      <img
+                        src={logo}
+                        alt={`Partner logo ${index + 1 + duplicatedLogos.length / 2
+                          }`}
+                        className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                      />
+                    </div>
+                  ))}
               </div>
             </div>
-
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-blue-400 rounded-full opacity-30 animate-bounce delay-1000"></div>
           </div>
         </div>
       </div>
@@ -185,7 +200,7 @@ const AboutSection = () => {
             transform: translateX(calc(-250px * 11));
           }
         }
-        
+
         @keyframes scroll-reverse {
           0% {
             transform: translateX(calc(-250px * 11));
@@ -217,7 +232,7 @@ const AboutSection = () => {
               transform: translateX(calc(-200px * 11));
             }
           }
-          
+
           @keyframes scroll-reverse {
             0% {
               transform: translateX(calc(-200px * 11));

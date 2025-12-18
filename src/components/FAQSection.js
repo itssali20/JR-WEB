@@ -36,12 +36,16 @@ export default function FaqSection() {
   }, []);
 
   return (
-    <section className="bg-white py-24 px-6 md:px-16 lg:px-24">
+    <section className="bg-white py-4 px-6 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* LEFT - Static Content */}
         <div className="sticky top-32 self-start">
-          <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 mb-12 leading-tight">
+          <h2 className="hidden md:block md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 mb-12 leading-tight">
             CLEAR SOLUTIONS <br /> TO YOUR CONCERNS
+          </h2>
+
+          <h2 className="md:hidden text-[14px] font-semibold text-gray-900 mb-6 leading-tight">
+            CLEAR SOLUTIONS TO YOUR CONCERNS
           </h2>
 
           <div className="rounded-[4rem] overflow-hidden shadow-sm">
@@ -56,7 +60,7 @@ export default function FaqSection() {
         {/* RIGHT - Scrollable FAQ */}
         <div
           ref={scrollRef}
-          className="max-h-[75vh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+          className="max-h-[75vh] overflow-y-visible pr-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
         >
           {faqs.map((item, index) => (
             <React.Fragment key={index}>

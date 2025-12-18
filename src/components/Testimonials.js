@@ -27,7 +27,7 @@ export default function TestimonialsSection() {
       image:
         "https://img.freepik.com/free-photo/close-up-young-person-barbeque_23-2149271990.jpg",
       quote:
-        "Working with BrightEdge was smooth from day one. The designs were sharp, the communication was clear, and delivery was on point.",
+        "Working with JR Digital Media was smooth from day one. The designs were sharp, the communication was clear, and delivery was on point.",
       rating: 5,
     },
     {
@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
       image:
         "https://media.istockphoto.com/id/1324194583/photo/head-shot-portrait-smiling-attractive-woman-blogger-speaking-at-camera.jpg?s=612x612&w=0&k=20&c=1FJKrE_wqVyZhed7cYTgE2raRwHONesu258tl8N6VIQ=",
       quote:
-        "BrightEdge helped us go from zero to launch with confidence. Their templates saved us weeks of work.",
+        "JR Digital Media helped us go from zero to launch with confidence. Their templates saved us weeks of work.",
       rating: 4,
     },
     {
@@ -183,26 +183,26 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Stats Below Carousel */}
-      <div className="mt-24 grid grid-cols-2 md:grid-cols-3 text-center">
+      <div className="mt-12 lg:mt-24 grid grid-cols-3 text-center">
         <div>
-          <h3 className="text-5xl font-bold text-gray-900">
+          <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             100 %
           </h3>
-          <p className="text-gray-600 mt-2">Client Satisfaction</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">Client Satisfaction</p>
         </div>
 
         <div>
-          <h3 className="text-5xl font-bold text-gray-900">
+          <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             4.9/5
           </h3>
-          <p className="text-gray-600 mt-2">Average Rating</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">Average Rating</p>
         </div>
 
         <div>
-          <h3 className="text-5xl font-bold text-gray-900">
+          <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             140+
           </h3>
-          <p className="text-gray-600 mt-2">Happy Clients</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">Happy Clients</p>
         </div>
       </div>
 

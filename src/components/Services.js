@@ -39,8 +39,8 @@ const services = [
   },
   {
     id: 3,
-    title: "CRM",
-    tag: "Streamline your customer relationships",
+    title: "CRM/ERP",
+    tag: "Streamline your processes and customer relationships",
     number: "03",
     description:
       "Automate sales, marketing, and customer service workflows for enhanced efficiency. Starting from AED 250/month.",
@@ -55,7 +55,7 @@ const services = [
   },
   {
     id: 4,
-    title: "ADVERTISEMENT",
+    title: "Ads Management",
     tag: "Maximize your reach and ROI",
     number: "04",
     description:
