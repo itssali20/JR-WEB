@@ -69,8 +69,8 @@ export default function TestimonialsSection() {
     <section className="bg-white py-20 px-6 md:px-16 lg:px-24 overflow-hidden">
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-4">
-          TESTIMONIALS THAT INSPIRE CONFIDENCE
+        <h2 className="text-xl lg:text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-4">
+          TESTIMONIALS THAT INSPIRE
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
           Hear what our clients say about their experience working with us

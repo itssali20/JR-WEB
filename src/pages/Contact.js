@@ -119,7 +119,7 @@ export default function WorkWithBadMarketingForm() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
+        <section className="relative py-12 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
           {/* Animated gradient orbs */}
           <div className="absolute top-10 left-10 w-32 h-32 bg-blue-400 rounded-full opacity-20 animate-bounce"></div>
           <div className="absolute bottom-10 right-10 w-48 h-48 bg-blue-300 rounded-full opacity-20 animate-bounce delay-700"></div>
@@ -416,6 +416,7 @@ export default function WorkWithBadMarketingForm() {
                         <option>Ecommerce/Amazon</option>
                         <option>Course/Coaching</option>
                         <option>Automotive</option>
+                        <option>Other</option>
                       </select>
                     </label>
 
@@ -635,11 +636,15 @@ export default function WorkWithBadMarketingForm() {
               help you achieve remarkable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link to="/contact">
+              <a
+                href="https://calendly.com/jrdigitalmedia"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 text-white font-bold tracking-wide uppercase shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-lg">
-                  Start Your Project
+                  Schedule a call
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
         </section>

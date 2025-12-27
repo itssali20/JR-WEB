@@ -72,8 +72,8 @@ const HeroSection = () => {
 
       {/* Mobile Text Section */}
       <div className="w-full px-8 mt-6 lg:hidden flex flex-col items-start">
-        <p className="text-[#333333] font-semibold text-3xl flex items-center mb-2">
-          <AsteriskIcon className="w-16 h-16 mr-2 text-blue-800" />
+        <p className="text-[#333333] font-semibold text-2xl flex items-center mb-2">
+          <AsteriskIcon className="w-12 h-12 mr-2 text-blue-800" />
           We are digital design
         </p>
         <h1 className="text-6xl font-semibold leading-[4rem] mb-4">CREATORS</h1>
