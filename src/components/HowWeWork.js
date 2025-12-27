@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import laptopImage from "../assets/images/j2.jpg";
 
 export default function HowWeWork() {
   const sectionRef = useRef(null);
@@ -60,7 +61,7 @@ export default function HowWeWork() {
           </h2>
           <div className="relative">
             <img
-              src="https://duplocloud.com/wp-content/uploads-webpc/uploads/2025/06/duplocloud-blog-cover-3-min-1024x517.png.webp"
+              src={laptopImage}
               alt="Person with laptop"
               className="rounded-2xl lg:rounded-[2rem] w-full"
             />

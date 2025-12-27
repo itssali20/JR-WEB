@@ -9,7 +9,7 @@ const services = [
     tag: "Crafting engaging online experiences",
     number: "01",
     description:
-      "From stunning visuals to seamless functionality, we build websites that convert. Starting from AED 79.",
+      "From stunning visuals to seamless functionality, we build websites that convert.",
     items: [
       "Visual Content Strategy",
       "Competitive Analysis",
@@ -27,7 +27,7 @@ const services = [
     tag: "Elevate your brand's online presence",
     number: "02",
     description:
-      "Engage your audience, build community, and drive traffic. Includes a free website. Starting from AED 1000.",
+      "Engage your audience, build community, and drive traffic. Includes a free website.",
     items: [
       "Responsive Design",
       "Prototyping",
@@ -43,7 +43,7 @@ const services = [
     tag: "Streamline your processes and customer relationships",
     number: "03",
     description:
-      "Automate sales, marketing, and customer service workflows for enhanced efficiency. Starting from AED 250/month.",
+      "Automate sales, marketing, and customer service workflows for enhanced efficiency.",
     items: [
       "Full-stack Development",
       "API Integration",
@@ -59,7 +59,7 @@ const services = [
     tag: "Maximize your reach and ROI",
     number: "04",
     description:
-      "Targeted campaigns on Google and Meta to connect with your ideal customers. Google Ads (AED 599), Meta Ads (AED 599).",
+      "Targeted campaigns on Google and Meta to connect with your ideal customers.",
     items: [
       "Social Media Strategy",
       "Email Campaigns",
@@ -95,7 +95,7 @@ const ServicesSection = () => {
 
   return (
     <div 
-      className="relative min-h-screen bg-white text-gray-900 px-4 md:px-20 py-16 md:py-20 font-sans overflow-hidden"
+      className="relative lg:min-h-screen bg-white text-gray-900 px-4 md:px-20 py-8 md:py-20 font-sans overflow-hidden"
       ref={sectionRef}
     >
       {/* Simple cursor image - appears/disappears instantly */}
@@ -129,7 +129,7 @@ const ServicesSection = () => {
             return (
               <div
                 key={service.id}
-                className="py-6 md:py-10 relative group"
+                className="py-4 md:py-10 relative group"
                 onMouseEnter={() => setHoveredId(service.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >

@@ -139,7 +139,7 @@ const PortfolioShowcase = () => {
     >
       {/* header */}
       <div className="text-center mb-12 px-6 z-20">
-        <h1 className="text-4xl font-semibold md:font-bold lg:font-bold md:text-5xl text-gray-900 leading-tight">
+        <h1 className="text-2xl lg:text-4xl font-semibold md:font-bold lg:font-bold md:text-5xl text-gray-900 leading-tight">
           SHOWCASING OUR MOST<br />IMPACTFUL WORK
         </h1>
       </div>
