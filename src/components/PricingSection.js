@@ -15,9 +15,11 @@ export default function PricingSection() {
   const [services, setServices] = useState([]);
   const [packages, setPackages] = useState([]);
   const [customPlans, setCustomPlans] = useState([]);
+  const [sliderStyle, setSliderStyle] = useState({ left: 0, width: 0 });
   const [loading, setLoading] = useState(true);
 
   const filtersContainerRef = useRef(null);
+  const activeTabRef = useRef(null);
 
   const filters = [
     { id: "web", label: "Website Design", icon: "💻" },
@@ -140,6 +142,27 @@ export default function PricingSection() {
     }, 400);
   };
 
+  // Update slider position dynamically
+  useEffect(() => {
+    if (activeTabRef.current) {
+      const { offsetLeft, offsetWidth } = activeTabRef.current;
+      setSliderStyle({ left: offsetLeft, width: offsetWidth });
+    }
+  }, [activeFilter, filteredServices]);
+
+  // Handle window resize to keep slider aligned
+  useEffect(() => {
+    const handleResize = () => {
+      if (activeTabRef.current) {
+        const { offsetLeft, offsetWidth } = activeTabRef.current;
+        setSliderStyle({ left: offsetLeft, width: offsetWidth });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Close dropdown when clicking outside and check scroll position
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -218,43 +241,49 @@ export default function PricingSection() {
               <ChevronRight size={20} className="text-gray-700" />
             </button>
 
-            {/* Desktop Filter Bar with PERFECTLY ALIGNED Highlight */}
-            <div className="hidden md:block">
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2 relative overflow-hidden">
-                {/* Animated Background Slider */}
+            {/* Filter Bar with DYNAMIC Highlight and Horizontal Scroll */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2 relative">
+              {/* Scrollable Container */}
+              <div
+                ref={filtersContainerRef}
+                className="flex items-center overflow-x-auto scrollbar-hide gap-1 no-scrollbar relative"
+                style={{
+                  msOverflowStyle: 'none',
+                  scrollbarWidth: 'none',
+                  WebkitOverflowScrolling: 'touch'
+                }}
+              >
+                {/* Animated Background Slider - Now tied to dynamic measurements */}
                 <div
-                  className="absolute top-1.5 bottom-1.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl transition-all duration-500 ease-out shadow-lg"
+                  className="absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl transition-all duration-500 ease-out shadow-lg z-0"
                   style={{
-                    width: `${100 / filters.length}%`,
-                    left: `${(filters.findIndex((f) => f.id === activeFilter) * 100) /
-                      filters.length
-                      }%`,
+                    left: `${sliderStyle.left}px`,
+                    width: `${sliderStyle.width}px`,
                   }}
                 ></div>
 
                 {/* Filter Tabs */}
-                <div className="relative flex items-center justify-between">
-                  {filters.map((filter) => (
-                    <button
-                      key={filter.id}
-                      onClick={() => handleFilterClick(filter.id)}
-                      className={`relative flex-1 py-4 px-2 mx-1 rounded-xl font-semibold text-sm transition-all duration-300 z-10 ${activeFilter === filter.id
-                        ? "text-white"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/80"
-                        } ${isAnimating ? "opacity-70" : "opacity-100"}`}
-                      disabled={isAnimating}
-                    >
-                      <span className="relative z-10 whitespace-nowrap">
-                        {filter.label}
-                      </span>
-                    </button>
-                  ))}
-                </div>
+                {filters.map((filter) => (
+                  <button
+                    key={filter.id}
+                    ref={activeFilter === filter.id ? activeTabRef : null}
+                    onClick={() => handleFilterClick(filter.id)}
+                    className={`relative flex-shrink-0 lg:flex-1 py-4 px-6 rounded-xl font-semibold text-sm transition-all duration-300 z-10 ${activeFilter === filter.id
+                      ? "text-white"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/80"
+                      } ${isAnimating ? "opacity-70" : "opacity-100"}`}
+                    disabled={isAnimating}
+                  >
+                    <span className="relative z-10 whitespace-nowrap">
+                      {filter.label}
+                    </span>
+                  </button>
+                ))}
               </div>
             </div>
 
             {/* Mobile Dropdown Filter */}
-            <div className="md:hidden filter-dropdown">
+            {/* <div className="md:hidden filter-dropdown">
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-1">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -304,7 +333,7 @@ export default function PricingSection() {
                   </div>
                 )}
               </div>
-            </div>
+            </div> */}
 
             {/* Enhanced Glow Effect */}
             <div className="absolute -inset-4 bg-gradient-to-r from-sky-200/40 via-blue-400/30 to-blue-800/20 blur-2xl rounded-3xl -z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>

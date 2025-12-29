@@ -128,22 +128,10 @@ export default function Footer() {
             office 1105, building 11th floor, Warsan tower, al
             barsha, Dubai, UAE.
           </p>
-          <p className="text-gray-600 mb-2">+971 529126465</p>
-          <p className="text-gray-900 font-semibold mb-6">
+          <span className="font-semibold">Phone no: <p className="text-gray-600 mb-2"> +971 529126465</p></span>
+          <span className="font-semibold">Email: <p className="text-gray-900 font-semibold mb-6">
             info@jrdigitalmedia.info
-          </p>
-
-          <div className="rounded-lg overflow-hidden border border-gray-300">
-            <iframe
-              title="Google Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.0157307486065!2d55.176408574834284!3d25.101328835578187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b7655e944ed%3A0x5555fe6370e4f712!2swarsan%20towers!5e0!3m2!1sen!2s!4v1760645097448!5m2!1sen!2s"
-              width="100%"
-              height="200"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
+          </p></span>
         </div>
       </div>
 
