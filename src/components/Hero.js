@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import video from "../assets/videos/video.mp4";
+import video from "../assets/videos/video.MOV";
 import { ReactComponent as AsteriskIcon } from "../assets/icons/asterisk.svg";
 
 const HeroSection = () => {
