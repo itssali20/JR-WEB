@@ -217,8 +217,8 @@ export default function PricingSection() {
       <div className="text-center mb-8 lg:mb-16">
         <h2 className="text-xl lg:text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-8">
           {view === "packages"
-            ? t("pricing.heading_packages")
-            : t("pricing.heading_custom")}
+            ? t("packages_heading")
+            : t("custom_heading")}
         </h2>
       </div>
 

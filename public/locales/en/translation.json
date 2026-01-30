@@ -51,13 +51,15 @@
   "ads_items_1": "Email Campaigns",
   "ads_items_2": "SEO Optimization",
   "ads_items_3": "Content Creation",
-  "portfolio-heading": "SHOWCASING OUR MOST\nIMPACTFUL WORK",
-  "marketing_tag": "Marketing",
-  "marketing_title": "SPREADING THE WORD",
-  "branding_tag": "Branding",
-  "branding_title": "FRESH BEGINNINGS",
-  "design_tag": "Design",
-  "design_title": "CREATIVE SOLUTIONS",
+  "portfolio": {
+    "heading": "SHOWCASING OUR MOST\nIMPACTFUL WORK",
+    "marketing_tag": "Marketing",
+    "marketing_title": "SPREADING THE WORD",
+    "branding_tag": "Branding",
+    "branding_title": "FRESH BEGINNINGS",
+    "design_tag": "Design",
+    "design_title": "CREATIVE SOLUTIONS"
+  },
   "packages_heading": "DIGITAL TRANSFORMATION PACKAGES",
   "custom_heading": "CUSTOM PACKAGES FOR DIGITAL TRANSFORMATION",
   "get_started": "Get Started",
@@ -169,5 +171,75 @@
   "not_found_heading": "Post not found",
   "not_found_desc": "The post you're looking for doesn't exist.",
   "back_to_home": "Back to Home",
-  "latest_blogs_heading": "Latest Blogs"
+  "latest_blogs_heading": "Latest Blogs",
+  "contact_page": {
+    "accepting_clients": "We're accepting new clients",
+    "hero_title_1": "LET'S CREATE",
+    "hero_title_2": "SOMETHING GREAT",
+    "hero_desc": "Ready to transform your business? Let's discuss how we can drive exceptional results together.",
+    "stats": {
+      "projects": "Projects Completed",
+      "satisfaction": "Client Satisfaction",
+      "response_time": "Avg. Response Time"
+    },
+    "lets_get": "LET'S GET",
+    "started": "STARTED",
+    "fill_form": "Please fill out this application, and one of our team members will get back to you as soon as possible.",
+    "reach_other_way": "Need to reach us another way?",
+    "check_socials": "Check our social links in the footer or send us an email at",
+    "reply_time": "Typically replies within 2 hours",
+    "call_us": "Call Us Directly",
+    "send_email": "Send Us an Email",
+    "form": {
+      "title": "Project Application",
+      "subtitle": "Tell us about your business goals",
+      "first_name": "First name *",
+      "last_name": "Last name *",
+      "email": "Email *",
+      "phone": "Phone number *",
+      "company": "Company",
+      "website": "Website",
+      "business_type": "What Kind Of Business?",
+      "business_type_placeholder": "Type Of Business",
+      "business_type_options": {
+        "local": "Local Business",
+        "ecommerce": "Ecommerce/Amazon",
+        "course": "Course/Coaching",
+        "automotive": "Automotive",
+        "other": "Other"
+      },
+      "instagram": "Business Instagram",
+      "solutions_title": "What Solutions are you interested in?",
+      "select_all": "Select ALL that apply",
+      "solutions": {
+        "email_sms": "Email / SMS Marketing",
+        "fb_insta": "Facebook / Instagram Ads",
+        "google_yt": "Google / Youtube Ads",
+        "amazon": "Amazon Growth",
+        "tiktok": "TikTok Shops",
+        "lead_gen": "Lead Generation"
+      },
+      "revenue": "What's your monthly revenue?",
+      "select": "Select",
+      "heard_from": "How did you hear about us?",
+      "marketing_kind": "What kind of marketing are you currently doing?",
+      "privacy": "By submitting this form, you agree to receive text messages from us. By signing up via text, you agree to receive recurring automated marketing messages, including call reminders, at the phone number provided. Consent is not a condition of purchase. Text HELP for Help or Reply STOP to unsubscribe. Message frequency varies. Msg & data rates may apply. Your Privacy is our priority. Your information will not be shared.",
+      "consent": "I agree to receive messages",
+      "processing": "PROCESSING...",
+      "launch": "LAUNCH YOUR PROJECT",
+      "success": "Thank you! Your submission has been received!",
+      "error": "Oops! Something went wrong while submitting the form.",
+      "validation": {
+        "name": "Please provide your full name.",
+        "email": "Please provide your email.",
+        "email_valid": "Please provide a valid email.",
+        "phone": "Please provide a phone number."
+      }
+    },
+    "cta": {
+      "ready": "READY TO GET STARTED?",
+      "desc": "Let's schedule a call to discuss your project and see how we can help you achieve remarkable results.",
+      "schedule": "Schedule a call"
+    }
+  }
 }

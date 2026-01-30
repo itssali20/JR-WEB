@@ -7,7 +7,8 @@ const LanguageHandler = () => {
 
   useEffect(() => {
     const setLanguageBasedOnLocation = async () => {
-      const countryCode = await detectUserCountry();
+      // const countryCode = await detectUserCountry();
+      const countryCode = 'AE'; // Hardcoded for testing Arabic
       console.log('Detected Country:', countryCode);
       
       if (!countryCode) return; // Fallback to default (en) if detection fails

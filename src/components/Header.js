@@ -7,7 +7,7 @@ import AvatarBadge from "./Avatar";
 import logo from "../assets/images/logo.png";
 
 const Header = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -103,12 +103,12 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-10">
+          <nav className="hidden md:flex items-center gap-10">
             {navItems.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => handleNavClick(id)}
-                className="text-gray-800 font-bold tracking-wide text-sm uppercase hover:text-blue-700 transition-all duration-300 relative group"
+                className={`text-gray-800 font-bold text-sm hover:text-blue-700 transition-all duration-300 relative group ${i18n.language !== 'ar' ? 'tracking-wide uppercase' : ''}`}
               >
                 {label}
                 <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-blue-800 transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -155,7 +155,7 @@ const Header = () => {
                       onClick={() => setIsUserMenuOpen(false)}
                       className="flex items-center px-4 py-3 text-gray-800 hover:bg-blue-50 transition-all duration-200 group"
                     >
-                      <FiUser className="w-4 h-4 mr-3 text-blue-600 group-hover:scale-110 transition-transform" />
+                      <FiUser className="w-4 h-4 me-3 text-blue-600 group-hover:scale-110 transition-transform" />
                       <span className="font-medium">{t("profile")}</span>
                     </Link>
                     <Link
@@ -163,7 +163,7 @@ const Header = () => {
                       onClick={() => setIsUserMenuOpen(false)}
                       className="flex items-center px-4 py-3 text-gray-800 hover:bg-blue-50 transition-all duration-200 group"
                     >
-                      <FiBriefcase className="w-4 h-4 mr-3 text-blue-600 group-hover:scale-110 transition-transform" />
+                      <FiBriefcase className="w-4 h-4 me-3 text-blue-600 group-hover:scale-110 transition-transform" />
                       <span className="font-medium" style={{ textTransform: 'capitalize' }}>{t("portfolio_label").toLowerCase()}</span>
                     </Link>
                     <div className="border-t border-blue-100 my-2"></div>
@@ -172,7 +172,7 @@ const Header = () => {
                       className="flex items-center w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 transition-all duration-200 group"
                     >
                       <svg
-                        className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform"
+                        className="w-4 h-4 me-3 group-hover:scale-110 transition-transform"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -256,7 +256,7 @@ const Header = () => {
               <button
                 key={id}
                 onClick={() => handleNavClick(id)}
-                className="block w-full text-left text-gray-800 font-bold py-4 px-6 hover:bg-blue-50 border-b border-blue-50 uppercase tracking-wide text-sm"
+                className={`block w-full text-start text-gray-800 font-bold py-4 px-6 hover:bg-blue-50 border-b border-blue-50 text-sm ${i18n.language !== 'ar' ? 'uppercase tracking-wide' : ''}`}
               >
                 {label}
               </button>
