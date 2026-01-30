@@ -32,43 +32,43 @@ export default function Footer() {
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  {t('footer.nav_home')}
+                  {t('home')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  {t('footer.nav_about')}
+                  {t('about')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  {t('footer.nav_services')}
+                  {t('services')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  {t('footer.nav_projects')}
+                  {t('projects')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  {t('footer.nav_blogs')}
+                  {t('blogs')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  {t('footer.nav_pricing')}
+                  {t('pricing')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  {t('footer.nav_contact')}
+                  {t('contact')}
                 </a>
               </li>
             </ul>
@@ -126,12 +126,12 @@ export default function Footer() {
 
         {/* Right Section */}
         <div>
-          <h4 className="font-semibold mb-3">{t('footer.address_title')}</h4>
+          <h4 className="font-semibold mb-3">{t('address_heading')}</h4>
           <p className="text-gray-700 lg:mb-4 leading-relaxed">
-            {t('footer.address_text')}
+            {t('address_text')}
           </p>
-          <span className="font-semibold">{t('footer.phone_label')} <p className="text-gray-600 mb-2"> +971 529126465</p></span>
-          <span className="font-semibold">{t('footer.email_label')} <p className="text-gray-900 font-semibold mb-6">
+          <span className="font-semibold">{t('phone_label')} <p className="text-gray-600 mb-2"> +971 529126465</p></span>
+          <span className="font-semibold">{t('email_label')} <p className="text-gray-900 font-semibold mb-6">
             info@jrdigitalmedia.info
           </p></span>
         </div>

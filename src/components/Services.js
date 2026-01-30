@@ -13,32 +13,32 @@ const ServicesSection = () => {
   const services = [
     {
       id: 1,
-      title: t("services.websites_title"),
-      tag: t("services.websites_tag"),
+      title: t("website_title"),
+      tag: t("website_tag"),
       number: "01",
-      description: t("services.websites_desc"),
-      items: [
-        t("services.websites_items.0"),
-        t("services.websites_items.1"),
-        t("services.websites_items.2"),
-        t("services.websites_items.3"),
-        t("services.websites_items.4"),
-        t("services.websites_items.5"),
+      description: t("website_desc"),
+      items: [  
+        t("website_items_0"),
+        t("website_items_1"),
+        t("website_items_2"),
+        t("website_items_3"),
+        t("website_items_4"),
+        t("website_items_5"),
       ],
       image:
         "https://i.pinimg.com/564x/70/20/f4/7020f453974ebf3d25268e55e983b816.jpg",
     },
     {
       id: 2,
-      title: t("services.social_media_title"),
-      tag: t("services.social_media_tag"),
+      title: t("social_title"),
+      tag: t("social_tag"),
       number: "02",
-      description: t("services.social_media_desc"),
+      description: t("social_desc"),
       items: [
-        t("services.social_media_items.0"),
-        t("services.social_media_items.1"),
-        t("services.social_media_items.2"),
-        t("services.social_media_items.3"),
+        t("social_items_0"),
+        t("social_items_1"),
+        t("social_items_2"),
+        t("social_items_3"),
       ],
       image:
         "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1000&q=80",
@@ -116,7 +116,7 @@ const ServicesSection = () => {
       <div className="relative z-10">
         <div className="mb-10 md:ml-[10%] px-2">
           <h2 className="text-2xl md:text-5xl font-bold mt-2 leading-tight">
-            {t("services.heading")}
+            {t("services_heading")}
           </h2>
         </div>
 

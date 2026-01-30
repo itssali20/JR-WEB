@@ -4,52 +4,58 @@ import { Star } from "lucide-react";
 
 export default function TestimonialsSection() {
   const { t } = useTranslation();
-  const testimonials = [
-    {
-      name: t("testimonials.names.0"),
-      title: t("testimonials.titles.0"),
+   const testimonials = [
+     {
+      name: "Sarah Lin",
+      title: "Customer",
       image:
         "https://img.freepik.com/free-photo/front-view-sign-language-concept_23-2148572467.jpg?semt=ais_hybrid&w=740&q=80",
-      quote: t("testimonials.quotes.0"),
+      quote:
+        "JR Digital Media transformed our outdated online presence into a sleek, modern platform. We've seen a huge uptick in engagement and conversions since launch. Their team is truly exceptional!",
       rating: 4,
     },
     {
-      name: t("testimonials.names.1"),
-      title: t("testimonials.titles.1"),
+      name: "Jason Turner",
+      title: "Startup Founder",
       image:
         "https://photoheads.co.uk/wp-content/uploads/2020/05/headshot-with-client-testimonial.jpg",
-      quote: t("testimonials.quotes.1"),
+      quote:
+        "They don't just design; they understand your business. The brand strategy and web development provided by JR Digital Media were pivotal in our successful market entry.",
       rating: 5,
     },
     {
-      name: t("testimonials.names.2"),
-      title: t("testimonials.titles.2"),
+      name: "Mia Reynolds",
+      title: "Creative Director",
       image:
         "https://img.freepik.com/free-photo/close-up-young-person-barbeque_23-2149271990.jpg",
-      quote: t("testimonials.quotes.2"),
+      quote:
+        "Working with JR Digital Media was smooth from day one. The designs were sharp, the communication was clear, and delivery was on point.",
       rating: 5,
     },
     {
-      name: t("testimonials.names.3"),
-      title: t("testimonials.titles.3"),
+      name: "Ava Nishi",
+      title: "First-Time Entrepreneur",
       image:
         "https://media.istockphoto.com/id/1324194583/photo/head-shot-portrait-smiling-attractive-woman-blogger-speaking-at-camera.jpg?s=612x612&w=0&k=20&c=1FJKrE_wqVyZhed7cYTgE2raRwHONesu258tl8N6VIQ=",
-      quote: t("testimonials.quotes.3"),
+      quote:
+        "JR Digital Media helped us go from zero to launch with confidence. Their templates saved us weeks of work.",
       rating: 4,
     },
     {
-      name: t("testimonials.names.4"),
-      title: t("testimonials.titles.4"),
+      name: "Martin Gomez",
+      title: "Brand Consultant",
       image: "https://www.hubspot.com/hubfs/Testimonial-lead-gen-1.webp",
-      quote: t("testimonials.quotes.4"),
+      quote:
+        "It's rare to find a design partner who's both strategic and insanely creative. These guys get both.",
       rating: 5,
     },
     {
-      name: t("testimonials.names.5"),
-      title: t("testimonials.titles.5"),
+      name: "Rachel Foster",
+      title: "Operations Lead, Wellnify",
       image:
         "https://media.istockphoto.com/id/168518740/photo/portrait-of-woman-with-short-hair.jpg?s=612x612&w=0&k=20&c=5vGIftrKdgSMJzHdA0bzEYTQKloWi6BYgcJAPyTnfsI=",
-      quote: t("testimonials.quotes.5"),
+      quote:
+        "Every step was thoughtful and intentional. They asked the right questions and delivered beyond expectations.",
       rating: 5,
     },
   ];
@@ -66,10 +72,10 @@ export default function TestimonialsSection() {
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-xl lg:text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-4">
-          {t("testimonials.heading")}
+          {t("testimonials_heading")}
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          {t("testimonials.subheading")}
+          {t("subheading")}
         </p>
       </div>
 
@@ -184,21 +190,21 @@ export default function TestimonialsSection() {
           <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             100 %
           </h3>
-          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("testimonials.stat_client_satisfaction")}</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("satisfaction")}</p>
         </div>
 
         <div>
           <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             4.9/5
           </h3>
-          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("testimonials.stat_avg_rating")}</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("rating")}</p>
         </div>
 
         <div>
           <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             140+
           </h3>
-          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("testimonials.stat_happy_clients")}</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("happy_clients")}</p>
         </div>
       </div>
 

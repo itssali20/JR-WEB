@@ -11,7 +11,7 @@ export default function ContactSection() {
         {/* Left Section */}
         <div>
           <h2 className="text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold mb-10 leading-tight">
-            {t('contact.heading')}
+            {t('contact_heading')}
           </h2>
 
           <div className="flex items-center mb-6">
@@ -22,12 +22,12 @@ export default function ContactSection() {
             />
             <div>
               <h4 className="font-bold text-lg">Muhammad Jahangir Ahmad</h4>
-              <p className="text-gray-400 text-sm">{t('contact.ceo_title')}</p>
+              <p className="text-gray-400 text-sm">{t('ceo_title')}</p>
             </div>
           </div>
 
           <p className="text-gray-300 leading-relaxed max-w-md">
-            {t('contact.description')}
+            {t('desc')}
           </p>
         </div>
 
@@ -35,37 +35,37 @@ export default function ContactSection() {
         <form className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm mb-2">{t('contact.form_name')}</label>
+              <label className="block text-sm mb-2">{t('name_label')}</label>
               <input
                 type="text"
-                placeholder={t('contact.placeholder_name')}
+                placeholder={t('name_placeholder')}
                 className="w-full bg-[#2b2b2b] text-gray-300 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
             <div>
-              <label className="block text-sm mb-2">{t('contact.form_email')}</label>
+              <label className="block text-sm mb-2">{t('email_label')}</label>
               <input
                 type="email"
-                placeholder={t('contact.placeholder_email')}
+                placeholder={t('email_placeholder')}
                 className="w-full bg-[#2b2b2b] text-gray-300 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm mb-2">{t('contact.form_service_needed')}</label>
+            <label className="block text-sm mb-2">{t('service_label')}</label>
             <select className="w-full bg-[#2b2b2b] text-gray-300 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-orange-500">
-              <option>{t('contact.service_branding')}</option>
-              <option>{t('contact.service_web_design')}</option>
-              <option>{t('contact.service_development')}</option>
-              <option>{t('contact.service_marketing')}</option>
+              <option>{t('branding')}</option>
+              <option>{t('web_design')}</option>
+              <option>{t('development')}</option>
+              <option>{t('marketing')}</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm mb-2">{t('contact.form_message')}</label>
+            <label className="block text-sm mb-2">{t('message_label')}</label>
             <textarea
-              placeholder={t('contact.placeholder_message')}
+              placeholder={t('message_placeholder')}
               rows="5"
               className="w-full bg-[#2b2b2b] text-gray-300 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
             ></textarea>
@@ -75,7 +75,7 @@ export default function ContactSection() {
             type="submit"
             className="w-full bg-white text-black font-semibold py-3 rounded-md hover:opacity-90 transition"
           >
-            {t('contact.submit_btn')}
+            {t('submit_btn')}
           </button>
         </form>
       </div>

@@ -24,12 +24,12 @@ export default function PricingSection() {
   const activeTabRef = useRef(null);
 
   const filters = [
-    { id: "web", label: t("pricing.filter_web"), icon: "💻" },
-    { id: "seo", label: t("pricing.filter_seo"), icon: "🔍" },
-    { id: "social", label: t("pricing.filter_social"), icon: "📱" },
-    { id: "cgi", label: t("pricing.filter_cgi"), icon: "🎬" },
-    { id: "erp", label: t("pricing.filter_erp"), icon: "📊" },
-    { id: "creative", label: t("pricing.filter_creative"), icon: "🎨" },
+    { id: "web", label: t("web"), icon: "💻" },
+    { id: "seo", label: t("seo"), icon: "🔍" },
+    { id: "social", label: t("social"), icon: "📱" },
+    { id: "cgi", label: t("cgi"), icon: "🎬" },
+    { id: "erp", label: t("erp"), icon: "📊" },
+    { id: "creative", label: t("creative"), icon: "🎨" },
   ];
 
   // Firestore collections
@@ -393,7 +393,7 @@ export default function PricingSection() {
 
                 <div className="mt-auto px-6 md:px-8 pb-6 md:pb-8">
                   <button className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold py-3 rounded-xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                    {t("pricing.get_started")} <ArrowRight size={18} />
+                    {t("get_started")} <ArrowRight size={18} />
                   </button>
                 </div>
               </div>
@@ -404,10 +404,10 @@ export default function PricingSection() {
             <div className="text-center py-16">
               <div className="text-6xl mb-4">🚧</div>
               <h3 className="text-2xl font-bold text-gray-600 mb-2">
-                {t("pricing.no_services_found")}
+                {t("no_services_found")}
               </h3>
               <p className="text-gray-500 max-w-md mx-auto">
-                {t("pricing.no_services_desc", { filter: currentFilterLabel.toLowerCase() })}
+                {t("no_services_desc", { filter: currentFilterLabel.toLowerCase() })}
               </p>
             </div>
           )}
@@ -433,7 +433,7 @@ export default function PricingSection() {
               <button
                 className={`${plan.buttonColor} text-white font-semibold py-3 px-10 rounded-full flex items-center justify-center gap-2 transition-all mx-auto`}
               >
-                {t("pricing.get_started")} <ArrowRight size={18} />
+                {t("get_started")} <ArrowRight size={18} />
               </button>
             </div>
           ))}
@@ -443,16 +443,16 @@ export default function PricingSection() {
       {/* CTA Section */}
       <div className="max-w-4xl mx-auto text-center mt-16 pt-8 border-t border-gray-200">
         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-          {t("pricing.cta_heading")}
+          {t("need_custom_solution")}
         </h3>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          {t("pricing.cta_desc")}
+          {t("custom_solution_desc")}
         </p>
         <Link
           to="/contact"
           className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
         >
-          {t("pricing.get_custom_quote")}
+          {t("get_custom_quote")}
         </Link>
       </div>
     </section>
