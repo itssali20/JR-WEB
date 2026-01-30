@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Header from "../components/Header";
 
 export default function WorkWithBadMarketingForm() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -22,12 +24,12 @@ export default function WorkWithBadMarketingForm() {
   const [status, setStatus] = useState({ state: "idle", message: "" });
 
   const solutionList = [
-    "Email / SMS Marketing",
-    "Facebook / Instagram Ads",
-    "Google / Youtube Ads",
-    "Amazon Growth",
-    "TikTok Shops",
-    "Lead Generation",
+    "contact_page.form.solutions.email_sms",
+    "contact_page.form.solutions.fb_insta",
+    "contact_page.form.solutions.google_yt",
+    "contact_page.form.solutions.amazon",
+    "contact_page.form.solutions.tiktok",
+    "contact_page.form.solutions.lead_gen",
   ];
 
   const revenues = [
@@ -60,12 +62,12 @@ export default function WorkWithBadMarketingForm() {
 
   function validate() {
     if (!form.firstName.trim() || !form.lastName.trim()) {
-      return "Please provide your full name.";
+      return t('contact_page.form.validation.name');
     }
-    if (!form.email.trim()) return "Please provide your email.";
+    if (!form.email.trim()) return t('contact_page.form.validation.email');
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email))
-      return "Please provide a valid email.";
-    if (!form.phone.trim()) return "Please provide a phone number.";
+      return t('contact_page.form.validation.email_valid');
+    if (!form.phone.trim()) return t('contact_page.form.validation.phone');
     return null;
   }
 
@@ -82,7 +84,7 @@ export default function WorkWithBadMarketingForm() {
       await new Promise((r) => setTimeout(r, 900));
       setStatus({
         state: "success",
-        message: "Thank you! Your submission has been received!",
+        message: t('contact_page.form.success'),
       });
       setForm({
         firstName: "",
@@ -102,7 +104,7 @@ export default function WorkWithBadMarketingForm() {
     } catch (e) {
       setStatus({
         state: "error",
-        message: "Oops! Something went wrong while submitting the form.",
+        message: t('contact_page.form.error'),
       });
     }
   }
@@ -133,34 +135,33 @@ export default function WorkWithBadMarketingForm() {
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold">
-                We're accepting new clients
+                {t('contact_page.accepting_clients')}
               </span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-              LET'S CREATE
+              {t('contact_page.hero_title_1')}
               <span className="block bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent animate-gradient">
-                SOMETHING GREAT
+                {t('contact_page.hero_title_2')}
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Ready to transform your business? Let's discuss how we can drive
-              exceptional results together.
+              {t('contact_page.hero_desc')}
             </p>
 
             {/* Stats Bar */}
             <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-12 pt-8 border-t border-blue-500/30">
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-2">50+</div>
-                <div className="text-blue-200 text-sm">Projects Completed</div>
+                <div className="text-blue-200 text-sm">{t('contact_page.stats.projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-2">98%</div>
-                <div className="text-blue-200 text-sm">Client Satisfaction</div>
+                <div className="text-blue-200 text-sm">{t('contact_page.stats.satisfaction')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-2">24h</div>
-                <div className="text-blue-200 text-sm">Avg. Response Time</div>
+                <div className="text-blue-200 text-sm">{t('contact_page.stats.response_time')}</div>
               </div>
             </div>
           </div>
@@ -174,14 +175,13 @@ export default function WorkWithBadMarketingForm() {
                 <div className="relative">
                   <div className="absolute -left-4 top-0 w-1 h-16 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full"></div>
                   <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                    LET'S GET
+                    {t('contact_page.lets_get')}
                     <span className="block bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                      STARTED
+                      {t('contact_page.started')}
                     </span>
                   </h2>
                   <p className="text-xl text-gray-600 leading-relaxed">
-                    Please fill out this application, and one of our team
-                    members will get back to you as soon as possible.
+                    {t('contact_page.fill_form')}
                   </p>
                 </div>
 
@@ -203,10 +203,10 @@ export default function WorkWithBadMarketingForm() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    Need to reach us another way?
+                    {t('contact_page.reach_other_way')}
                   </h3>
                   <p className="text-gray-600 text-lg mb-6">
-                    Check our social links in the footer or send us an email at{" "}
+                    {t('contact_page.check_socials')}{" "}
                     <a
                       href="hello@jandr.info"
                       className="text-blue-600 font-semibold hover:text-blue-700 transition-colors underline"
@@ -218,7 +218,7 @@ export default function WorkWithBadMarketingForm() {
                   <div className="flex items-center gap-4 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      Typically replies within 2 hours
+                      {t('contact_page.reply_time')}
                     </div>
                   </div>
                 </div>
@@ -243,7 +243,7 @@ export default function WorkWithBadMarketingForm() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                        Call Us Directly
+                        {t('contact_page.call_us')}
                       </h3>
                       <p className="text-gray-600 text-lg font-medium">
                         +971529126565
@@ -269,7 +269,7 @@ export default function WorkWithBadMarketingForm() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                        Send Us an Email
+                        {t('contact_page.send_email')}
                       </h3>
                       <p className="text-gray-600 text-lg font-medium">
                         hello@jandr.info
@@ -308,10 +308,10 @@ export default function WorkWithBadMarketingForm() {
                       </svg>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      Project Application
+                      {t('contact_page.form.title')}
                     </h3>
                     <p className="text-gray-600">
-                      Tell us about your business goals
+                      {t('contact_page.form.subtitle')}
                     </p>
                   </div>
 
@@ -320,7 +320,7 @@ export default function WorkWithBadMarketingForm() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <label className="flex flex-col group">
                         <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                          First name *
+                          {t('contact_page.form.first_name')}
                         </span>
                         <input
                           name="firstName"
@@ -333,7 +333,7 @@ export default function WorkWithBadMarketingForm() {
 
                       <label className="flex flex-col group">
                         <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                          Last name *
+                          {t('contact_page.form.last_name')}
                         </span>
                         <input
                           name="lastName"
@@ -348,7 +348,7 @@ export default function WorkWithBadMarketingForm() {
                     {/* Contact Fields */}
                     <label className="flex flex-col group">
                       <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        Email *
+                        {t('contact_page.form.email')}
                       </span>
                       <input
                         name="email"
@@ -361,7 +361,7 @@ export default function WorkWithBadMarketingForm() {
 
                     <label className="flex flex-col group">
                       <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        Phone number *
+                        {t('contact_page.form.phone')}
                       </span>
                       <input
                         name="phone"
@@ -376,7 +376,7 @@ export default function WorkWithBadMarketingForm() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <label className="flex flex-col group">
                         <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                          Company
+                          {t('contact_page.form.company')}
                         </span>
                         <input
                           name="company"
@@ -388,7 +388,7 @@ export default function WorkWithBadMarketingForm() {
 
                       <label className="flex flex-col group">
                         <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                          Website
+                          {t('contact_page.form.website')}
                         </span>
                         <input
                           name="website"
@@ -401,29 +401,29 @@ export default function WorkWithBadMarketingForm() {
                     </div>
 
                     {/* Business Type */}
-                    <label className="flex flex-col group">
-                      <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        What Kind Of Business?
-                      </span>
-                      <select
-                        name="businessType"
-                        value={form.businessType}
-                        onChange={handleChange}
-                        className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 group-hover:border-blue-300 bg-white/50 backdrop-blur-sm"
-                      >
-                        <option value="">Type Of Business</option>
-                        <option>Local Business</option>
-                        <option>Ecommerce/Amazon</option>
-                        <option>Course/Coaching</option>
-                        <option>Automotive</option>
-                        <option>Other</option>
-                      </select>
-                    </label>
+                      <label className="flex flex-col group">
+                        <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
+                          {t('contact_page.form.business_type')}
+                        </span>
+                        <select
+                          name="businessType"
+                          value={form.businessType}
+                          onChange={handleChange}
+                          className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 group-hover:border-blue-300 bg-white/50 backdrop-blur-sm"
+                        >
+                          <option value="">{t('contact_page.form.business_type_placeholder')}</option>
+                          <option>{t('contact_page.form.business_type_options.local')}</option>
+                          <option>{t('contact_page.form.business_type_options.ecommerce')}</option>
+                          <option>{t('contact_page.form.business_type_options.course')}</option>
+                          <option>{t('contact_page.form.business_type_options.automotive')}</option>
+                          <option>{t('contact_page.form.business_type_options.other')}</option>
+                        </select>
+                      </label>
 
                     {/* Instagram */}
                     <label className="flex flex-col group">
                       <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        Business Instagram
+                        {t('contact_page.form.instagram')}
                       </span>
                       <input
                         name="instagram"
@@ -437,10 +437,10 @@ export default function WorkWithBadMarketingForm() {
                     {/* Solutions Checkboxes */}
                     <div className="group">
                       <p className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        What Solutions are you interested in?
+                        {t('contact_page.form.solutions_title')}
                       </p>
                       <p className="text-sm text-gray-500 mb-4">
-                        Select ALL that apply
+                        {t('contact_page.form.select_all')}
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {solutionList.map((s) => (
@@ -456,7 +456,7 @@ export default function WorkWithBadMarketingForm() {
                               className="rounded border-2 border-gray-300 text-blue-600 focus:ring-blue-500 w-5 h-5"
                             />
                             <span className="text-sm font-medium text-gray-700">
-                              {s}
+                              {t(s)}
                             </span>
                           </label>
                         ))}
@@ -466,7 +466,7 @@ export default function WorkWithBadMarketingForm() {
                     {/* Revenue */}
                     <label className="flex flex-col group">
                       <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        What's your monthly revenue?
+                        {t('contact_page.form.revenue')}
                       </span>
                       <select
                         name="revenue"
@@ -474,7 +474,7 @@ export default function WorkWithBadMarketingForm() {
                         onChange={handleChange}
                         className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 group-hover:border-blue-300 bg-white/50 backdrop-blur-sm"
                       >
-                        <option value="">Select</option>
+                        <option value="">{t('contact_page.form.select')}</option>
                         {revenues.map((r) => (
                           <option key={r} value={r}>
                             {r}
@@ -486,7 +486,7 @@ export default function WorkWithBadMarketingForm() {
                     {/* How did you hear about us */}
                     <label className="flex flex-col group">
                       <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        How did you hear about us?
+                        {t('contact_page.form.heard_from')}
                       </span>
                       <input
                         name="heardFrom"
@@ -499,7 +499,7 @@ export default function WorkWithBadMarketingForm() {
                     {/* Current Marketing */}
                     <label className="flex flex-col group">
                       <span className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                        What kind of marketing are you currently doing?
+                        {t('contact_page.form.marketing_kind')}
                       </span>
                       <textarea
                         name="currentMarketing"
@@ -514,15 +514,7 @@ export default function WorkWithBadMarketingForm() {
                     <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
                       <div className="text-xs text-gray-600 mb-4">
                         <p>
-                          By submitting this form, you agree to receive text
-                          messages from us. By signing up via text, you agree to
-                          receive recurring automated marketing messages,
-                          including call reminders, at the phone number
-                          provided. Consent is not a condition of purchase. Text
-                          HELP for Help or Reply STOP to unsubscribe. Message
-                          frequency varies. Msg & data rates may apply. Your
-                          Privacy is our priority. Your information will not be
-                          shared.
+                          {t('contact_page.form.privacy')}
                         </p>
                       </div>
 
@@ -536,7 +528,7 @@ export default function WorkWithBadMarketingForm() {
                             className="rounded border-2 border-gray-300 text-blue-600 focus:ring-blue-500 w-5 h-5"
                           />
                           <span className="text-sm font-semibold text-gray-700">
-                            I agree to receive messages
+                            {t('contact_page.form.consent')}
                           </span>
                         </label>
                       </div>
@@ -553,7 +545,7 @@ export default function WorkWithBadMarketingForm() {
                           {status.state === "submitting" ? (
                             <>
                               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                              PROCESSING...
+                              {t('contact_page.form.processing')}
                             </>
                           ) : (
                             <>
@@ -570,7 +562,7 @@ export default function WorkWithBadMarketingForm() {
                                   d="M13 10V3L4 14h7v7l9-11h-7z"
                                 />
                               </svg>
-                              LAUNCH YOUR PROJECT
+                              {t('contact_page.form.launch')}
                             </>
                           )}
                         </span>
@@ -629,11 +621,10 @@ export default function WorkWithBadMarketingForm() {
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              READY TO GET STARTED?
+              {t('contact_page.cta.ready')}
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Let's schedule a call to discuss your project and see how we can
-              help you achieve remarkable results.
+              {t('contact_page.cta.desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
@@ -642,7 +633,7 @@ export default function WorkWithBadMarketingForm() {
                 rel="noopener noreferrer"
               >
                 <button className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 text-white font-bold tracking-wide uppercase shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-lg">
-                  Schedule a call
+                  {t('contact_page.cta.schedule')}
                 </button>
               </a>
             </div>

@@ -1,9 +1,11 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import video from "../assets/videos/video.MOV";
 import { ReactComponent as AsteriskIcon } from "../assets/icons/asterisk.svg";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const { scrollY } = useScroll();
 
   const smoothY = useSpring(scrollY, {
@@ -74,12 +76,11 @@ const HeroSection = () => {
       <div className="w-full px-8 mt-6 lg:hidden flex flex-col items-start">
         <p className="text-[#333333] font-semibold text-2xl flex items-center mb-2">
           <AsteriskIcon className="w-12 h-12 mr-2 text-blue-800" />
-          We are digital design
+          {t("tagline_prefix")}
         </p>
-        <h1 className="text-6xl font-semibold leading-[4rem] mb-4">CREATORS</h1>
+        <h1 className="text-6xl font-semibold leading-[4rem] mb-4">{t("main_heading")}</h1>
         <p className="text-gray-500 text-lg text-center leading-relaxed">
-          From Concept to Creation — Beautiful design has the power to captivate
-          audiences
+          {t("sub_heading")}
         </p>
       </div>
 
@@ -90,14 +91,13 @@ const HeroSection = () => {
       >
         <p className="text-[#333333] font-semibold text-3xl flex items-center mb-4">
           <AsteriskIcon className="w-10 h-10 mr-4 text-blue-800" />
-          We are digital design
+          {t("tagline_prefix")}
         </p>
         <h1 className="text-[6rem] leading-[8.5rem] font-bold text-gray-800 tracking-tight mb-6">
-          CREATORS
+          {t("main_heading")}
         </h1>
         <p className="text-gray-500 text-2xl leading-relaxed max-w-xl">
-          From Concept to Creation — Beautiful design has the power to captivate
-          audiences
+          {t("sub_heading")}
         </p>
       </motion.div>
     </section>

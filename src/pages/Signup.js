@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useUser } from "../contexts/UserContext";
 import Header from "../components/Header";
 
 
 const SignupScreen = () => {
+  const { t } = useTranslation();
   const { signup, signInWithGoogle, loading, error } = useUser();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -33,27 +35,27 @@ const SignupScreen = () => {
     const errors = {};
 
     if (!formData.firstName.trim()) {
-      errors.firstName = "First name is required";
+      errors.firstName = t("signup.error_first_name");
     }
 
     if (!formData.lastName.trim()) {
-      errors.lastName = "Last name is required";
+      errors.lastName = t("signup.error_last_name");
     }
 
     if (!formData.email.trim()) {
-      errors.email = "Email is required";
+      errors.email = t("signup.error_email_required");
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Email is invalid";
+      errors.email = t("signup.error_email_invalid");
     }
 
     if (!formData.password) {
-      errors.password = "Password is required";
+      errors.password = t("signup.error_password_required");
     } else if (formData.password.length < 6) {
-      errors.password = "Password must be at least 6 characters";
+      errors.password = t("signup.error_password_length");
     }
 
     if (formData.password !== formData.confirmPassword) {
-      errors.confirmPassword = "Passwords do not match";
+      errors.confirmPassword = t("signup.error_password_match");
     }
 
     setFormErrors(errors);
@@ -111,7 +113,7 @@ const SignupScreen = () => {
               <span className="text-blue-600 text-4xl">*</span>
               <h1 className="text-3xl font-bold text-gray-900">JR Digital Media</h1>
             </div>
-            <p className="text-gray-600 text-lg">Join our creative community</p>
+            <p className="text-gray-600 text-lg">{t("signup.subtitle")}</p>
           </div>
 
           {/* Error Message */}
@@ -158,7 +160,7 @@ const SignupScreen = () => {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              {loading ? "Signing up..." : "Continue with Google"}
+              {loading ? t("signup.signing_up") : t("signup.continue_google")}
             </motion.button>
           </motion.div>
 
@@ -175,7 +177,7 @@ const SignupScreen = () => {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="px-2 bg-white text-gray-500">
-                  Or sign up with email
+                  {t("signup.or_email")}
                 </span>
               </div>
             </div>
@@ -186,7 +188,7 @@ const SignupScreen = () => {
             {/* First Name */}
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                First Name
+                {t("signup.first_name_label")}
               </label>
               <input
                 id="firstName"
@@ -198,7 +200,7 @@ const SignupScreen = () => {
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
                   formErrors.firstName ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="Enter your first name"
+                placeholder={t("signup.first_name_placeholder")}
               />
               {formErrors.firstName && (
                 <p className="mt-1 text-sm text-red-600">{formErrors.firstName}</p>
@@ -208,7 +210,7 @@ const SignupScreen = () => {
             {/* Last Name */}
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                Last Name
+                {t("signup.last_name_label")}
               </label>
               <input
                 id="lastName"
@@ -220,7 +222,7 @@ const SignupScreen = () => {
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
                   formErrors.lastName ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="Enter your last name"
+                placeholder={t("signup.last_name_placeholder")}
               />
               {formErrors.lastName && (
                 <p className="mt-1 text-sm text-red-600">{formErrors.lastName}</p>
@@ -230,7 +232,7 @@ const SignupScreen = () => {
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
+                {t("signup.email_label")}
               </label>
               <input
                 id="email"
@@ -242,7 +244,7 @@ const SignupScreen = () => {
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
                   formErrors.email ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="Enter your email"
+                placeholder={t("signup.email_placeholder")}
               />
               {formErrors.email && (
                 <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>
@@ -252,7 +254,7 @@ const SignupScreen = () => {
             {/* Password */}
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Password
+                {t("signup.password_label")}
               </label>
               <input
                 id="password"
@@ -264,7 +266,7 @@ const SignupScreen = () => {
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
                   formErrors.password ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="Create a password"
+                placeholder={t("signup.password_placeholder")}
               />
               {formErrors.password && (
                 <p className="mt-1 text-sm text-red-600">{formErrors.password}</p>
@@ -274,7 +276,7 @@ const SignupScreen = () => {
             {/* Confirm Password */}
             <div>
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-                Confirm Password
+                {t("signup.confirm_password_label")}
               </label>
               <input
                 id="confirmPassword"
@@ -286,7 +288,7 @@ const SignupScreen = () => {
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
                   formErrors.confirmPassword ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="Confirm your password"
+                placeholder={t("signup.confirm_password_placeholder")}
               />
               {formErrors.confirmPassword && (
                 <p className="mt-1 text-sm text-red-600">{formErrors.confirmPassword}</p>
@@ -303,9 +305,9 @@ const SignupScreen = () => {
                 className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                I agree to the{" "}
+                {t("signup.terms_agree")}{" "}
                 <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">
-                  Terms and Conditions
+                  {t("signup.terms_link")}
                 </a>
               </label>
             </div>
@@ -321,19 +323,19 @@ const SignupScreen = () => {
               {loading ? (
                 <div className="flex items-center justify-center">
                   <div className="w-5 h-5 border-t-2 border-white border-solid rounded-full animate-spin mr-2"></div>
-                  Creating Account...
-                </div>
-              ) : (
-                "Create Account"
+                    {t("signup.creating_account")}
+                  </div>
+                ) : (
+                  t("signup.create_account")
               )}
             </motion.button>
 
             {/* Login Link */}
             <div className="text-center mt-8">
               <p className="text-gray-600">
-                Already have an account?{" "}
+                {t("signup.have_account")}{" "}
                 <a href="/login" className="text-blue-600 hover:text-blue-500 font-semibold">
-                  Sign in
+                  {t("signup.sign_in")}
                 </a>
               </p>
             </div>
@@ -361,12 +363,12 @@ const SignupScreen = () => {
           
           {/* Main Heading */}
           <h2 className="text-5xl font-bold text-gray-800 mb-6">
-            Join <span className="text-blue-600">JR Digital Media</span>
+            {t("signup.join_heading")} <span className="text-blue-600">JR Digital Media</span>
           </h2>
           
           {/* Description */}
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            From Concept to Creation — Join our community of digital designers and creators
+            {t("signup.description")}
           </p>
 
           {/* Features List */}
@@ -392,7 +394,7 @@ const SignupScreen = () => {
 
           {/* Team Avatars */}
           <div className="mt-12">
-            <p className="text-gray-600 mb-4">Join 10,000+ customers already with us</p>
+            <p className="text-gray-600 mb-4">{t("signup.join_customers")}</p>
             <div className="flex justify-center -space-x-3">
               {["men/1", "women/44", "women/68", "men/32", "women/22"].map((path, i) => (
                 <img

@@ -1,81 +1,79 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiPlus, FiX } from "react-icons/fi";
 
-const services = [
-  {
-    id: 1,
-    title: "WEBSITES",
-    tag: "Crafting engaging online experiences",
-    number: "01",
-    description:
-      "From stunning visuals to seamless functionality, we build websites that convert.",
-    items: [
-      "Visual Content Strategy",
-      "Competitive Analysis",
-      "Key Messaging",
-      "Research & Testing",
-      "UI & UX Strategy",
-      "Content Strategy",
-    ],
-    image:
-      "https://i.pinimg.com/564x/70/20/f4/7020f453974ebf3d25268e55e983b816.jpg",
-  },
-  {
-    id: 2,
-    title: "SOCIAL MEDIA",
-    tag: "Elevate your brand's online presence",
-    number: "02",
-    description:
-      "Engage your audience, build community, and drive traffic. Includes a free website.",
-    items: [
-      "Responsive Design",
-      "Prototyping",
-      "User Journey Mapping",
-      "UI Components",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: 3,
-    title: "CRM/ERP",
-    tag: "Streamline your processes and customer relationships",
-    number: "03",
-    description:
-      "Automate sales, marketing, and customer service workflows for enhanced efficiency.",
-    items: [
-      "Full-stack Development",
-      "API Integration",
-      "Performance Optimization",
-      "Cross-platform Apps",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: 4,
-    title: "Ads Management",
-    tag: "Maximize your reach and ROI",
-    number: "04",
-    description:
-      "Targeted campaigns on Google and Meta to connect with your ideal customers.",
-    items: [
-      "Social Media Strategy",
-      "Email Campaigns",
-      "SEO Optimization",
-      "Content Creation",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80",
-  },
-];
-
 const ServicesSection = () => {
+  const { t } = useTranslation();
   const [openId, setOpenId] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const sectionRef = useRef(null);
+
+  const services = [
+    {
+      id: 1,
+      title: t("website_title"),
+      tag: t("website_tag"),
+      number: "01",
+      description: t("website_desc"),
+      items: [  
+        t("website_items_0"),
+        t("website_items_1"),
+        t("website_items_2"),
+        t("website_items_3"),
+        t("website_items_4"),
+        t("website_items_5"),
+      ],
+      image:
+        "https://i.pinimg.com/564x/70/20/f4/7020f453974ebf3d25268e55e983b816.jpg",
+    },
+    {
+      id: 2,
+      title: t("social_title"),
+      tag: t("social_tag"),
+      number: "02",
+      description: t("social_desc"),
+      items: [
+        t("social_items_0"),
+        t("social_items_1"),
+        t("social_items_2"),
+        t("social_items_3"),
+      ],
+      image:
+        "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1000&q=80",
+    },
+    {
+      id: 3,
+      title: t("crm_title"),
+      tag: t("crm_tag"),
+      number: "03",
+      description: t("crm_desc"),
+      items: [
+        t("crm_items_0"),
+        t("crm_items_1"),
+        t("crm_items_2"),
+        t("crm_items_3"),
+      ],
+      image:
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=80",
+    },
+    {
+      id: 4,
+      title: t("ads_title"),
+      tag: t("ads_tag"),
+      number: "04",
+      description: t("ads_desc"),
+      items: [
+        t("ads_items_0"),
+        t("ads_items_1"),
+        t("ads_items_2"),
+        t("ads_items_3"),
+      ],
+      image:
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80",
+    },
+  ];
 
   const toggleService = (id) => {
     setOpenId(openId === id ? null : id);
@@ -118,7 +116,7 @@ const ServicesSection = () => {
       <div className="relative z-10">
         <div className="mb-10 md:ml-[10%] px-2">
           <h2 className="text-2xl md:text-5xl font-bold mt-2 leading-tight">
-            EXPLORE WHAT WE CAN DO FOR YOU
+            {t("services_heading")}
           </h2>
         </div>
 

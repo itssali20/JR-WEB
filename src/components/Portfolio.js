@@ -1,35 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-const projects = [
-  {
-    id: 1,
-    tag: "Marketing",
-    title: "SPREADING THE WORD",
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRmb2xpb3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000",
-  },
-  {
-    id: 2,
-    tag: "Branding",
-    title: "FRESH BEGINNINGS",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    id: 3,
-    tag: "Design",
-    title: "CREATIVE SOLUTIONS",
-    image:
-      "https://www.mahareng.co.za/wp-content/uploads/2015/03/web-design-and-graphic-design-wallpapers.jpg",
-  },
-];
-
 const PortfolioShowcase = () => {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const containerRef = useRef(null);
   const isAnimating = useRef(false);
+
+  const projects = [
+    {
+      id: 1,
+      tag: t("portfolio.marketing_tag"),
+      title: t("portfolio.marketing_title"),
+      image:
+        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRmb2xpb3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000",
+    },
+    {
+      id: 2,
+      tag: t("portfolio.branding_tag"),
+      title: t("portfolio.branding_title"),
+      image:
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
+    },
+    {
+      id: 3,
+      tag: t("portfolio.design_tag"),
+      title: t("portfolio.design_title"),
+      image:
+        "https://www.mahareng.co.za/wp-content/uploads/2015/03/web-design-and-graphic-design-wallpapers.jpg",
+    },
+  ];
 
   const navigate = (newDirection) => {
     if (isAnimating.current) return;
@@ -140,7 +142,7 @@ const PortfolioShowcase = () => {
       {/* header */}
       <div className="text-center mb-12 px-6 z-20">
         <h1 className="text-2xl lg:text-4xl font-semibold md:font-bold lg:font-bold md:text-5xl text-gray-900 leading-tight">
-          SHOWCASING OUR MOST<br />IMPACTFUL WORK
+          {t("portfolio.heading")}
         </h1>
       </div>
 

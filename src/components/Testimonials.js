@@ -1,9 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Star } from "lucide-react";
 
 export default function TestimonialsSection() {
-  const testimonials = [
-    {
+  const { t } = useTranslation();
+   const testimonials = [
+     {
       name: "Sarah Lin",
       title: "Customer",
       image:
@@ -70,10 +72,10 @@ export default function TestimonialsSection() {
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-xl lg:text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-4">
-          TESTIMONIALS THAT INSPIRE
+          {t("testimonials_heading")}
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Hear what our clients say about their experience working with us
+          {t("subheading")}
         </p>
       </div>
 
@@ -188,21 +190,21 @@ export default function TestimonialsSection() {
           <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             100 %
           </h3>
-          <p className="text-sm lg:text-xl text-gray-600 mt-2">Client Satisfaction</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("satisfaction")}</p>
         </div>
 
         <div>
           <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             4.9/5
           </h3>
-          <p className="text-sm lg:text-xl text-gray-600 mt-2">Average Rating</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("rating")}</p>
         </div>
 
         <div>
           <h3 className="text-xl lg:text-5xl font-bold text-gray-900">
             140+
           </h3>
-          <p className="text-sm lg:text-xl text-gray-600 mt-2">Happy Clients</p>
+          <p className="text-sm lg:text-xl text-gray-600 mt-2">{t("happy_clients")}</p>
         </div>
       </div>
 

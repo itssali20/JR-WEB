@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import logo from "../assets/images/logo.png";
 import instagramIcon from "../assets/icons/instagram.svg";
 import facebookIcon from "../assets/icons/facebook.svg";
@@ -7,6 +8,8 @@ import behanceIcon from "../assets/icons/behance.svg";
 import youtubeIcon from "../assets/icons/youtube.svg";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[#f2f2f2] text-gray-800 py-16 px-8 md:px-20 border-t border-gray-300">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-16 lg:mb-12">
@@ -29,43 +32,43 @@ export default function Footer() {
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  Home
+                  {t('home')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  About
+                  {t('about')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  Services
+                  {t('services')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  Projects
+                  {t('projects')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  Blogs
+                  {t('blogs')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  Pricing
+                  {t('pricing')}
                 </a>
                 <a
                   href="#"
                   className="hover:text-gray-900 transition text-[10px] lg:text-[15px]"
                 >
-                  Contact
+                  {t('contact')}
                 </a>
               </li>
             </ul>
@@ -123,13 +126,12 @@ export default function Footer() {
 
         {/* Right Section */}
         <div>
-          <h4 className="font-semibold mb-3">Address</h4>
+          <h4 className="font-semibold mb-3">{t('address_heading')}</h4>
           <p className="text-gray-700 lg:mb-4 leading-relaxed">
-            office 1105, building 11th floor, Warsan tower, al
-            barsha, Dubai, UAE.
+            {t('address_text')}
           </p>
-          <span className="font-semibold">Phone no: <p className="text-gray-600 mb-2"> +971 529126465</p></span>
-          <span className="font-semibold">Email: <p className="text-gray-900 font-semibold mb-6">
+          <span className="font-semibold">{t('phone_label')} <p className="text-gray-600 mb-2"> +971 529126465</p></span>
+          <span className="font-semibold">{t('email_label')} <p className="text-gray-900 font-semibold mb-6">
             info@jrdigitalmedia.info
           </p></span>
         </div>

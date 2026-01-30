@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowRight } from "react-icons/fi";
 import Header from "../components/Header";
@@ -6,6 +7,7 @@ import { useUser } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom"; 
 
 const LoginPage = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,10 +30,10 @@ const LoginPage = () => {
 
     try {
       await login(formData.email, formData.password);
-      alert("Login successful!");
-      navigate("/profile"); // Redirect after successful login
+      alert(t("login.success_message"));
+      navigate("/profile");
     } catch (err) {
-      setLocalError(err.message || "Login failed. Please try again.");
+      setLocalError(err.message || t("login.error_message"));
     }
   };
 
@@ -39,10 +41,10 @@ const LoginPage = () => {
     setLocalError(null);
     try {
       await signInWithGoogle();
-      alert("Google login successful!");
-      navigate("/profile"); // Redirect after successful login
+      alert(t("login.google_success_message"));
+      navigate("/profile");
     } catch (err) {
-      setLocalError(err.message || "Google login failed. Please try again.");
+      setLocalError(err.message || t("login.google_error_message"));
     }
   };
 
@@ -61,18 +63,18 @@ const LoginPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <p className="text-blue-500 text-sm font-medium tracking-wider mb-2">
-                  {"{ Welcome Back }"}
+                  {t("login.welcome_back")}
                 </p>
                 <h2 className="text-3xl md:text-4xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900">
-                  SIGN IN TO YOUR ACCOUNT
+                  {t("login.heading")}
                 </h2>
                 <p className="mt-2 text-sm text-gray-600">
-                  Don't have an account?{" "}
+                  {t("login.no_account")}{" "}
                   <a
-                    href="/signup" // Update with your signup route
+                    href="/signup"
                     className="font-medium text-blue-500 hover:text-blue-600 transition-colors"
                   >
-                    Get started
+                    {t("login.get_started")}
                   </a>
                 </p>
               </motion.div>
@@ -111,7 +113,7 @@ const LoginPage = () => {
                     d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                   />
                 </svg>
-                {loading ? "Signing in..." : "Continue with Google"}
+                {loading ? t("login.signing_in") : t("login.continue_google")}
               </motion.button>
             </motion.div>
 
@@ -128,7 +130,7 @@ const LoginPage = () => {
                 </div>
                 <div className="relative flex justify-center text-sm">
                   <span className="px-2 bg-white text-gray-500">
-                    Or sign in with email
+                    {t("login.or_email")}
                   </span>
                 </div>
               </div>
@@ -148,7 +150,7 @@ const LoginPage = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Email Address
+                  {t("login.email_label")}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -163,7 +165,7 @@ const LoginPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
-                    placeholder="Enter your email"
+                    placeholder={t("login.email_placeholder")}
                   />
                 </div>
               </div>
@@ -174,7 +176,7 @@ const LoginPage = () => {
                   htmlFor="password"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Password
+                  {t("login.password_label")}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -189,7 +191,7 @@ const LoginPage = () => {
                     value={formData.password}
                     onChange={handleChange}
                     className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
-                    placeholder="Enter your password"
+                    placeholder={t("login.password_placeholder")}
                   />
                   <button
                     type="button"
@@ -218,7 +220,7 @@ const LoginPage = () => {
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-gray-700"
                   >
-                    Remember me
+                    {t("login.remember_me")}
                   </label>
                 </div>
 
@@ -227,7 +229,7 @@ const LoginPage = () => {
                     href="/forgot-password" // Update with your forgot password route
                     className="font-medium text-blue-500 hover:text-blue-600 transition-colors"
                   >
-                    Forgot your password?
+                    {t("login.forgot_password")}
                   </a>
                 </div>
               </div>
@@ -243,11 +245,11 @@ const LoginPage = () => {
                 {loading ? (
                   <div className="flex items-center">
                     <div className="w-5 h-5 border-t-2 border-white border-solid rounded-full animate-spin mr-2"></div>
-                    Signing in...
+                    {t("login.signing_in")}
                   </div>
                 ) : (
                   <div className="flex items-center">
-                    Sign In
+                    {t("login.submit_btn")}
                     <FiArrowRight className="ml-2 h-4 w-4" />
                   </div>
                 )}
@@ -282,8 +284,8 @@ const LoginPage = () => {
               <div className="w-80 h-80 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center shadow-2xl">
                 <div className="text-blue-500 text-center">
                   <FiLock className="w-20 h-20 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold">Secure Login</h3>
-                  <p className="text-blue-400 mt-2">Your data is protected</p>
+                  <h3 className="text-2xl font-bold">{t("login.secure_login_title")}</h3>
+                  <p className="text-blue-400 mt-2">{t("login.secure_login_desc")}</p>
                 </div>
               </div>
             </motion.div>
