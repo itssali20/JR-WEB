@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { db } from "../firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 export default function PricingSection() {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState("web");
   const [filteredServices, setFilteredServices] = useState([]);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -22,12 +24,12 @@ export default function PricingSection() {
   const activeTabRef = useRef(null);
 
   const filters = [
-    { id: "web", label: "Website Design", icon: "💻" },
-    { id: "seo", label: "SEO Services", icon: "🔍" },
-    { id: "social", label: "Social Media", icon: "📱" },
-    { id: "cgi", label: "CGI & 3D", icon: "🎬" },
-    { id: "erp", label: "ERP Systems", icon: "📊" },
-    { id: "creative", label: "Creative Design", icon: "🎨" },
+    { id: "web", label: t("pricing.filter_web"), icon: "💻" },
+    { id: "seo", label: t("pricing.filter_seo"), icon: "🔍" },
+    { id: "social", label: t("pricing.filter_social"), icon: "📱" },
+    { id: "cgi", label: t("pricing.filter_cgi"), icon: "🎬" },
+    { id: "erp", label: t("pricing.filter_erp"), icon: "📊" },
+    { id: "creative", label: t("pricing.filter_creative"), icon: "🎨" },
   ];
 
   // Firestore collections
@@ -215,8 +217,8 @@ export default function PricingSection() {
       <div className="text-center mb-8 lg:mb-16">
         <h2 className="text-xl lg:text-4xl md:text-5xl font-semibold md:font-extrabold lg:font-extrabold text-gray-900 leading-tight mb-8">
           {view === "packages"
-            ? "DIGITAL TRANSFORMATION PACKAGES"
-            : "CUSTOM PACKAGES FOR DIGITAL TRANSFORMATION"}
+            ? t("pricing.heading_packages")
+            : t("pricing.heading_custom")}
         </h2>
       </div>
 
@@ -360,7 +362,7 @@ export default function PricingSection() {
                     </h3>
                     {service.popular && (
                       <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
-                        Popular
+                        {t("pricing.popular_badge")}
                       </span>
                     )}
                   </div>
@@ -391,7 +393,7 @@ export default function PricingSection() {
 
                 <div className="mt-auto px-6 md:px-8 pb-6 md:pb-8">
                   <button className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold py-3 rounded-xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                    Get Started <ArrowRight size={18} />
+                    {t("pricing.get_started")} <ArrowRight size={18} />
                   </button>
                 </div>
               </div>
@@ -402,11 +404,10 @@ export default function PricingSection() {
             <div className="text-center py-16">
               <div className="text-6xl mb-4">🚧</div>
               <h3 className="text-2xl font-bold text-gray-600 mb-2">
-                No services found
+                {t("pricing.no_services_found")}
               </h3>
               <p className="text-gray-500 max-w-md mx-auto">
-                We're working on new {currentFilterLabel.toLowerCase()}{" "}
-                services. Check back soon!
+                {t("pricing.no_services_desc", { filter: currentFilterLabel.toLowerCase() })}
               </p>
             </div>
           )}
@@ -432,7 +433,7 @@ export default function PricingSection() {
               <button
                 className={`${plan.buttonColor} text-white font-semibold py-3 px-10 rounded-full flex items-center justify-center gap-2 transition-all mx-auto`}
               >
-                Get Started <ArrowRight size={18} />
+                {t("pricing.get_started")} <ArrowRight size={18} />
               </button>
             </div>
           ))}
@@ -442,17 +443,16 @@ export default function PricingSection() {
       {/* CTA Section */}
       <div className="max-w-4xl mx-auto text-center mt-16 pt-8 border-t border-gray-200">
         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-          Need a Custom Solution?
+          {t("pricing.cta_heading")}
         </h3>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          Let's discuss your specific requirements and create a tailored package
-          just for you.
+          {t("pricing.cta_desc")}
         </p>
         <Link
           to="/contact"
           className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
         >
-          Get Custom Quote
+          {t("pricing.get_custom_quote")}
         </Link>
       </div>
     </section>

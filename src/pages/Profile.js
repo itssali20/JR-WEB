@@ -1,5 +1,6 @@
 // Profile.js
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useUser } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,7 @@ import AvatarBadge from "../components/Avatar";
 import { FiUser, FiMail, FiCalendar, FiEdit2, FiSave, FiX, FiCheck } from "react-icons/fi";
 
 const Profile = () => {
+  const { t } = useTranslation();
   const { user, updateUser, loading } = useUser();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
@@ -71,7 +73,7 @@ const Profile = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading profile...</p>
+          <p className="text-gray-600">{t("profile.loading")}</p>
         </div>
       </div>
     );
@@ -107,11 +109,11 @@ const Profile = () => {
                     value={formData.displayName}
                     onChange={handleInputChange}
                     className="bg-white/20 border border-white/30 rounded-lg px-4 py-2 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 text-xl font-bold w-full max-w-md"
-                    placeholder="Enter your name"
+                    placeholder={t("profile.enter_name")}
                   />
                 ) : (
                   <h1 className="text-2xl sm:text-3xl font-bold">
-                    {user.displayName || "Anonymous User"}
+                    {user.displayName || t("profile.anonymous_user")}
                   </h1>
                 )}
                 <p className="text-blue-100 mt-1 flex items-center justify-center sm:justify-start">
@@ -120,7 +122,7 @@ const Profile = () => {
                 </p>
                 <p className="text-blue-100 mt-1 flex items-center justify-center sm:justify-start">
                   <FiCalendar className="w-4 h-4 mr-2" />
-                  Joined {formatDate(user.metadata?.creationTime)}
+                  {t("profile.joined")} {formatDate(user.metadata?.creationTime)}
                 </p>
               </div>
 
@@ -139,7 +141,7 @@ const Profile = () => {
                       ) : (
                         <FiSave className="w-4 h-4" />
                       )}
-                      <span>{saveSuccess ? "Saved!" : saveLoading ? "Saving..." : "Save"}</span>
+                      <span>{saveSuccess ? t("profile.saved") : saveLoading ? t("profile.saving") : t("profile.save")}</span>
                     </button>
                     <button
                       onClick={handleCancel}
@@ -147,7 +149,7 @@ const Profile = () => {
                       className="flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-lg font-semibold hover:bg-white/30 transition-colors disabled:opacity-50"
                     >
                       <FiX className="w-4 h-4" />
-                      <span>Cancel</span>
+                      <span>{t("profile.cancel")}</span>
                     </button>
                   </>
                 ) : (
@@ -156,7 +158,7 @@ const Profile = () => {
                     className="flex items-center space-x-2 bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                   >
                     <FiEdit2 className="w-4 h-4" />
-                    <span>Edit Profile</span>
+                    <span>{t("profile.edit_profile")}</span>
                   </button>
                 )}
               </div>
@@ -170,11 +172,11 @@ const Profile = () => {
               <div className="bg-gray-50 rounded-xl p-6">
                 <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                   <FiUser className="w-5 h-5 mr-2 text-blue-600" />
-                  Account Information
+                  {t("profile.account_info")}
                 </h2>
                 <div className="space-y-3">
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Full Name</label>
+                    <label className="text-sm font-medium text-gray-500">{t("profile.full_name")}</label>
                     {isEditing ? (
                       <input
                         type="text"
@@ -182,18 +184,18 @@ const Profile = () => {
                         value={formData.displayName}
                         onChange={handleInputChange}
                         className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter your full name"
+                        placeholder={t("profile.enter_full_name")}
                       />
                     ) : (
-                      <p className="text-gray-900 mt-1">{user.displayName || "Not set"}</p>
+                      <p className="text-gray-900 mt-1">{user.displayName || t("profile.not_set")}</p>
                     )}
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Email Address</label>
+                    <label className="text-sm font-medium text-gray-500">{t("profile.email_address")}</label>
                     <p className="text-gray-900 mt-1">{user.email}</p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Email Verification</label>
+                    <label className="text-sm font-medium text-gray-500">{t("profile.email_verification")}</label>
                     <div className="mt-1">
                       <span
                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
@@ -202,7 +204,7 @@ const Profile = () => {
                             : "bg-yellow-100 text-yellow-800"
                         }`}
                       >
-                        {user.emailVerified ? "Verified" : "Not Verified"}
+                        {user.emailVerified ? t("profile.verified") : t("profile.not_verified")}
                       </span>
                     </div>
                   </div>
@@ -213,19 +215,19 @@ const Profile = () => {
               <div className="bg-gray-50 rounded-xl p-6">
                 <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                   <FiCalendar className="w-5 h-5 mr-2 text-blue-600" />
-                  Account Stats
+                  {t("profile.account_stats")}
                 </h2>
                 <div className="space-y-3">
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Member Since</label>
+                    <label className="text-sm font-medium text-gray-500">{t("profile.member_since")}</label>
                     <p className="text-gray-900 mt-1">{formatDate(user.metadata?.creationTime)}</p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Last Sign In</label>
+                    <label className="text-sm font-medium text-gray-500">{t("profile.last_sign_in")}</label>
                     <p className="text-gray-900 mt-1">{formatDate(user.metadata?.lastSignInTime)}</p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-500">User ID</label>
+                    <label className="text-sm font-medium text-gray-500">{t("profile.user_id")}</label>
                     <p className="text-gray-900 text-sm font-mono truncate mt-1">{user.uid}</p>
                   </div>
                 </div>
@@ -234,7 +236,7 @@ const Profile = () => {
 
             {/* Authentication Provider Info */}
             <div className="mt-6 bg-gray-50 rounded-xl p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Authentication</h2>
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">{t("profile.authentication")}</h2>
               <div className="flex items-center space-x-3">
                 {user.providerData?.[0]?.providerId === 'google.com' ? (
                   <>
@@ -251,8 +253,8 @@ const Profile = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Signed in with Google</p>
-                      <p className="text-sm text-gray-600">Connected to {user.email}</p>
+                      <p className="font-medium text-gray-900">{t("profile.signed_in_google")}</p>
+                      <p className="text-sm text-gray-600">{t("profile.connected_to")} {user.email}</p>
                     </div>
                   </>
                 ) : (
@@ -261,8 +263,8 @@ const Profile = () => {
                       <FiMail className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Signed in with Email</p>
-                      <p className="text-sm text-gray-600">Password authentication</p>
+                      <p className="font-medium text-gray-900">{t("profile.signed_in_email")}</p>
+                      <p className="text-sm text-gray-600">{t("profile.password_auth")}</p>
                     </div>
                   </>
                 )}

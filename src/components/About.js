@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import logo1 from "../assets/images/partners-logos/logo-1.png";
 import logo2 from "../assets/images/partners-logos/logo-2.png";
 import logo3 from "../assets/images/partners-logos/logo-3.png";
@@ -23,6 +24,7 @@ import logo21 from "../assets/images/partners-logos/logo-21.png";
 import logo22 from "../assets/images/partners-logos/logo-22.png";
 
 const AboutSection = () => {
+  const { t } = useTranslation();
   const logos = [
     logo1,
     logo2,
@@ -56,7 +58,7 @@ const AboutSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-12 text-center">
-          WE ARE LEADING DIGITAL TRANSFORMATION EXPERTS
+          {t('heading')}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -71,11 +73,11 @@ const AboutSection = () => {
             {/* Floating Circle Badge */}
             <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-full shadow-md flex flex-col items-center justify-center text-center w-28 h-28">
               <div className="text-blue-600 text-sm font-semibold uppercase">
-                Create
+                {t('create_badge')}
               </div>
               <div className="w-10 h-[1px] bg-gray-300 my-1"></div>
-              <div className="text-gray-600 text-[11px] leading-tight">
-                Idea • Insight <br /> Solution
+              <div className="text-gray-600 text-[11px] leading-tight" style={{ whiteSpace: 'pre-line' }}>
+                {t('idea_insight_solution')}
               </div>
             </div>
           </div>
@@ -84,15 +86,10 @@ const AboutSection = () => {
           <div className="space-y-6">
             <div className="bg-gray-50 rounded-3xl p-6 md:p-8 shadow-sm">
               <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                Our story
+                {t('our_story')}
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                At <span className="font-semibold">JR Digital Media</span>, we
-                specialize in crafting custom digital solutions that drive real
-                business growth. From innovative website design and development
-                to strategic social media management, powerful CRM automation,
-                and targeted digital advertising, we tailor our services to meet
-                your unique business needs and deliver measurable results.
+                {t('story_text')}
               </p>
             </div>
 
@@ -110,38 +107,38 @@ const AboutSection = () => {
             <h3 className="text-5xl font-bold text-gray-900">
               10<span className="text-blue-600">+</span>
             </h3>
-            <p className="text-gray-600 mt-2">Years Experience</p>
+            <p className="text-gray-600 mt-2">{t('years_experience')}</p>
           </div>
 
           <div>
             <h3 className="text-5xl font-bold text-gray-900">
               500<span className="text-blue-600">+</span>
             </h3>
-            <p className="text-gray-600 mt-2">Projects Done</p>
+            <p className="text-gray-600 mt-2">{t('projects_done')}</p>
           </div>
 
           <div>
             <h3 className="text-5xl font-bold text-gray-900">
               140<span className="text-blue-600">+</span>
             </h3>
-            <p className="text-gray-600 mt-2">Happy Clients</p>
+            <p className="text-gray-600 mt-2">{t('happy_clients')}</p>
           </div>
 
           <div>
             <h3 className="text-5xl font-bold text-gray-900">
               98<span className="text-blue-600">%</span>
             </h3>
-            <p className="text-gray-600 mt-2">Satisfied Clients</p>
+            <p className="text-gray-600 mt-2">{t('satisfied_clients')}</p>
           </div>
         </div>
 
         {/* Enhanced Company Logos Carousel Section */}
         <div className="mt-12 lg:mt-24 text-center">
           <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-            We work with the world's top companies
+            {t('partners_heading')}
           </h3>
           <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
-            Trusted by industry leaders and innovative startups worldwide
+            {t('partners_subheading')}
           </p>
 
           {/* Carousel Container */}

@@ -11,11 +11,13 @@ import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
 
 import ScrollToTop from "./components/ScrollToTop";
+import LanguageHandler from "./components/LanguageHandler";
 
 function App() {
   return (
     <UserProvider>
       <Router>
+        <LanguageHandler />
         <ScrollToTop />
         <Routes>
           <Route path="/login" element={<LoginPage />} />

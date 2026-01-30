@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams, Link } from 'react-router-dom';
 import { posts } from '../data/posts';
 import Header from '../components/Header';
@@ -7,6 +8,7 @@ import NewsletterBox from '../components/NewsletterBox';
 import './blog.css';
 
 export default function BlogPost() {
+  const { t } = useTranslation();
   const { slug } = useParams();
 
   const findPostBySlug = (s) => {
@@ -24,9 +26,9 @@ export default function BlogPost() {
       <div className="min-h-screen bg-white">
         <Header />
         <main className="max-w-4xl mx-auto py-24 px-6">
-          <h1 className="text-2xl font-semibold text-gray-900 mb-4">Post not found</h1>
-          <p className="text-gray-600 mb-6">The post you're looking for doesn't exist.</p>
-          <Link to="/" className="text-indigo-600 underline">Back to Home</Link>
+          <h1 className="text-2xl font-semibold text-gray-900 mb-4">{t("blogpost.not_found_title")}</h1>
+          <p className="text-gray-600 mb-6">{t("blogpost.not_found_desc")}</p>
+          <Link to="/" className="text-indigo-600 underline">{t("blogpost.back_home")}</Link>
         </main>
         <Footer />
       </div>
@@ -84,7 +86,7 @@ export default function BlogPost() {
 
         {/* Latest Blogs Section */}
         <div className="mt-24 border-t border-gray-100 pt-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 uppercase tracking-wide">Latest Blogs</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 uppercase tracking-wide">{t("blogpost.latest_blogs")}</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {otherPosts.map((p) => (
               <Link key={p.url} to={p.url} className="group block">

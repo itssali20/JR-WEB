@@ -1,11 +1,13 @@
 // Header.js
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useUser } from "../contexts/UserContext";
 import AvatarBadge from "./Avatar";
 import logo from "../assets/images/logo.png";
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -63,10 +65,10 @@ const Header = () => {
   };
 
   const navItems = [
-    { id: "about", label: "THE BRAND" },
-    { id: "services", label: "SERVICES" },
-    { id: "portfolio", label: "PORTFOLIO" },
-    { id: "pricing", label: "PRICING" },
+    { id: "about", label: t("brand_label") },
+    { id: "services", label: t("services_label") },
+    { id: "portfolio", label: t("portfolio_label") },
+    { id: "pricing", label: t("pricing_label") },
   ];
 
   const handleNavClick = (id) => {
@@ -154,7 +156,7 @@ const Header = () => {
                       className="flex items-center px-4 py-3 text-gray-800 hover:bg-blue-50 transition-all duration-200 group"
                     >
                       <FiUser className="w-4 h-4 mr-3 text-blue-600 group-hover:scale-110 transition-transform" />
-                      <span className="font-medium">Profile</span>
+                      <span className="font-medium">{t("profile")}</span>
                     </Link>
                     <Link
                       to="/portfolio"
@@ -162,7 +164,7 @@ const Header = () => {
                       className="flex items-center px-4 py-3 text-gray-800 hover:bg-blue-50 transition-all duration-200 group"
                     >
                       <FiBriefcase className="w-4 h-4 mr-3 text-blue-600 group-hover:scale-110 transition-transform" />
-                      <span className="font-medium">Portfolio</span>
+                      <span className="font-medium" style={{ textTransform: 'capitalize' }}>{t("portfolio_label").toLowerCase()}</span>
                     </Link>
                     <div className="border-t border-blue-100 my-2"></div>
                     <button
@@ -182,7 +184,7 @@ const Header = () => {
                           d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                         />
                       </svg>
-                      <span className="font-medium">Sign Out</span>
+                      <span className="font-medium">{t("sign_out")}</span>
                     </button>
                   </div>
                 )}
@@ -190,7 +192,7 @@ const Header = () => {
             ) : (
               <Link to="/contact" className="flex-shrink-0">
                 <button className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 text-white font-bold tracking-wide text-sm uppercase shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                  GET IN TOUCH
+                  {t("get_in_touch")}
                 </button>
               </Link>
             )}
@@ -239,7 +241,7 @@ const Header = () => {
           <div className="flex items-center flex-shrink-0">
             <Link to="/contact" className="flex-shrink-0">
               <button className="px-3 py-2 text-xs rounded-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 text-white font-bold uppercase shadow-md whitespace-nowrap">
-                GET IN TOUCH
+                {t("get_in_touch")}
               </button>
             </Link>
           </div>
@@ -277,7 +279,7 @@ const Header = () => {
                     className="block"
                   >
                     <button className="w-full bg-white text-gray-800 py-4 rounded-xl font-bold border border-blue-100 hover:bg-blue-50 hover:shadow-lg transition-all duration-200">
-                      Profile
+                      {t("profile")}
                     </button>
                   </Link>
                   <Link
@@ -286,14 +288,14 @@ const Header = () => {
                     className="block"
                   >
                     <button className="w-full bg-white text-gray-800 py-4 rounded-xl font-bold border border-blue-100 hover:bg-blue-50 hover:shadow-lg transition-all duration-200">
-                      Portfolio
+                      <span style={{ textTransform: 'capitalize' }}>{t("portfolio_label").toLowerCase()}</span>
                     </button>
                   </Link>
                   <button
                     onClick={handleLogout}
                     className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-4 rounded-xl font-bold hover:from-red-600 hover:to-red-700 hover:shadow-lg transition-all duration-200"
                   >
-                    Sign Out
+                    {t("sign_out")}
                   </button>
                 </div>
               ) : null}
