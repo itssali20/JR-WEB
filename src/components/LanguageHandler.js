@@ -19,7 +19,7 @@ const LanguageHandler = () => {
       
       if (middleEastCountries.includes(countryCode)) {
         lang = 'ar';
-      } else if (countryCode === 'PT') {
+      } else if (['PT', 'BR'].includes(countryCode)) {
         lang = 'pt';
       } else if (countryCode === 'ES') {
         lang = 'es';
