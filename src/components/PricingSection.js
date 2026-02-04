@@ -4,6 +4,7 @@ import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { db } from "../firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { detectUserCountry } from "../utils/geolocation";
 
 export default function PricingSection() {
   const { t } = useTranslation();
@@ -17,11 +18,43 @@ export default function PricingSection() {
   const [services, setServices] = useState([]);
   const [packages, setPackages] = useState([]);
   const [customPlans, setCustomPlans] = useState([]);
+  const [userCountry, setUserCountry] = useState(null);
   const [sliderStyle, setSliderStyle] = useState({ left: 0, width: 0 });
   const [loading, setLoading] = useState(true);
 
   const filtersContainerRef = useRef(null);
   const activeTabRef = useRef(null);
+  
+  // Detect user country for regional pricing
+  useEffect(() => {
+    const getCountry = async () => {
+      try {
+        const country = await detectUserCountry();
+        setUserCountry(country);
+      } catch (error) {
+        console.error("Error in country detection:", error);
+      }
+    };
+    getCountry();
+  }, []);
+
+  const getDisplayPrice = (item, isCustomPlan = false) => {
+    if (userCountry && item.regionalPrices && Array.isArray(item.regionalPrices)) {
+      const regional = item.regionalPrices.find(
+        (p) => p.location.toUpperCase() === userCountry.toUpperCase()
+      );
+
+      if (regional) {
+        return `${regional.currency} ${regional.price}`;
+      }
+    }
+
+    // Default AED
+    if (isCustomPlan) {
+      return `AED ${item.price}`;
+    }
+    return item.price;
+  };
 
   const filters = [
     { id: "web", label: t("web"), icon: "💻" },
@@ -367,7 +400,7 @@ export default function PricingSection() {
                     )}
                   </div>
                   <p className="text-3xl font-bold text-blue-600 mb-2">
-                    {service.price}
+                    {getDisplayPrice(service)}
                   </p>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {service.description}
@@ -425,7 +458,7 @@ export default function PricingSection() {
               <p className="text-green-600 font-bold mb-2">{plan.offer}</p>
               <p className="text-gray-500 text-sm mb-6">{plan.min}</p>
               <p className="text-4xl font-extrabold text-blue-600 mb-1">
-                AED {plan.price}
+                {getDisplayPrice(plan, true)}
               </p>
               <p className="text-sm text-gray-500 mb-4">
                 (Monthly) Payable Quarterly
