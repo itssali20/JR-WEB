@@ -9,7 +9,7 @@ import Profile from "./pages/Profile";
 import PortfolioSection from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
-
+import Asfahan from "./pages/Asfahan";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageHandler from "./components/LanguageHandler";
 
@@ -22,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/asfahan" element={<Asfahan />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/portfolio" element={<PortfolioSection />} />

@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500&display=swap');
+
+:root {
+  --color-orange: #E87033;
+  --color-orange-dark: #c75e22;
+  --color-charcoal: #1A1D21;
+  --color-slate-dark: #2C3338;
+  --color-slate-light: #353c43;
+  --color-offwhite: #F2F2F2;
+  --color-silver: #A0AAB2;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: #1A1D21;
+  color: #F2F2F2;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  line-height: 1.6;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 10px; height: 10px;
+  background: #E87033;
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s, height .2s;
+}
+.cursor-ring {
+  width: 34px; height: 34px;
+  border: 1px solid rgba(232,112,51,0.5);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+}
+@media (hover: none) {
+  .cursor, .cursor-ring { display: none; }
+  body { cursor: auto; }
+}
+
+/* Animations */
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-orb-pulse { animation: orbPulse 7s ease-in-out infinite; }
+.animate-blink { animation: blink 1.8s infinite; }
+.animate-fade-up-1 { opacity: 0; animation: fadeUp .7s ease .1s forwards; }
+.animate-fade-up-2 { opacity: 0; animation: fadeUp .7s ease .25s forwards; }
+.animate-fade-up-3 { opacity: 0; animation: fadeUp .7s ease .4s forwards; }
+.animate-fade-up-4 { opacity: 0; animation: fadeUp .7s ease .55s forwards; }
+.animate-fade-up-5 { opacity: 0; animation: fadeUp .7s ease .7s forwards; }
+.animate-scroll-left { animation: scrollLeft 24s linear infinite; }
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Hero grid background */
+.hero-bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(160,170,178,0.12) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(160,170,178,0.12) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Booking section grid bg */
+.booking-grid-bg {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(160,170,178,0.12) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(160,170,178,0.12) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.5;
+}
+
+/* Scrolling ticker */
+.cred-scroll { display: flex; gap: 48px; width: max-content; }
+
+/* Section eyebrow line */
+.eyebrow-line::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: #E87033;
+  vertical-align: middle;
+  margin-right: 14px;
+}
+
+/* Why card hover bar */
+.why-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: #E87033;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.why-card:hover::before { transform: scaleX(1); }
+
+/* Result industry line */
+.result-industry-line::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 1px;
+  background: #E87033;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Proof item separator */
+.proof-sep { border-right: 1px solid rgba(160,170,178,0.12); }
+
+/* Cred item dot */
+.cred-item::before { content: '◆'; color: #E87033; font-size: 8px; margin-right: 10px; }
+
+/* Booking reassure check */
+.reassure-item::before { content: '✓'; color: #E87033; font-size: 11px; margin-right: 6px; }
