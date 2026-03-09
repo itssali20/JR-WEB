@@ -21,13 +21,13 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<HomePage />} />
           <Route path="/asfahan" element={<Asfahan />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/portfolio" element={<PortfolioSection />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </Router>
     </UserProvider>
