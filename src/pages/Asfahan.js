@@ -3,6 +3,7 @@ import './asfahan.css'
 
 const Asfahan = () => {
   useEffect(() => {
+    document.body.classList.add('asfahan-theme')
     // Custom cursor
     const cursor = document.getElementById('cursor')
     const ring = document.getElementById('cursorRing')
@@ -117,6 +118,7 @@ const Asfahan = () => {
 
 
     return () => {
+      document.body.classList.remove('asfahan-theme')
       document.removeEventListener('mousemove', onMouseMove)
       cancelAnimationFrame(rafId)
       interactables.forEach((el) => {
