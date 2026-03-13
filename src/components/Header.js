@@ -21,6 +21,12 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const currentLanguage = i18n.language || "en";
+    document.body.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = currentLanguage;
+  }, [i18n.language]);
+
   // Close user dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = () => setIsUserMenuOpen(false);
@@ -62,6 +68,21 @@ const Header = () => {
   const handleUserMenuToggle = (e) => {
     e.stopPropagation();
     setIsUserMenuOpen(!isUserMenuOpen);
+  };
+
+  const languages = [
+    { code: "en", label: "English" },
+    { code: "ar", label: "Arabic" },
+    { code: "es", label: "Spanish" },
+    { code: "pt", label: "Portuguese" },
+  ];
+
+  const handleLanguageChange = (event) => {
+    const nextLanguage = event.target.value;
+    localStorage.setItem("preferredLanguage", nextLanguage);
+    i18n.changeLanguage(nextLanguage);
+    document.body.dir = nextLanguage === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = nextLanguage;
   };
 
   const navItems = [
@@ -118,6 +139,38 @@ const Header = () => {
 
           {/* Desktop CTA / Auth */}
           <div className="hidden md:flex items-center space-x-4">
+            <div className="relative">
+              <label htmlFor="language-select" className="sr-only">
+                Language
+              </label>
+              <select
+                id="language-select"
+                value={i18n.language || "en"}
+                onChange={handleLanguageChange}
+                className="appearance-none rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-gray-800 shadow-sm transition-all duration-200 hover:border-blue-200 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+              >
+                {languages.map((language) => (
+                  <option key={language.code} value={language.code}>
+                    {language.label}
+                  </option>
+                ))}
+              </select>
+              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-blue-600">
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
+            </div>
             {isAuthenticated ? (
               <div className="relative">
                 <button
@@ -252,6 +305,23 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md shadow-2xl border-t border-blue-100 w-full overflow-hidden">
           <div className="flex flex-col">
+            <div className="px-6 py-4 border-b border-blue-50">
+              <label htmlFor="language-select-mobile" className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                Language
+              </label>
+              <select
+                id="language-select-mobile"
+                value={i18n.language || "en"}
+                onChange={handleLanguageChange}
+                className="w-full appearance-none rounded-xl border border-blue-100 bg-white px-4 py-3 text-sm font-semibold text-gray-800 shadow-sm transition-all duration-200 hover:border-blue-200 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+              >
+                {languages.map((language) => (
+                  <option key={language.code} value={language.code}>
+                    {language.label}
+                  </option>
+                ))}
+              </select>
+            </div>
             {navItems.map(({ id, label }) => (
               <button
                 key={id}

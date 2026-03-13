@@ -1,12 +1,25 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { detectUserCountry } from '../utils/geolocation';
+
+const LANGUAGE_STORAGE_KEY = 'preferredLanguage';
+const SUPPORTED_LANGUAGES = ['en', 'ar', 'es', 'pt'];
 
 const LanguageHandler = () => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
     const setLanguageBasedOnLocation = async () => {
+      const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      if (storedLanguage && SUPPORTED_LANGUAGES.includes(storedLanguage)) {
+        if (i18n.language !== storedLanguage) {
+          i18n.changeLanguage(storedLanguage);
+        }
+        document.body.dir = storedLanguage === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = storedLanguage;
+        return;
+      }
+
       const countryCode = await detectUserCountry();
       console.log('Detected Country:', countryCode);
       
@@ -33,6 +46,7 @@ const LanguageHandler = () => {
       
       // Update HTML dir attribute for Arabic
       document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
     };
 
     setLanguageBasedOnLocation();

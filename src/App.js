@@ -9,7 +9,6 @@ import Profile from "./pages/Profile";
 import PortfolioSection from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
-import Asfahan from "./pages/Asfahan";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageHandler from "./components/LanguageHandler";
 
