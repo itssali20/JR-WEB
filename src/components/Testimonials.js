@@ -61,13 +61,9 @@ export default function TestimonialsSection() {
   ];
 
   // Duplicate testimonials for seamless infinite scroll
-  const duplicatedTestimonials = [
-    ...testimonials,
-    ...testimonials,
-    ...testimonials,
-  ];
+ const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-  return (
+ return (
     <section className="bg-white py-20 px-6 md:px-16 lg:px-24 overflow-hidden">
       {/* Header */}
       <div className="text-center mb-16">
@@ -82,104 +78,54 @@ export default function TestimonialsSection() {
       {/* Testimonials Carousel Container */}
       <div className="relative max-w-7xl mx-auto">
         {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r  to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l  to-transparent z-10"></div>
+        <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-        {/* First Row Carousel */}
-        <div className="flex mb-8">
-          <div className="flex animate-scroll-slow hover:pause-animation">
-            {duplicatedTestimonials
-              .slice(0, duplicatedTestimonials.length / 2)
-              .map((t, i) => (
-                <div
-                  key={i}
-                  className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
-                  style={{ width: "400px" }}
-                >
-                  {/* Header */}
-                  <div className="flex items-center mb-5">
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-12 h-12 rounded-full object-cover mr-4"
-                    />
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        {t.name}
-                      </h3>
-                      <p className="text-gray-500 text-sm">{t.title}</p>
-                    </div>
-                  </div>
-
-                  {/* Quote */}
-                  <p className="text-gray-600 leading-relaxed mb-5">
-                    {t.quote}
-                  </p>
-
-                  {/* Rating */}
-                  <div className="flex space-x-1">
-                    {Array.from({ length: 5 }).map((_, idx) => (
-                      <Star
-                        key={idx}
-                        size={18}
-                        className={`${idx < t.rating
-                            ? "text-orange-500 fill-orange-500"
-                            : "text-gray-300"
-                          }`}
-                      />
-                    ))}
+        {/* Single Infinite Row */}
+        <div className="flex overflow-hidden">
+          <div className="flex animate-scroll-infinite hover:pause-animation">
+            {duplicatedTestimonials.map((item, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
+                style={{ width: "400px" }}
+              >
+                {/* Header */}
+                <div className="flex items-center mb-5">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {item.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm">{item.title}</p>
                   </div>
                 </div>
-              ))}
-          </div>
-        </div>
 
-        {/* Second Row Carousel (Reverse) */}
-        <div className="flex">
-          <div className="flex animate-scroll-slow-reverse hover:pause-animation">
-            {duplicatedTestimonials
-              .slice(duplicatedTestimonials.length / 2)
-              .map((t, i) => (
-                <div
-                  key={i}
-                  className="flex-shrink-0 mx-4 border border-gray-200 rounded-[2rem] p-8 shadow-sm bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 group"
-                  style={{ width: "400px" }}
-                >
-                  {/* Header */}
-                  <div className="flex items-center mb-5">
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-12 h-12 rounded-full object-cover mr-4"
+                {/* Quote */}
+                <p className="text-gray-600 leading-relaxed mb-5">
+                  {item.quote}
+                </p>
+
+                {/* Rating */}
+                <div className="flex space-x-1">
+                  {Array.from({ length: 5 }).map((_, idx) => (
+                    <Star
+                      key={idx}
+                      size={18}
+                      className={`${
+                        idx < item.rating
+                          ? "text-orange-500 fill-orange-500"
+                          : "text-gray-300"
+                      }`}
                     />
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        {t.name}
-                      </h3>
-                      <p className="text-gray-500 text-sm">{t.title}</p>
-                    </div>
-                  </div>
-
-                  {/* Quote */}
-                  <p className="text-gray-600 leading-relaxed mb-5">
-                    {t.quote}
-                  </p>
-
-                  {/* Rating */}
-                  <div className="flex space-x-1">
-                    {Array.from({ length: 5 }).map((_, idx) => (
-                      <Star
-                        key={idx}
-                        size={18}
-                        className={`${idx < t.rating
-                            ? "text-orange-500 fill-orange-500"
-                            : "text-gray-300"
-                          }`}
-                      />
-                    ))}
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -210,53 +156,30 @@ export default function TestimonialsSection() {
 
       {/* Custom CSS for animations */}
       <style jsx>{`
-        @keyframes scroll {
+        @keyframes scroll-infinite {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-424px * 9));
+            transform: translateX(calc(-424px * 6));
           }
         }
 
-        @keyframes scroll-reverse {
-          0% {
-            transform: translateX(calc(-424px * 9));
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        .animate-scroll-slow {
-          animation: scroll 60s linear infinite;
-        }
-
-        .animate-scroll-slow-reverse {
-          animation: scroll-reverse 60s linear infinite;
+        .animate-scroll-infinite {
+          animation: scroll-infinite 50s linear infinite;
         }
 
         .hover\:pause-animation:hover {
           animation-play-state: paused;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-          @keyframes scroll {
+          @keyframes scroll-infinite {
             0% {
               transform: translateX(0);
             }
             100% {
-              transform: translateX(calc(-344px * 9));
-            }
-          }
-
-          @keyframes scroll-reverse {
-            0% {
-              transform: translateX(calc(-344px * 9));
-            }
-            100% {
-              transform: translateX(0);
+              transform: translateX(calc(-344px * 6));
             }
           }
         }
