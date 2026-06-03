@@ -499,6 +499,7 @@ export default function PricingSection() {
 
                 <div className="mt-auto px-6 md:px-8 pb-6 md:pb-8">
                   <button
+                    type="button"
                     onClick={() => setModalPlan({ ...service, displayPrice: getDisplayPrice(service) })}
                     className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold py-3 rounded-xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                   >
