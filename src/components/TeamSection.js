@@ -36,7 +36,7 @@ export default function TeamSection() {
     },
     {
       name: "Ali Raza",
-      role: "WordPress Developer",
+      role: "Full Stack Developer",
       image: AliRaza
     },
     {
