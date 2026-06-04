@@ -116,8 +116,8 @@ function ProjectModal({ plan, displayPrice, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 py-6"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 px-4 py-6"  
+    onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div className="bg-white rounded-3xl w-full max-w-lg max-h-[92vh] overflow-y-auto shadow-2xl relative flex flex-col">
 
