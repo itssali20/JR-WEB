@@ -4,7 +4,6 @@ import asmar from "../assets/images/team/asmar.jpg";
 import jahangirt from "../assets/images/team/jahangirt.jpg";
 import Rashed from "../assets/images/team/Rashed.jpg";
 import AliRaza from "../assets/images/team/Ali Raza.jpg";
-import AliYar from "../assets/images/team/Ali.jpg";
 import Ayesha from "../assets/images/team/Ayesha.jpg";
 import Bilal from "../assets/images/team/Bilal.jpg";
 import Bushra from "../assets/images/team/Bushra.jpg";
@@ -39,11 +38,6 @@ export default function TeamSection() {
       name: "Ali Raza",
       role: "WordPress Developer",
       image: AliRaza
-    },
-    {
-      name: "Ali Yar Khan",
-      role: "React Developer",
-      image: AliYar
     },
     {
       name: "Aasia Khan",
