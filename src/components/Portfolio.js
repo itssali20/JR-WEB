@@ -33,50 +33,39 @@ const PortfolioShowcase = () => {
     },
   ];
 
-  const navigate = (newDirection) => {
-    if (isAnimating.current) return;
+const navigate = useCallback((newDirection) => {
+  if (isAnimating.current) return;
 
-    // Check boundaries
-    if (newDirection === 1 && current >= projects.length - 1) return;
-    if (newDirection === -1 && current <= 0) return;
-
-    isAnimating.current = true;
+  setCurrent(prev => {
+    const next = prev + newDirection;
+    if (next < 0 || next >= projects.length) return prev; // boundary check
     setDirection(newDirection);
-    setCurrent(prev => prev + newDirection);
+    isAnimating.current = true;
+    setTimeout(() => { isAnimating.current = false; }, 1000);
+    return next;
+  });
+}, [projects.length]);
 
-    // Reset animation lock after transition
-    setTimeout(() => {
-      isAnimating.current = false;
-    }, 1000);
+
+// Wheel event handler
+useEffect(() => {
+  const handleWheel = (e) => {
+    if ((e.deltaY > 5 && current < projects.length - 1) || 
+        (e.deltaY < -5 && current > 0)) {
+      e.preventDefault();
+      if (e.deltaY > 5) navigate(1);
+      else if (e.deltaY < -5) navigate(-1);
+    }
   };
 
-  // Wheel event handler
-  useEffect(() => {
-    const handleWheel = (e) => {
-      // Only handle wheel events when we're at the boundaries of card navigation
-      if ((e.deltaY > 5 && current < projects.length - 1) || 
-          (e.deltaY < -5 && current > 0)) {
-        e.preventDefault();
-        
-        if (e.deltaY > 5) {
-          navigate(1); // Scroll down - next
-        } else if (e.deltaY < -5) {
-          navigate(-1); // Scroll up - previous
-        }
-      }
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('wheel', handleWheel, { passive: false });
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('wheel', handleWheel);
-      }
-    };
-  }, [current]);
+  const container = containerRef.current;
+  if (container) {
+    container.addEventListener('wheel', handleWheel, { passive: false });
+  }
+  return () => {
+    if (container) container.removeEventListener('wheel', handleWheel);
+  };
+}, [current]); // ✅ current is already in deps — this is fine
 
   // Keyboard navigation
   useEffect(() => {

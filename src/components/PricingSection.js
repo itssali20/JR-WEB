@@ -11,8 +11,7 @@ const STRIPE_PAYMENT_LINKS = {
   // map your service/package IDs to Stripe Payment Link URLs
   // e.g. "starter-website": "https://buy.stripe.com/xxxx"
 };
-const STRIPE_DEFAULT_URL = "https://buy.stripe.com/your_default_link"; // fallback
-// ──────────────────────────────────────────────────────────────────────────────
+const STRIPE_DEFAULT_URL = "https://buy.stripe.com/test_9B6aEZdx9h0Vb7talFf7i00";
 
 const SOLUTIONS = [
   "Email / SMS Marketing",
