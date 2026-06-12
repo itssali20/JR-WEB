@@ -11,7 +11,7 @@ import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageHandler from "./components/LanguageHandler";
-
+import JRChatbot from "./components/jrchatbot";
 function App() {
   return (
     <UserProvider>
@@ -27,9 +27,13 @@ function App() {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
+        <JRChatbot />
       </Router>
     </UserProvider>
+  
   );
+
+  
 }
 
 export default App;
